@@ -1767,7 +1767,7 @@ html[data-useragent*='MSIE 10.0'] .home-scrolldown,
 
 @media only screen and (max-width: 768px) {
   #home {
-    min-height: auto;
+    min-height: 1000px;
   }
   .home-content-left h3 {
     font-size: 1.4rem;
