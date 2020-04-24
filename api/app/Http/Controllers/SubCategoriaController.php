@@ -130,6 +130,8 @@ class SubCategoriaController extends Controller
         $categoria_id=$request->input('categoria_id');
         $estado=$request->input('estado');
         $productos=$request->input('productos');
+        $tiempo_costo=$request->input('tiempo_costo');
+        $descripcion=$request->input('descripcion');
 
         // Creamos una bandera para controlar si se ha modificado algún dato.
         $bandera = false;
@@ -160,6 +162,17 @@ class SubCategoriaController extends Controller
             $subcategoria->imagen = $imagen;
             $bandera=true;
         }
+        if ($tiempo_costo != null && $tiempo_costo!='')
+        {
+            $subcategoria->tiempo_costo = $tiempo_costo;
+            $bandera=true;
+        }
+        if ($descripcion != null && $descripcion!='')
+        {
+            $subcategoria->descripcion = $descripcion;
+            $bandera=true;
+        }
+
 
         if ($categoria_id != null && $categoria_id!='')
         {

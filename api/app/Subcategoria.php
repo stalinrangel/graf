@@ -24,7 +24,7 @@ class Subcategoria extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'ingles', 'imagen', 'estado', 'categoria_id'];
+    protected $fillable = ['nombre', 'ingles', 'imagen', 'estado', 'tiempo_costo', 'descripcion','categoria_id'];
 
     /**
      * The attributes excluded from the model's JSON form.
