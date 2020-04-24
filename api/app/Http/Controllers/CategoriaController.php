@@ -407,6 +407,12 @@ class CategoriaController extends Controller
         //cargar una cat con sus subcat
         $categoria = \App\Categoria::with('subcategorias')->get();
 
+        for ($i=0; $i < count($categoria); $i++) { 
+            for ($j=0; $j < count($categoria[$i]->subcategorias); $j++) { 
+                $categoria[$i]->subcategorias[$j]->tiempo_costo=json_decode($categoria[$i]->subcategorias[$j]->tiempo_costo);
+            }
+        }
+
         if(count($categoria)==0){
             return response()->json(['error'=>'No existe la categoría '], 404);          
         }else{
