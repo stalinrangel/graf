@@ -213,7 +213,7 @@ class UsuarioController extends Controller
 
             //Si es un registro con normal con email y password enviar correo de verificacion
             //if ($usuario->tipo_registro == 1) {
-                $this->emailDeValidacion($usuario->email);
+                //$this->emailDeValidacion($usuario->email);
                 $Notificacion= new \App\Notificacion;
                     $Notificacion->mensaje='Nuevo Usuario registrado '.$usuario->email;
                     $Notificacion->usuario_id=$usuario->id;
