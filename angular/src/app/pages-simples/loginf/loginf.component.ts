@@ -53,8 +53,8 @@ export class LoginfComponent implements OnInit {
 				 public themeService:NbThemeService)
 	{
 
-		nbspinnerservice.load();
-		nbspinnerservice.clear();
+		//nbspinnerservice.load();
+		//nbspinnerservice.clear();
 	}
 
 	ngOnInit() {

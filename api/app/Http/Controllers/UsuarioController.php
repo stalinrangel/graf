@@ -146,7 +146,7 @@ class UsuarioController extends Controller
                 // Almacenamos en la base de datos el registro.
                 if ($auxUser->save()) {
 
-                    $this->emailDeValidacion($usuario->email);
+                    //$this->emailDeValidacion($usuario->email);
 
                     $Notificacion= new \App\Notificacion;
                     $Notificacion->mensaje='Nuevo Usuario registrado '.$usuario->email;
