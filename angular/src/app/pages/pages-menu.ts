@@ -64,7 +64,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
      
     ],
   },
-  {
+  /*{
     title: 'Establecimientos',
     icon: 'nb-home',
     children: [
@@ -78,9 +78,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
      
     ],
-  },
+  },*/
   {
-    title: 'Proveedores',
+    title: 'Profesionales',
     icon: 'ion-android-bicycle',
     children: [
       {
@@ -96,7 +96,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/socios/registrar',
       }
     ],
-  },
+  },/*
   {
     title: 'Cobros',
     icon: 'ion-social-usd',
@@ -110,7 +110,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/cobro/agregar',
       }
     ],
-  },
+  },*/
   {
     title: 'Chat',
     icon: 'nb-email',
@@ -143,7 +143,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
      
     ],
-  },*/
+  },
   {
     title: 'Zonas',
     icon: 'nb-location',
@@ -177,7 +177,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
      
     ],
-  },
+  },*/
   {
     title: 'Categorías',
     icon: 'nb-gear',
