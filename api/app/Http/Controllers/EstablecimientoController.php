@@ -86,6 +86,7 @@ class EstablecimientoController extends Controller
         $usuario->telefono = $request->input('telefono');
         $usuario->f_nac = $request->input('f_nac');
         $usuario->genero = $request->input('genero');
+        $usuario->dni = $request->input('dni');
         $usuario->imagen = $request->input('imagen');
         $usuario->tipo_usuario = $request->input('imagen');
         $usuario->tipo_registro = 1;
