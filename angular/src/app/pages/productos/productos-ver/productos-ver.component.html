@@ -33,8 +33,8 @@
          <tr *ngFor="let item of items" >
             <td style="text-align: center; vertical-align:middle;"><img src = "{{item.imagen}}" alt="" height="auto" width="60px"></td>
             <td style="text-align: center; vertical-align:middle;">{{item.nombre}}</td>
-            <td style="text-align: center; vertical-align:middle;">{{item.subcategoria.categoria.catprincipales.nombre}}</td>
-            <td style="text-align: center; vertical-align:middle;">{{item.subcategoria.categoria.nombre}}</td>
+            <td style="text-align: center; vertical-align:middle;"> {{item.subcategoria.categoria.catprincipales.nombre}}</td>
+            <td style="text-align: center; vertical-align:middle;"> {{item.subcategoria.categoria.nombre}}</td>
             <td style="text-align: center; vertical-align:middle;">{{item.subcategoria.nombre}}</td>
             <td style="text-align: center; vertical-align:middle;">{{item.establecimiento.nombre}}</td>
             <!--td style=" vertical-align:middle;">
@@ -106,10 +106,13 @@
               <p *ngIf="myFormEditar.get('nombre').hasError('required')">Nombre es requerido</p>
             </div>
           </div>
-          <!--div class="form-group">
+          <div class="form-group">
             <label for="exampleInputPrecio">Precio</label>
-            <input type="number" class="form-control" id="exampleInputPrecio" placeholder="Precio" formControlName="precio">
-          </div-->
+            <input type="number" class="form-control" id="exampleInputPrecio" placeholder="Precio" formControlName="precio" min="0">
+            <div *ngIf="myFormEditar.get('precio').errors && myFormEditar.get('precio').dirty">
+              <p *ngIf="myFormEditar.get('precio').hasError('required')">Precio es requerido</p>
+            </div>
+          </div>
           <div class="form-group">
             <label for="exampleInputDescripcion">Descripción</label>
             <textarea class="form-control" id="exampleInputDescripcion" placeholder="Descripción" formControlName="descripcion"></textarea>

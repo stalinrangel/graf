@@ -165,6 +165,8 @@ class ProductoController extends Controller
             'anos_experiencia' => $request->input('anos_experiencia'),
         ])){
 
+            $obj = null;
+
             $admin = \App\User::where('tipo_usuario', 1)->first();
             $this->enviarNotificacion($admin->token_notificacion, 'Se%20ha%20creado%20un%20servicio%20$'.$request->input('nombre'), 0, 6, $obj);
            return response()->json(['message'=>'Producto creado con éxito.',

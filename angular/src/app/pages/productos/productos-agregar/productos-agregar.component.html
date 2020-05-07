@@ -11,10 +11,13 @@
               <p *ngIf="myFormAgregar.get('nombre').hasError('required')">Nombre es requerido</p>
             </div>
           </div>
-          <!--div class="form-group">
+          <div class="form-group">
             <label for="exampleInputPrecio">Precio</label>
-            <input type="number" class="form-control" id="exampleInputPrecio" placeholder="Precio" formControlName="precio">
-          </div-->
+            <input type="number" class="form-control" id="exampleInputPrecio" placeholder="Precio" formControlName="precio" min="0">
+            <div *ngIf="myFormAgregar.get('precio').errors && myFormAgregar.get('precio').dirty">
+              <p *ngIf="myFormAgregar.get('precio').hasError('required')">Precio es requerido</p>
+            </div>
+          </div>
           <div class="form-group">
             <label for="exampleInputDescripcion">Descripción</label>
             <textarea class="form-control" id="exampleInputDescripcion" placeholder="Descripción" formControlName="descripcion"></textarea>

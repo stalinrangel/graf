@@ -63,7 +63,7 @@ export class ProductosAgregarComponent implements OnInit{
 
   	this.myFormAgregar = this.fb.group({
         nombre: ['', [Validators.required]],
-        precio: [0],
+        precio: [null, [Validators.required]],
         imagen: ['', [Validators.required]],
         descripcion: [null],
         subcategoria_id: ['', [Validators.required]],

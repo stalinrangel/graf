@@ -94,7 +94,7 @@ export class ProductosVerComponent implements OnInit{
     this.myFormEditar = this.fb.group({
       id: [''],
       nombre: ['', [Validators.required]],
-      precio: [0],
+      precio: [null, [Validators.required]],
       imagen: ['', [Validators.required]],
       descripcion: [null],
       subcategoria_id: ['', [Validators.required]],
