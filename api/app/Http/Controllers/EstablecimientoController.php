@@ -88,6 +88,8 @@ class EstablecimientoController extends Controller
         $usuario->genero = $request->input('genero');
         $usuario->dni = $request->input('dni');
         $usuario->direccion = $request->input('direccion');
+        $usuario->lat = $request->input('lat');
+        $usuario->lng = $request->input('lng');
         $usuario->imagen = $request->input('imagen');
         $usuario->tipo_usuario = $request->input('imagen');
         $usuario->tipo_registro = 1;
