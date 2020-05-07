@@ -84,8 +84,10 @@ class EstablecimientoController extends Controller
         $usuario->ciudad = $request->input('ciudad');
         $usuario->estado = $request->input('estado_geo');
         $usuario->telefono = $request->input('telefono');
+        $usuario->f_nac = $request->input('f_nac');
+        $usuario->genero = $request->input('genero');
         $usuario->imagen = $request->input('imagen');
-        $usuario->tipo_usuario = 3;
+        $usuario->tipo_usuario = $request->input('imagen');
         $usuario->tipo_registro = 1;
         $usuario->id_facebook = $request->input('id_facebook');
         $usuario->id_twitter = $request->input('id_twitter');
@@ -129,24 +131,30 @@ class EstablecimientoController extends Controller
             $nuevoEstablecimiento->sabado_f = $request->input('sabado_f');
             $nuevoEstablecimiento->domingo_i = $request->input('domingo_i');
             $nuevoEstablecimiento->domingo_f = $request->input('domingo_f');
-            $nuevoEstablecimiento->save();
+            if ($nuevoEstablecimiento->save()) {
+                 $nuevoEstablecimiento->usuario = $usuario;
 
-            $nuevoEstablecimiento->usuario = $usuario;
+                 return response()->json(['message'=>'Usuario creado con éxito.', 'establecimiento'=>$nuevoEstablecimiento], 200);
+            }else{
+                 return response()->json(['error'=>'Error al crear el usuario.'], 500);
+            }
 
-            $Cobros = new \App\Cobros;
+           
+
+            /*$Cobros = new \App\Cobros;
             $Cobros->monto = 100;
             $Cobros->estado = 0;
             $Cobros->fecha_pago = new DateTime();
             $Cobros->prox_pago = new DateTime();
             $Cobros->establecimiento_id = $nuevoEstablecimiento->id;
             $Cobros->usuario_id = $usuario->id;
-            $Cobros->observacion = 'Cuota de ingreso al sistema.';
+            $Cobros->observacion = 'Cuota de ingreso al sistema.';*/
 
-            if ($Cobros->save()) {
+            /*if ($Cobros->save()) {
                 $this->emailDeValidacion($usuario->email);
 
                 $Notificacion= new \App\Notificacion;
-                $Notificacion->mensaje='Nuevo Proveedor se ha registrado '. $request->input('email'). ' '.$request->input('nombre');
+                $Notificacion->mensaje='Nuevo profesional se ha registrado '. $request->input('email'). ' '.$request->input('nombre');
                 $Notificacion->usuario_id=$request->input('finalizo');
                 
                 try {
@@ -155,14 +163,14 @@ class EstablecimientoController extends Controller
                     //return response()->json(['error'=>$e], 500);
                 }
 
-                return response()->json(['message'=>'Proveedor creado con éxito.', 'establecimiento'=>$nuevoEstablecimiento], 200);
+                return response()->json(['message'=>'Usuario creado con éxito.', 'establecimiento'=>$nuevoEstablecimiento], 200);
             }else{
-               return response()->json(['error'=>'Error al crear el cobro.'], 500); 
-            }
+               return response()->json(['error'=>'Error al crear el usuariop.'], 500); 
+            }*/
 
             
         }else{
-            return response()->json(['error'=>'Error al crear el Proveedor.'], 500);
+            return response()->json(['error'=>'Error al crear el profesional.'], 500);
         }
 
     }
