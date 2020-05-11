@@ -155,6 +155,7 @@ class ProductoController extends Controller
             'estado' => $request->input('estado'),
             'imagen' => $request->input('imagen'),
             'precio' => $request->input('precio'),
+            'tiempo_costo' => $request->input('tiempo_costo'),
             'fotos' => $request->input('fotos'),
             'descripcion' => $request->input('descripcion'),
             'subcategoria_id' => $request->input('subcategoria_id'),
@@ -264,6 +265,7 @@ class ProductoController extends Controller
         // Listado de campos recibidos teóricamente.
         $nombre=$request->input('nombre');
         $precio=$request->input('precio');
+        $tiempo_costo=$request->input('tiempo_costo');
         $fotos=$request->input('fotos');
         $descripcion=$request->input('descripcion');
         $subcategoria_id=$request->input('subcategoria_id');
@@ -294,6 +296,12 @@ class ProductoController extends Controller
         if ($precio != null && $precio!='')
         {
             $producto->precio = $precio;
+            $bandera=true;
+        }
+
+        if ($tiempo_costo != null && $tiempo_costo!='')
+        {
+            $producto->tiempo_costo = $tiempo_costo;
             $bandera=true;
         }
 

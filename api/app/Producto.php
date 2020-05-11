@@ -24,8 +24,7 @@ class Producto extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'ingles', 'precio', 'descripcion',
-        'estado', 'codigo', 'subcategoria_id', 'establecimiento_id','imagen','idoneidad', 'anos_experiencia','habilitado','fotos'];
+    protected $fillable = ['nombre', 'ingles', 'precio', 'tiempo_costo','descripcion', 'estado', 'codigo', 'subcategoria_id', 'establecimiento_id','imagen','idoneidad', 'anos_experiencia','habilitado','fotos'];
 
     /**
      * The attributes excluded from the model's JSON form.
