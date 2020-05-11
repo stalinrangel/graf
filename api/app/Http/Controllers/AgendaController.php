@@ -47,7 +47,7 @@ class AgendaController extends Controller
         //Calificar el pedido
         if($Agenda=\App\Agenda::create($request->all())){
 
-           return response()->json(['message'=>'Pedido calificado con éxito.',
+           return response()->json(['message'=>'agenda agregada con éxito.',
              'categoria'=>$Agenda], 200);
         }else{
             return response()->json(['error'=>'Error al crear la Agenda.'], 500);
