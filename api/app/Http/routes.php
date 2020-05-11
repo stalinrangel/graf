@@ -220,6 +220,7 @@ Route::group(  ['middleware' =>'cors'], function(){
         Route::post('/cancelar_pedidos/{id}','PedidoController@cancelar');
         Route::get('/encamino/{id}','PedidoController@encamino');
 
+        
         //----Pruebas CalificacionController
         Route::get('/calificaciones','CalificacionController@index');
         Route::post('/calificaciones','CalificacionController@store');
@@ -227,6 +228,19 @@ Route::group(  ['middleware' =>'cors'], function(){
         Route::delete('/calificaciones/{id}','CalificacionController@destroy');
         Route::get('/calificaciones/{id}','CalificacionController@show');
 
+        //----Pruebas CalificacionController
+        Route::get('/agenda','AgendaController@index');
+        Route::post('/agenda','AgendaController@store');
+        Route::put('/agenda/{id}','AgendaController@update');
+        Route::delete('/agenda/{id}','AgendaController@destroy');
+        Route::get('/agenda/{id}','AgendaController@show');
+
+        //----Pruebas CalificacionController
+        Route::get('/agenda_dias','Agenda_diasController@index');
+        Route::post('/agenda_dias','Agenda_diasController@store');
+        Route::put('/agenda_dias/{id}','Agenda_diasController@update');
+        Route::delete('/agenda_dias/{id}','Agenda_diasController@destroy');
+        Route::get('/agenda_dias/{id}','Agenda_diasController@show');
 
         //----Cobros Controller
         Route::get('/cobros','CobrosController@index');
