@@ -231,7 +231,7 @@ class LoginController extends Controller
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
-        if ($user->tipo_usuario == 3) {
+        if ($user->tipo_usuario == 3 || $user->tipo_usuario == 4) {
             $users = \App\User::where('id',$user->id)->with('establecimiento')->get();
             $user->establecimiento=$users[0]->establecimiento;
         }
