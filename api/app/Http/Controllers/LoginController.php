@@ -233,7 +233,9 @@ class LoginController extends Controller
 
         if ($user->tipo_usuario == 3 || $user->tipo_usuario == 4) {
             $users = \App\User::where('id',$user->id)->with('establecimiento')->get();
+            $repartidor = \App\Repartidor::where('usuario_id',$user->id)->first();
             $user->establecimiento=$users[0]->establecimiento;
+            $user->repartidor=$repartidor;
         }
         
 
