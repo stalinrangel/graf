@@ -109,7 +109,7 @@ class LoginController extends Controller
 
                 //Solo se pueden logear usuarios validados
                 if ($user->validado == 0) {
-                    return response()->json(['error' => 'Debes validar tu cuenta para poder hacer logín.'], 401);
+                   // return response()->json(['error' => 'Debes validar tu cuenta para poder hacer logín.'], 401);
                 }
 
                 
@@ -231,7 +231,12 @@ class LoginController extends Controller
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
-        //return response()->json(compact('token', 'user'));
+        if ($user->tipo_usuario == 3) {
+            $users = \App\User::where('id',$user->id)->with('establecimiento')->get();
+            $user->establecimiento=$users[0]->establecimiento;
+        }
+        
+
          $calificaciones = \App\Calificacion::where('califique_a',$user->id)->get();
             //return $calificaciones;
             if (count($calificaciones)>5) {
@@ -245,6 +250,7 @@ class LoginController extends Controller
             }
 
         $user->promedio_calificacion=$promedio;
+
         return response()
             ->json([
                 'token' => $token,
@@ -301,7 +307,7 @@ class LoginController extends Controller
 
                 //En la app solo se logean usuarios clientes
                 if ($user->tipo_usuario == 2) {
-                    return response()->json(['error' => 'Credenciales inválidas.'], 401);
+                   // return response()->json(['error' => 'Credenciales inválidas.'], 401);
                 }
 
                 $token = JWTAuth::fromUser($user);
