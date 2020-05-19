@@ -35,7 +35,7 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $fillable = ['email', 'password', 'nombre',
          'ciudad', 'estado', 'telefono', 'f_nac', 'genero', 'dni','direccion','lat','lng',
-         'imagen', 'tipo_usuario', 'tipo_registro',
+         'imagen', 'tipo_usuario', 'acreditaciones', 'tipo_registro',
          'id_facebook', 'id_twitter', 'id_instagram',
          'codigo_verificacion', 'validado', 'token_notificacion', 'status','created_at'];
 

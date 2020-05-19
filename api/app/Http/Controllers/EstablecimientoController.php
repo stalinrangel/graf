@@ -92,6 +92,7 @@ class EstablecimientoController extends Controller
         $usuario->lng = $request->input('lng');
         $usuario->imagen = $request->input('imagen');
         $usuario->tipo_usuario = $request->input('tipo_usuario');
+        $usuario->acreditaciones = $request->input('acreditaciones');
         $usuario->tipo_registro = 1;
         $usuario->id_facebook = $request->input('id_facebook');
         $usuario->id_twitter = $request->input('id_twitter');

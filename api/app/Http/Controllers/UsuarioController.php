@@ -25,7 +25,7 @@ class UsuarioController extends Controller
     public function index()
     {
         //cargar todos los usuarios clientes
-        $usuarios = \App\User::select('id', 'email', 'nombre', 'ciudad', 'estado', 'telefono', 'imagen', 'tipo_usuario', 'token_notificacion', 'status','created_at')
+        $usuarios = \App\User::select('id', 'email', 'nombre', 'ciudad', 'estado', 'telefono', 'imagen', 'tipo_usuario', 'acreditaciones', 'token_notificacion', 'status','created_at')
             ->with(['chat_cliente' => function ($query) {
                 $query->select('id', 'admin_id', 'usuario_id');
             }])
@@ -68,7 +68,7 @@ class UsuarioController extends Controller
     public function indexRepartidores()
     {
         //cargar todos los usuarios repartidores
-        $usuarios = \App\User::select('id', 'email', 'nombre', 'ciudad', 'estado', 'telefono', 'imagen', 'tipo_usuario', 'token_notificacion')
+        $usuarios = \App\User::select('id', 'email', 'nombre', 'ciudad', 'estado', 'telefono', 'imagen', 'tipo_usuario', 'acreditaciones', 'token_notificacion')
             ->with(['chat_repartidor' => function ($query) {
                 $query->select('id', 'admin_id', 'usuario_id');
             }])
