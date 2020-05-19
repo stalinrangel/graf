@@ -41,13 +41,13 @@ class RepartidorController extends Controller
             ->orderBy('id', 'desc')->get();
 
            // return 1;
-        $aux=[];
+        /*$aux=[];
         for ($i=0; $i < count($repartidores); $i++) { 
             if ($repartidores[$i]->usuario->registro!=null) {
                 array_push($aux,$repartidores[$i]);
             }
         }
-        $repartidores=$aux;
+        $repartidores=$aux;*/
         for ($i=0; $i < count($repartidores); $i++) { 
             $curso = \App\Pedido::where('repartidor_id',$repartidores[$i]->id)->where('estado',2)->get();
             $final = \App\Pedido::where('repartidor_id',$repartidores[$i]->id)->where('estado',4)->get();
