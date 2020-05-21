@@ -83,8 +83,8 @@ var LoginfComponent = /** @class */ (function () {
         this.password = '';
         this.loading = false;
         this.submitted = false;
-        nbspinnerservice.load();
-        nbspinnerservice.clear();
+        //nbspinnerservice.load();
+        //nbspinnerservice.clear();
     }
     LoginfComponent.prototype.ngOnInit = function () {
         this.themeService.changeTheme('cosmic');
