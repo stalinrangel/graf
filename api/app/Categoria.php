@@ -39,9 +39,17 @@ class Categoria extends Model
         // 1 categoria puede tener varias subcategorias
         return $this->hasMany('App\Subcategoria', 'categoria_id');
     }
+
     public function catprincipales()
     {
         // 1 subcat pertenece a una categoria
         return $this->belongsTo('App\Catprincipales', 'catprincipales_id');
+    }
+
+    // Relación de categoria con ImagenCat:
+    public function imagenes()
+    {
+        // 1 categoria puede tener varias imagenes
+        return $this->hasMany('App\ImagenCat', 'categoria_id');
     }
 }

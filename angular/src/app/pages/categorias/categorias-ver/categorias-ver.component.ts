@@ -79,6 +79,8 @@ export class CategoriasVerComponent implements OnInit{
 
   public mouvers_user_tipo = localStorage.getItem('mouvers_user_tipo');
 
+  imagenes = [];
+
   constructor( private modalService: NgbModal,
                private toasterService: ToasterService,
                private http: HttpClient,
@@ -91,7 +93,7 @@ export class CategoriasVerComponent implements OnInit{
       id: [''],
       nombre: ['', [Validators.required]],
       ingles: ['', [Validators.required]],
-      imagen: [''],
+      //imagen: [''],
       categoria_id: ['', [Validators.required]]
     });
 
@@ -156,6 +158,14 @@ export class CategoriasVerComponent implements OnInit{
            console.log(data);
            this.data=data;
            this.productList = this.data.categorias;
+
+           //Inicializar Img
+           for (var i = 0; i < this.productList.length; ++i) {
+              if (this.productList[i].imagenes && this.productList[i].imagenes.length > 0) {
+                this.productList[i].imagen = this.productList[i].imagenes[0].imagen; 
+              }
+            } 
+
            this.productList = this.productList.sort(function(a, b){
               if(a.nombre < b.nombre) { return -1; }
               if(a.nombre > b.nombre) { return 1; }
@@ -164,7 +174,7 @@ export class CategoriasVerComponent implements OnInit{
            setTimeout(()=>{
 
              this.filteredItems = this.productList;
-             console.log(this.productList);
+             //console.log(this.productList);
              this.init();
              this.loading = false;
 
@@ -242,40 +252,49 @@ export class CategoriasVerComponent implements OnInit{
       //this.uploadFile = null;
       this.myFormEditar.reset();
       this.clearFile();
+      this.imagenes = [];
 
     }
 
     aEditar(obj): void {
       this.editando = true;
-      this.objAEditar = Object.assign({},obj);
+      //this.objAEditar = Object.assign({},obj);
+      this.objAEditar = JSON.parse(JSON.stringify(obj));
       console.log(this.objAEditar);
 
       this.myFormEditar.patchValue({id : this.objAEditar.id});
       this.myFormEditar.patchValue({nombre : this.objAEditar.nombre});
       this.myFormEditar.patchValue({ingles : this.objAEditar.ingles});
-      this.myFormEditar.patchValue({imagen : this.objAEditar.imagen});
+      //this.myFormEditar.patchValue({imagen : this.objAEditar.imagen});
       this.myFormEditar.patchValue({categoria_id : this.objAEditar.catprincipales_id});
+
+      this.imagenes = this.objAEditar.imagenes;
+      for (var i = 0; i < this.imagenes.length; ++i) {
+        this.imagenes[i].eliminar = 0;
+        this.imagenes[i].nueva = 0;
+      }
     }
 
     editar(): void {
      
       this.loading = true;
 
-      var imgAux: any;
+      /*var imgAux: any;
       
       if(this.imgUpload){
         imgAux = this.imgUpload; 
       }
       else{
         imgAux = this.myFormEditar.value.imagen;
-      }
+      }*/
 
       var datos= {
         token: localStorage.getItem('mouvers_token'),
         nombre: this.myFormEditar.value.nombre,
         ingles: this.myFormEditar.value.ingles,
-        imagen: imgAux,
-        catprincipales_id: this.myFormEditar.value.categoria_id
+        //imagen: imgAux,
+        catprincipales_id: this.myFormEditar.value.categoria_id,
+        imagenes: JSON.stringify(this.imagenes),
       }
 
       this.http.put(this.rutaService.getRutaApi()+'categorias/'+this.myFormEditar.value.id, datos)
@@ -289,8 +308,17 @@ export class CategoriasVerComponent implements OnInit{
                 if (this.productList[i].id == this.myFormEditar.value.id) {
                    this.productList[i].nombre = this.myFormEditar.value.nombre;
                    this.productList[i].ingles = this.myFormEditar.value.ingles;
-                   this.productList[i].imagen = imgAux;
+                   //this.productList[i].imagen = imgAux;
                    this.productList[i].categoria_id = this.myFormEditar.value.categoria_id;
+
+                   let aux = [];
+                   for (var j = 0; j < this.imagenes.length; ++j) {
+                     if (this.imagenes[j].eliminar == 0) {
+                       aux.push(this.imagenes[j]);
+                     }
+                   }
+                   this.productList[i].imagen = aux[0].imagen;
+                   this.productList[i].imagenes = aux;
                 }
               }
 
@@ -303,7 +331,8 @@ export class CategoriasVerComponent implements OnInit{
               this.loading = false;
               this.editando = false;
               this.clearFile();
-              this.showToast('success', 'Success!', this.data.message); 
+              this.showToast('success', 'Success!', this.data.message);
+              this.imagenes = []; 
            },
            msg => { // Error
              console.log(msg);
@@ -341,6 +370,7 @@ export class CategoriasVerComponent implements OnInit{
               console.log(data);
               this.data = data;
               this.imgUpload = this.data.imagen;
+              this.imagenes.push({imagen:this.imgUpload, eliminar:0, nueva:1});
 
               //Solo admitimos imágenes.
                if (!this.fileIMG.type.match('image.*')) {
@@ -352,7 +382,7 @@ export class CategoriasVerComponent implements OnInit{
                reader.onload = (function(theFile) {
                    return function(e) {
                    // Creamos la imagen.
-                    document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result, '" height="160px"/>'].join('');
+                    //document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result, '" height="160px"/>'].join('');
                    };
                })(this.fileIMG);
      
@@ -362,6 +392,7 @@ export class CategoriasVerComponent implements OnInit{
 
               this.loading = false;
               this.showToast('success', 'Success!', this.data.message); 
+              this.clearFile();
            },
            msg => { // Error
              console.log(msg);
@@ -406,6 +437,22 @@ export class CategoriasVerComponent implements OnInit{
       this.clear = false;
     }
     //Carga de img--->
+
+    clearImagen(index){
+      /*this.imagenes.splice(index, 1);*/
+
+      let count = 0;
+      for (var i = 0; i < this.imagenes.length; ++i) {
+        count += this.imagenes[i].eliminar;
+      }
+
+      if (count == this.imagenes.length - 1) {
+        this.showToast('warning', 'Warning!', 'La categoría debe poseer al menos una imagen.');
+      }else{
+        this.imagenes[index].eliminar = 1;  
+      }
+      
+    }
 
     aEliminar(obj): void {
       this.objAEliminar = obj;

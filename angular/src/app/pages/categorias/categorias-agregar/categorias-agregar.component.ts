@@ -54,6 +54,8 @@ export class CategoriasAgregarComponent implements OnInit{
 
   public mouvers_user_tipo = localStorage.getItem('mouvers_user_tipo');
 
+  imagenes = [];
+
   constructor( private toasterService: ToasterService,
            private http: HttpClient,
            private router: Router,
@@ -64,7 +66,7 @@ export class CategoriasAgregarComponent implements OnInit{
   	this.myFormAgregar = this.fb.group({
         nombre: ['', [Validators.required]],
         ingles: ['', [Validators.required]],
-        imagen: [''],
+        //imagen: [''],
         catprincipales_id: ['', [Validators.required]]
       });
 
@@ -148,9 +150,10 @@ export class CategoriasAgregarComponent implements OnInit{
         token: localStorage.getItem('mouvers_token'),
         nombre: this.myFormAgregar.value.nombre,
         ingles: this.myFormAgregar.value.ingles,
-        imagen: this.myFormAgregar.value.imagen,
+        //imagen: this.myFormAgregar.value.imagen,
         estado: 'ON',
-        catprincipales_id:this.myFormAgregar.value.catprincipales_id
+        catprincipales_id:this.myFormAgregar.value.catprincipales_id,
+        imagenes: JSON.stringify(this.imagenes),
       }
       console.log(datos);
 
@@ -167,6 +170,7 @@ export class CategoriasAgregarComponent implements OnInit{
 
               this.myFormAgregar.reset();
               this.clearFile();
+              this.imagenes = [];
   
            },
            msg => { // Error
@@ -204,7 +208,8 @@ export class CategoriasAgregarComponent implements OnInit{
               console.log(data);
               this.data = data;
               this.imgUpload = this.data.imagen;
-              this.myFormAgregar.patchValue({imagen : this.imgUpload});
+              //this.myFormAgregar.patchValue({imagen : this.imgUpload});
+              this.imagenes.push({imagen:this.imgUpload});
 
               //Solo admitimos imágenes.
                if (!this.fileIMG.type.match('image.*')) {
@@ -216,7 +221,7 @@ export class CategoriasAgregarComponent implements OnInit{
                reader.onload = (function(theFile) {
                    return function(e) {
                    // Creamos la imagen.
-                    document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result, '" height="160px"/>'].join('');
+                    //document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result, '" height="160px"/>'].join('');
                    };
                })(this.fileIMG);
      
@@ -226,6 +231,7 @@ export class CategoriasAgregarComponent implements OnInit{
 
               this.loading = false;
               this.showToast('success', 'Success!', this.data.message); 
+              this.clearFile();
            },
            msg => { // Error
              console.log(msg);
@@ -269,9 +275,13 @@ export class CategoriasAgregarComponent implements OnInit{
 
       this.clear = false;
 
-      this.myFormAgregar.patchValue({imagen : null});
+      //this.myFormAgregar.patchValue({imagen : null});
     }
     //Carga de img--->
+
+    clearImagen(index){
+      this.imagenes.splice(index, 1);
+    }
 
     
 }

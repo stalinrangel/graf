@@ -98,15 +98,16 @@
               <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.nombre}}</option>
             </select>
           </div>
-          <div class="form-group">
+
+          <!-- <div class="form-group">
             <br>
             <div [hidden]="clear">
               <label for="exampleInputImagen">Imagen</label>
               <input type="file" name="imagen" id="imagen" (change)="onFileChange($event)" #fileInput accept="image/*">
-
+          
               <br>
               <br>
-
+          
               <p [hidden]="clear" style="color: #c71717"><b>Sugerencia:</b> La dimensión de la imagen no debe ser mayor a 870x370 px.</p>
               
               <img src = "{{objAEditar.imagen}}" alt="" height="160px">
@@ -119,6 +120,43 @@
                 <br>
                 <button type="button" class="btn btn-danger btn-tn" (click)="clearFile()">clear file</button>
               </div>
+          </div> -->
+
+          <div class="row">
+            <div class="col-md-12">
+              <br>
+              <label for="imagen">Imagen</label>
+              <input [hidden]="clear" type="file" name="imagen" id="imagen" (change)="onFileChange($event)" #fileInput accept="image/*">
+              <br><br>
+              <p [hidden]="clear" style="color: #c71717"><b>Sugerencia:</b> La dimensión de la imagen no debe ser mayor a 870x370 px.</p>
+              <br>
+
+            </div>
+
+            <div class="col-md-12">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Archivo</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of imagenes; index as i">
+                    <td *ngIf="item.eliminar == 0" style="text-align: center; vertical-align:middle;">
+                      <!-- <a href="{{item.url}}" target="_blank">
+                        <i class="fa fa-{{item.icono}} fa-lg"> archivo</i>
+                      </a> -->
+                      <img src="{{item.imagen}}" alt="" width="200" height="200">
+                    </td>
+                    <td *ngIf="item.eliminar == 0" style="text-align: center; vertical-align:middle;">
+                      <!-- <a class="btn btn-sm btn-outline-success" href="{{item.url}}" download >*</a> -->
+                      <button type="button" class="btn btn-sm btn-outline-danger" (click)="clearImagen(i)" title="Eliminar">x</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
           
           <br>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
 
 class CategoriaController extends Controller
 {
@@ -17,7 +18,7 @@ class CategoriaController extends Controller
     public function index()
     {
         //cargar todas las cat
-        $categorias = \App\Categoria::with('subcategorias')->get();
+        $categorias = \App\Categoria::with('imagenes')->with('subcategorias')->get();
 
         if(count($categorias) == 0){
             return response()->json(['error'=>'No existen categorías.'], 404);          
@@ -62,6 +63,19 @@ class CategoriaController extends Controller
         } 
 
         if($nuevaCategoria=\App\Categoria::create($request->all())){
+
+            if ($request->input('imagenes')) {
+                $imagenes = json_decode($request->input('imagenes'));
+                for ($i=0; $i < count($imagenes) ; $i++) { 
+
+                    $newImg=\App\ImagenCat::create([
+                        'imagen'=>$imagenes[$i]->imagen,
+                        'categoria_id'=>$nuevaCategoria->id,
+                    ]);
+                       
+                }
+            }
+
            return response()->json(['message'=>'Categoría creada con éxito.',
              'categoria'=>$nuevaCategoria], 200);
         }else{
@@ -243,10 +257,11 @@ class CategoriaController extends Controller
         // Listado de campos recibidos teóricamente.
         $nombre=$request->input('nombre');
         $ingles=$request->input('ingles');
-        $imagen=$request->input('imagen');
+        //$imagen=$request->input('imagen');
         $estado=$request->input('estado');
         $catprincipales_id=$request->input('catprincipales_id');
         $subcategorias=$request->input('subcategorias');
+        $imagenes=$request->input('imagenes');
 
         // Creamos una bandera para controlar si se ha modificado algún dato.
         $bandera = false;
@@ -266,11 +281,12 @@ class CategoriaController extends Controller
             $bandera=true;
         }
 
-        if ($imagen != null && $imagen!='')
+        /*if ($imagen != null && $imagen!='')
         {
             $categoria->imagen = $imagen;
             $bandera=true;
-        }
+        }*/
+
         if ($ingles != null && $ingles!='')
         {
             $categoria->ingles = $ingles;
@@ -337,6 +353,33 @@ class CategoriaController extends Controller
                         }
                     }
                 }  
+            }
+        }
+
+        if ($imagenes != null && $imagenes !='') {
+
+            $imagenes = json_decode($request->input('imagenes'));
+            for ($i=0; $i < count($imagenes) ; $i++) {
+
+                if ($imagenes[$i]->nueva == 1) {
+
+                    $newImg=\App\ImagenCat::create([
+                        'imagen'=>$imagenes[$i]->imagen,
+                        'categoria_id'=>$categoria->id,
+                    ]);
+
+                } 
+
+                if ($imagenes[$i]->eliminar == 1) {
+
+                    DB::table('imagenes_categorias')
+                        ->where('imagen', $imagenes[$i]->imagen)
+                        ->delete();
+
+                } 
+
+                
+                   
             }
         }
 
@@ -410,6 +453,15 @@ class CategoriaController extends Controller
         for ($i=0; $i < count($categoria); $i++) { 
             for ($j=0; $j < count($categoria[$i]->subcategorias); $j++) { 
                 $categoria[$i]->subcategorias[$j]->tiempo_costo=json_decode($categoria[$i]->subcategorias[$j]->tiempo_costo);
+            }
+
+            $imagenes = \App\ImagenCat::where('categoria_id',$categoria[$i]->id)->get();
+            if (count($imagenes) == 1) {
+                $categoria[$i]->imagen = $imagenes[0]->imagen;
+            }
+            else if (count($imagenes) > 1) {
+                $aleatoreo = rand(0, count($imagenes) - 1);
+                $categoria[$i]->imagen = $imagenes[$aleatoreo]->imagen;
             }
         }
 
