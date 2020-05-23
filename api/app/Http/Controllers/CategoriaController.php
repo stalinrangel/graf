@@ -490,7 +490,41 @@ class CategoriaController extends Controller
             return response()->json(['error'=>'No existe la categoría '], 404);          
         }else{
 
-            return response()->json(['categoria'=>$categoria], 200);
+            //Colores aleatoreos
+            $colors = ['#a8edef',
+            '#b9f1ee',
+            '#fbe8be',
+            '#f9dad4',
+            '#f1d0f1',
+            '#ececbb'
+            ];
+
+            $color_aleatoreo1 = rand(0, 4);
+            $colorheader = $colors[$color_aleatoreo1];
+
+            //Colores aleatoreos
+            $colors2 = [
+                '#c9f5f6',
+                '#ebfffe',
+                '#fff8e8',
+                '#fff0ed',
+                "#fff1ff",
+                "#ffffdb"
+            ];
+
+            $color_aleatoreo2 = rand(0, 4);
+            $colorfondo = $colors2[$color_aleatoreo2];
+
+            //Num aleatoreo
+            $num_aleatoreo = rand(1, 5);
+            $aleatoreo = $num_aleatoreo;
+
+            return response()->json([
+                'colorheader'=>$colorheader,
+                'colorfondo'=>$colorfondo,
+                'aleatoreo'=>$aleatoreo,
+                'categoria'=>$categoria,
+            ], 200);
         } 
     }
 
