@@ -455,7 +455,6 @@ class CategoriaController extends Controller
                 $categoria[$i]->subcategorias[$j]->tiempo_costo=json_decode($categoria[$i]->subcategorias[$j]->tiempo_costo);
             }
 
-
             //Imagen aleatorea
             $imagenes = \App\ImagenCat::where('categoria_id',$categoria[$i]->id)->get();
             if (count($imagenes) == 1) {
@@ -485,7 +484,6 @@ class CategoriaController extends Controller
             //Num aleatoreo
             $num_aleatoreo = rand(1, 5);
             $categoria[$i]->aleatoreo = $num_aleatoreo;
-
         }
 
         if(count($categoria)==0){
