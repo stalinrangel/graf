@@ -4195,8 +4195,8 @@ var RutaBaseService = /** @class */ (function () {
         //Remoto vps
         //public api_base = 'http://3.222.253.189/alinstanteAPI/public/';
         //public images_base = 'http://3.222.253.189/alinstanteAPI/public/images_uploads/';
-        this.api_base = 'http://massagegraf.com/api/public/';
-        this.images_base = 'http://massagegraf.com/api/public/images_uploads/';
+        this.api_base = 'http://massagegraf.com/graf/api/public/';
+        this.images_base = 'http://massagegraf.com/graf/api/public/images_uploads/';
     }
     RutaBaseService.prototype.getRutaApi = function () {
         return this.api_base;

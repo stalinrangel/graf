@@ -3,7 +3,7 @@ webpackJsonp(["categorias.module"],{
 /***/ "../../../../../src/app/pages/categorias/categorias-agregar/categorias-agregar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-lg-6\" style=\"display:block; margin:auto\">\r\n    <nb-card>\r\n      <nb-card-header>Registro de Nueva Categoría</nb-card-header>\r\n      <nb-card-body>\r\n\r\n        <!-- <div class=\"row\">\r\n          <div class=\"col-md-12\">\r\n              <input placeholder=\"Buscar dirección por google maps...\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"off\" type=\"text\" class=\"form-control\" #search  onFocus=\"geolocate()\" >\r\n           </div>\r\n        </div> -->\r\n\r\n        <form [formGroup]=\"myFormAgregar\" novalidate>\r\n          <div class=\"form-group\">\r\n            <label for=\"exampleInputEmail1\">Nombre</label>\r\n            <input type=\"text\" class=\"form-control\" id=\"exampleInputNombre\" placeholder=\"Nombre\" formControlName=\"nombre\">\r\n            <div *ngIf=\"myFormAgregar.get('nombre').errors && myFormAgregar.get('nombre').dirty\">\r\n              <p *ngIf=\"myFormAgregar.get('nombre').hasError('required')\">Nombre es requerido</p>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label for=\"exampleInputEmail1\">Nombre en Ingles</label>\r\n            <input type=\"text\" class=\"form-control\" id=\"exampleInputNombre\" placeholder=\"Ingles\" formControlName=\"ingles\">\r\n            <div *ngIf=\"myFormAgregar.get('ingles').errors && myFormAgregar.get('ingles').dirty\">\r\n              <p *ngIf=\"myFormAgregar.get('ingles').hasError('required')\">Ingles es requerido</p>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label for=\"exampleInputCat\">Categoría</label>\r\n            <select class=\"form-control\" id=\"exampleInputCat\" formControlName=\"catprincipales_id\">\r\n              <!-- <option disabled selected>Selecciona una categoría</option> -->\r\n              <option *ngFor=\"let categoria of categorias\" [value]=\"categoria.id\">{{categoria.nombre}}</option>\r\n            </select>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <br>\r\n            <label for=\"exampleInputImagen\">Imagen</label>\r\n            <input [hidden]=\"clear\" type=\"file\" name=\"imagen\" id=\"imagen\" (change)=\"onFileChange($event)\" #fileInput accept=\"image/*\">\r\n              <div *ngIf=\"clear\">\r\n                <br>\r\n                <output id=\"list\"></output>\r\n                <br>\r\n                <br>\r\n                <button type=\"button\" class=\"btn btn-danger btn-tn\" (click)=\"clearFile()\">clear file</button>\r\n              </div>\r\n\r\n              <p [hidden]=\"clear\" style=\"color: #c71717\"><b>Sugerencia:</b> La dimensión de la imagen no debe ser mayor a 870x370 px.</p>\r\n          </div>\r\n          \r\n          <br>\r\n          <button type=\"submit\" class=\"btn btn-info\" (click)=\"crear()\" [disabled]=\"myFormAgregar.invalid\">Agregar</button>\r\n        </form>\r\n      </nb-card-body>\r\n    </nb-card>\r\n  </div>\r\n</div>\r\n\r\n<toaster-container [toasterconfig]=\"config\"></toaster-container>\r\n\r\n<div class=\"my-container\">\r\n    <ngx-loading [show]=\"loading\" [config]=\"{ backdropBorderRadius: '4px' }\"></ngx-loading>\r\n</div>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-lg-6\" style=\"display:block; margin:auto\">\r\n    <nb-card>\r\n      <nb-card-header>Registro de Nueva Categoría</nb-card-header>\r\n      <nb-card-body>\r\n\r\n        <!-- <div class=\"row\">\r\n          <div class=\"col-md-12\">\r\n              <input placeholder=\"Buscar dirección por google maps...\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"off\" type=\"text\" class=\"form-control\" #search  onFocus=\"geolocate()\" >\r\n           </div>\r\n        </div> -->\r\n\r\n        <form [formGroup]=\"myFormAgregar\" novalidate>\r\n          <div class=\"form-group\">\r\n            <label for=\"exampleInputEmail1\">Nombre</label>\r\n            <input type=\"text\" class=\"form-control\" id=\"exampleInputNombre\" placeholder=\"Nombre\" formControlName=\"nombre\">\r\n            <div *ngIf=\"myFormAgregar.get('nombre').errors && myFormAgregar.get('nombre').dirty\">\r\n              <p *ngIf=\"myFormAgregar.get('nombre').hasError('required')\">Nombre es requerido</p>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label for=\"exampleInputEmail1\">Nombre en Ingles</label>\r\n            <input type=\"text\" class=\"form-control\" id=\"exampleInputNombre\" placeholder=\"Ingles\" formControlName=\"ingles\">\r\n            <div *ngIf=\"myFormAgregar.get('ingles').errors && myFormAgregar.get('ingles').dirty\">\r\n              <p *ngIf=\"myFormAgregar.get('ingles').hasError('required')\">Ingles es requerido</p>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label for=\"exampleInputCat\">Categoría</label>\r\n            <select class=\"form-control\" id=\"exampleInputCat\" formControlName=\"catprincipales_id\">\r\n              <!-- <option disabled selected>Selecciona una categoría</option> -->\r\n              <option *ngFor=\"let categoria of categorias\" [value]=\"categoria.id\">{{categoria.nombre}}</option>\r\n            </select>\r\n          </div>\r\n          <!-- <div class=\"form-group\">\r\n            <br>\r\n            <label for=\"exampleInputImagen\">Imagen</label>\r\n            <input [hidden]=\"clear\" type=\"file\" name=\"imagen\" id=\"imagen\" (change)=\"onFileChange($event)\" #fileInput accept=\"image/*\">\r\n              <div *ngIf=\"clear\">\r\n                <br>\r\n                <output id=\"list\"></output>\r\n                <br>\r\n                <br>\r\n                <button type=\"button\" class=\"btn btn-danger btn-tn\" (click)=\"clearFile()\">clear file</button>\r\n              </div>\r\n          \r\n              <p [hidden]=\"clear\" style=\"color: #c71717\"><b>Sugerencia:</b> La dimensión de la imagen no debe ser mayor a 870x370 px.</p>\r\n          </div> -->\r\n\r\n          <div class=\"row\">\r\n            <div class=\"col-md-12\">\r\n              <br>\r\n              <label for=\"imagen\">Imagen</label>\r\n              <input [hidden]=\"clear\" type=\"file\" name=\"imagen\" id=\"imagen\" (change)=\"onFileChange($event)\" #fileInput accept=\"image/*\">\r\n              <br><br>\r\n              <p [hidden]=\"clear\" style=\"color: #c71717\"><b>Sugerencia:</b> La dimensión de la imagen no debe ser mayor a 870x370 px.</p>\r\n              <br>\r\n\r\n            </div>\r\n\r\n            <div class=\"col-md-12\">\r\n              <table class=\"table table-bordered\">\r\n                <thead>\r\n                  <tr>\r\n                    <th>Archivo</th>\r\n                    <th>Acción</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr *ngFor=\"let item of imagenes; index as i\">\r\n                    <td style=\"text-align: center; vertical-align:middle;\">\r\n                      <!-- <a href=\"{{item.url}}\" target=\"_blank\">\r\n                        <i class=\"fa fa-{{item.icono}} fa-lg\"> archivo</i>\r\n                      </a> -->\r\n                      <img src=\"{{item.imagen}}\" alt=\"\" width=\"200\" height=\"200\">\r\n                    </td>\r\n                    <td style=\"text-align: center; vertical-align:middle;\">\r\n                      <!-- <a class=\"btn btn-sm btn-outline-success\" href=\"{{item.url}}\" download >*</a> -->\r\n                      <button type=\"button\" class=\"btn btn-sm btn-outline-danger\" (click)=\"clearImagen(i)\" title=\"Eliminar\">x</button>\r\n                    </td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n          </div>\r\n          \r\n          <br>\r\n          <button type=\"submit\" class=\"btn btn-info\" (click)=\"crear()\" [disabled]=\"myFormAgregar.invalid || imagenes.length == 0\">Agregar</button>\r\n        </form>\r\n      </nb-card-body>\r\n    </nb-card>\r\n  </div>\r\n</div>\r\n\r\n<toaster-container [toasterconfig]=\"config\"></toaster-container>\r\n\r\n<div class=\"my-container\">\r\n    <ngx-loading [show]=\"loading\" [config]=\"{ backdropBorderRadius: '4px' }\"></ngx-loading>\r\n</div>"
 
 /***/ }),
 
@@ -82,10 +82,11 @@ var CategoriasAgregarComponent = /** @class */ (function () {
         this.imgUpload = null;
         this.loadinImg = false;
         this.mouvers_user_tipo = localStorage.getItem('mouvers_user_tipo');
+        this.imagenes = [];
         this.myFormAgregar = this.fb.group({
             nombre: ['', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required]],
             ingles: ['', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required]],
-            imagen: [''],
+            //imagen: [''],
             catprincipales_id: ['', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required]]
         });
     }
@@ -154,9 +155,10 @@ var CategoriasAgregarComponent = /** @class */ (function () {
             token: localStorage.getItem('mouvers_token'),
             nombre: this.myFormAgregar.value.nombre,
             ingles: this.myFormAgregar.value.ingles,
-            imagen: this.myFormAgregar.value.imagen,
+            //imagen: this.myFormAgregar.value.imagen,
             estado: 'ON',
-            catprincipales_id: this.myFormAgregar.value.catprincipales_id
+            catprincipales_id: this.myFormAgregar.value.catprincipales_id,
+            imagenes: JSON.stringify(this.imagenes),
         };
         console.log(datos);
         this.http.post(this.rutaService.getRutaApi() + 'categorias', datos)
@@ -169,6 +171,7 @@ var CategoriasAgregarComponent = /** @class */ (function () {
             _this.showToast('success', 'Success!', _this.data.message);
             _this.myFormAgregar.reset();
             _this.clearFile();
+            _this.imagenes = [];
         }, function (msg) {
             console.log(msg);
             console.log(msg.error.error);
@@ -196,7 +199,8 @@ var CategoriasAgregarComponent = /** @class */ (function () {
             console.log(data);
             _this.data = data;
             _this.imgUpload = _this.data.imagen;
-            _this.myFormAgregar.patchValue({ imagen: _this.imgUpload });
+            //this.myFormAgregar.patchValue({imagen : this.imgUpload});
+            _this.imagenes.push({ imagen: _this.imgUpload });
             //Solo admitimos imágenes.
             if (!_this.fileIMG.type.match('image.*')) {
                 return;
@@ -205,13 +209,14 @@ var CategoriasAgregarComponent = /** @class */ (function () {
             reader.onload = (function (theFile) {
                 return function (e) {
                     // Creamos la imagen.
-                    document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result, '" height="160px"/>'].join('');
+                    //document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result, '" height="160px"/>'].join('');
                 };
             })(_this.fileIMG);
             reader.readAsDataURL(_this.fileIMG);
             _this.clear = true;
             _this.loading = false;
             _this.showToast('success', 'Success!', _this.data.message);
+            _this.clearFile();
         }, function (msg) {
             console.log(msg);
             console.log(msg.error.error);
@@ -245,7 +250,11 @@ var CategoriasAgregarComponent = /** @class */ (function () {
         this.imgUpload = null;
         this.fileInput.nativeElement.value = '';
         this.clear = false;
-        this.myFormAgregar.patchValue({ imagen: null });
+        //this.myFormAgregar.patchValue({imagen : null});
+    };
+    //Carga de img--->
+    CategoriasAgregarComponent.prototype.clearImagen = function (index) {
+        this.imagenes.splice(index, 1);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('fileInput'),
@@ -331,7 +340,7 @@ var routedComponents = [
 /***/ "../../../../../src/app/pages/categorias/categorias-ver/categorias-ver.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nb-card *ngIf=\"!editando && mostrar\">\r\n  <nb-card-header>\r\n    <div class=\"row show-grid\">\r\n          <div class=\"col-6\">\r\n            <div>Lista de Categorías</div>\r\n          </div>\r\n          <div class=\"col-6\">\r\n            <div>\r\n              <div style=\"text-align: right;\">\r\n               <strong>Buscar: </strong>\r\n               <input  type=\"text\"  id=\"inputName\" [(ngModel)]=\"inputName\" (ngModelChange)=\"FilterByName()\"/>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n  </nb-card-header>\r\n\r\n  <nb-card-body>\r\n\r\n    <table class=\"table\">\r\n      <thead>\r\n         <th style=\"text-align: center;\">Imagen</th> \r\n         <th style=\"text-align: center;\">Nombre</th>\r\n         <th style=\"text-align: center;\">Estado</th>\r\n         <th style=\"text-align: center;\">Acciones</th>\r\n      </thead>\r\n      <tbody>\r\n         <tr *ngFor=\"let item of items\" >\r\n            <td style=\"text-align: center; vertical-align:middle;\"><img src=\"{{item.imagen}}\" alt=\"\" style=\"width: 80px; height: 80px\"></td>\r\n            <td style=\"text-align: center; vertical-align:middle;\">{{item.nombre}}</td>\r\n            <td style=\" vertical-align:middle;\">\r\n              <div *ngIf=\"mostrarSwiches\" class=\"estado\" style=\"display:block; margin:auto\">\r\n                <label class=\"theme-switch\">\r\n                  <span class=\"light\">OFF</span>\r\n                  <div class=\"switch\">\r\n                    <input type=\"checkbox\" [checked]=\"item.estado === 'ON'\" (change)=\"cambioSwicheCat(item, modal2)\" #theme>\r\n                    <span class=\"slider\"></span>\r\n                  </div>\r\n                  <span class=\"cosmic\">ON</span>\r\n                </label>\r\n              </div>\r\n            </td> \r\n            <td style=\"text-align: center; vertical-align:middle;\">\r\n              <button type=\"button\" class=\"btn btn-primary btn-icon btn-sm btn-table\" title=\"Editar\" (click)=\"aEditar(item)\">\r\n                <i class=\"nb-edit\"></i>\r\n              </button>\r\n              <button type=\"button\" class=\"btn btn-danger btn-icon btn-sm btn-table\" title=\"Eliminar\" (click)=\"open(modal1); aEliminar(item)\">\r\n                <i class=\"nb-trash\"></i>\r\n              </button>\r\n            </td>\r\n         </tr>\r\n      </tbody>\r\n    </table>\r\n      \r\n  </nb-card-body>\r\n  <nb-card-footer>\r\n    <div class=\"btn-toolbar\" role=\"toolbar\" style=\"margin: 0;\">\r\n      <div class=\"btn-group\">\r\n         <label style=\"margin-top:10px\">Página {{currentIndex}}/{{pageNumber}} </label>\r\n      </div>\r\n      <div class=\"btn-group pull-right\">\r\n         <ul class=\"pagination\" >\r\n            <li class=\"page-item\" [ngClass]=\"{'disabled': (currentIndex == 1 || pageNumber == 0)}\" ><a class=\"page-link\"  (click)=\"prevPage()\" >Atrás</a></li>\r\n               <li class=\"page-item\" *ngFor=\"let page of pagesIndex\"  [ngClass]=\"{'active': (currentIndex == page)}\">\r\n                  <a class=\"page-link\" (click)=\"setPage(page)\"  >{{page}} </a>\r\n               </li>\r\n            <li class=\"page-item\" [ngClass]=\"{'disabled': (currentIndex == pageNumber || pageNumber == 0)}\" ><a class=\"page-link\"   (click)=\"nextPage()\" >Siguiente</a></li>\r\n         </ul>\r\n      </div>\r\n    </div>  \r\n  </nb-card-footer>\r\n</nb-card>\r\n\r\n<div class=\"row\" *ngIf=\"editando\">\r\n  <div class=\"col-lg-6\" style=\"display:block; margin:auto\">\r\n    <nb-card>\r\n      <nb-card-header>Editar Categoría</nb-card-header>\r\n      <nb-card-body>\r\n        <form [formGroup]=\"myFormEditar\" novalidate>\r\n          <div class=\"form-group\">\r\n            <label for=\"exampleInputEmail1\">Nombre</label>\r\n            <input type=\"text\" class=\"form-control\" id=\"exampleInputNombre\" placeholder=\"Nombre\" formControlName=\"nombre\">\r\n            <div *ngIf=\"myFormEditar.get('nombre').errors && myFormEditar.get('nombre').dirty\">\r\n              <p *ngIf=\"myFormEditar.get('nombre').hasError('required')\">Nombre es requerido</p>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label for=\"exampleInputEmail1\">Nombre en ingles</label>\r\n            <input type=\"text\" class=\"form-control\" id=\"exampleInputNombre\" placeholder=\"Ingles\" formControlName=\"ingles\">\r\n            <div *ngIf=\"myFormEditar.get('ingles').errors && myFormEditar.get('ingles').dirty\">\r\n              <p *ngIf=\"myFormEditar.get('ingles').hasError('required')\">ingles es requerido</p>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label for=\"exampleInputCat\">Categoría</label>\r\n            <select class=\"form-control\" id=\"exampleInputCat\" formControlName=\"categoria_id\">\r\n              <!-- <option disabled selected>Selecciona una categoría</option> -->\r\n              <option *ngFor=\"let categoria of categorias\" [value]=\"categoria.id\">{{categoria.nombre}}</option>\r\n            </select>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <br>\r\n            <div [hidden]=\"clear\">\r\n              <label for=\"exampleInputImagen\">Imagen</label>\r\n              <input type=\"file\" name=\"imagen\" id=\"imagen\" (change)=\"onFileChange($event)\" #fileInput accept=\"image/*\">\r\n\r\n              <br>\r\n              <br>\r\n\r\n              <p [hidden]=\"clear\" style=\"color: #c71717\"><b>Sugerencia:</b> La dimensión de la imagen no debe ser mayor a 870x370 px.</p>\r\n              \r\n              <img src = \"{{objAEditar.imagen}}\" alt=\"\" height=\"160px\">\r\n            </div>\r\n              <div *ngIf=\"clear\">\r\n                <label for=\"exampleInputImagen\">Imagen</label>\r\n                <br>\r\n                <output id=\"list\"></output>\r\n                <br>\r\n                <br>\r\n                <button type=\"button\" class=\"btn btn-danger btn-tn\" (click)=\"clearFile()\">clear file</button>\r\n              </div>\r\n          </div>\r\n          \r\n          <br>\r\n          <button class=\"btn btn-secondary\" (click)=\"atras()\">Cancelar</button>\r\n          <button type=\"submit\" class=\"btn btn-primary\" (click)=\"editar()\" [disabled]=\"myFormEditar.invalid\">Editar</button>\r\n          <br><br><br>\r\n          <nb-card-header>Subcategorias Subyancentes</nb-card-header>\r\n          <br><br>\r\n          <table class=\"table\">\r\n            <thead>\r\n               <!-- <th style=\"text-align: center;\">ID</th> -->\r\n               <th style=\"text-align: center;\">Subcategoria</th>\r\n            </thead>\r\n            <tbody>\r\n               <tr *ngFor=\"let item of objAEditar.subcategorias\" >\r\n                  <td style=\"text-align: center; vertical-align:middle;\">{{item.nombre}}</td>\r\n               </tr>\r\n            </tbody>\r\n          </table>\r\n\r\n        </form>\r\n      </nb-card-body>\r\n    </nb-card>\r\n  </div>\r\n</div>\r\n\r\n<ng-template #modal1 let-c=\"close\" let-d=\"dismiss\">\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\">Eliminar Categoría: </h4>\r\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"d('Cross click')\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <p>¿Realmente desea eliminar la categoría {{eliminar_nombre}}?</p>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" class=\"btn btn-secondary\" (click)=\"c('Close click')\">Cancelar</button>\r\n    <button type=\"button\" class=\"btn btn-danger\" (click)=\"c('Close click'); eliminar()\">Eliminar</button>\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #modal2 let-c=\"close\" let-d=\"dismiss\" size=\"lg\">\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\">Subcategorías de la Categoría {{habCategoria.nombre}}: </h4>\r\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"d('Cross click'); apagarSwiche()\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <nb-card >\r\n      <nb-card-header>\r\n        <div class=\"row show-grid\">\r\n              <div class=\"col-6\">\r\n                <div>Lista de Subcategorías</div>\r\n              </div>\r\n              <div class=\"col-6\">\r\n                <div>\r\n                  <div style=\"text-align: right;\">\r\n                   <strong>Buscar: </strong>\r\n                   <input  type=\"text\"  id=\"inputName2\" [(ngModel)]=\"inputName2\" (ngModelChange)=\"FilterByName2()\"/>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n      </nb-card-header>\r\n\r\n      <nb-card-body>\r\n\r\n        <table class=\"table table-striped\">\r\n          <thead>\r\n             <!-- <th style=\"text-align: center;\">ID</th> -->\r\n             <th style=\"text-align: center;\">Imagen</th>\r\n             <th style=\"text-align: center;\">Nombre</th>\r\n             <th style=\"text-align: center;\">Estado</th>\r\n          </thead>\r\n          <tbody>\r\n             <tr *ngFor=\"let item of items2\" >\r\n                <td style=\"text-align: center; vertical-align:middle;\"><img src = \"{{item.imagen}}\" alt=\"\" height=\"auto\" width=\"60px\"></td>\r\n                <td style=\"text-align: center; vertical-align:middle;\">{{item.nombre}}</td>\r\n                <td style=\"text-align: center; vertical-align:middle;\">\r\n                  <!-- <div class=\"estado\" style=\"display:block; margin:auto\">\r\n                    <label class=\"theme-switch\">\r\n                      <span class=\"light\">OFF</span>\r\n                      <div class=\"switch\">\r\n                        <input type=\"checkbox\" [checked]=\"item.estado === 'ON'\" (change)=\"cambioSwicheSubCat(item)\" #theme>\r\n                        <span class=\"slider\"></span>\r\n                      </div>\r\n                      <span class=\"cosmic\">ON</span>\r\n                    </label>\r\n                  </div> -->\r\n                  <nb-checkbox [value]=\"item.estado === 'ON'\" (change)=\"cambioSwicheSubCat(item)\">{{item.estado}}</nb-checkbox>\r\n                </td> \r\n                \r\n             </tr>\r\n          </tbody>\r\n        </table>\r\n          \r\n      </nb-card-body>\r\n      <nb-card-footer>\r\n        <div class=\"btn-toolbar\" role=\"toolbar\" style=\"margin: 0;\">\r\n          <div class=\"btn-group\">\r\n             <label style=\"margin-top:10px\">Página {{currentIndex2}}/{{pageNumber2}} </label>\r\n          </div>\r\n          <div class=\"btn-group pull-right\">\r\n             <ul class=\"pagination\" >\r\n                <li class=\"page-item\" [ngClass]=\"{'disabled': (currentIndex2 == 1 || pageNumber2 == 0)}\" ><a class=\"page-link\"  (click)=\"prevPage2()\" >Atrás</a></li>\r\n                   <li class=\"page-item\" *ngFor=\"let page of pagesIndex2\"  [ngClass]=\"{'active': (currentIndex2 == page)}\">\r\n                      <a class=\"page-link\" (click)=\"setPage2(page)\"  >{{page}} </a>\r\n                   </li>\r\n                <li class=\"page-item\" [ngClass]=\"{'disabled': (currentIndex2 == pageNumber2 || pageNumber2 == 0)}\" ><a class=\"page-link\"   (click)=\"nextPage2()\" >Siguiente</a></li>\r\n             </ul>\r\n          </div>\r\n        </div>  \r\n      </nb-card-footer>\r\n    </nb-card>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" class=\"btn btn-secondary\" (click)=\"c('Close click'); apagarSwiche()\">Cancelar</button>\r\n    <button type=\"button\" class=\"btn btn-danger\" (click)=\"c('Close click') ; habilitarCat()\">Aceptar</button>\r\n  </div>\r\n</ng-template>\r\n\r\n<toaster-container [toasterconfig]=\"config\"></toaster-container>\r\n\r\n<div class=\"my-container\">\r\n    <ngx-loading [show]=\"loading\" [config]=\"{ backdropBorderRadius: '4px' }\"></ngx-loading>\r\n</div>"
+module.exports = "<nb-card *ngIf=\"!editando && mostrar\">\r\n  <nb-card-header>\r\n    <div class=\"row show-grid\">\r\n          <div class=\"col-6\">\r\n            <div>Lista de Categorías</div>\r\n          </div>\r\n          <div class=\"col-6\">\r\n            <div>\r\n              <div style=\"text-align: right;\">\r\n               <strong>Buscar: </strong>\r\n               <input  type=\"text\"  id=\"inputName\" [(ngModel)]=\"inputName\" (ngModelChange)=\"FilterByName()\"/>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n  </nb-card-header>\r\n\r\n  <nb-card-body>\r\n\r\n    <table class=\"table\">\r\n      <thead>\r\n         <th style=\"text-align: center;\">Imagen</th> \r\n         <th style=\"text-align: center;\">Nombre</th>\r\n         <th style=\"text-align: center;\">Estado</th>\r\n         <th style=\"text-align: center;\">Acciones</th>\r\n      </thead>\r\n      <tbody>\r\n         <tr *ngFor=\"let item of items\" >\r\n            <td style=\"text-align: center; vertical-align:middle;\"><img src=\"{{item.imagen}}\" alt=\"\" style=\"width: 80px; height: 80px\"></td>\r\n            <td style=\"text-align: center; vertical-align:middle;\">{{item.nombre}}</td>\r\n            <td style=\" vertical-align:middle;\">\r\n              <div *ngIf=\"mostrarSwiches\" class=\"estado\" style=\"display:block; margin:auto\">\r\n                <label class=\"theme-switch\">\r\n                  <span class=\"light\">OFF</span>\r\n                  <div class=\"switch\">\r\n                    <input type=\"checkbox\" [checked]=\"item.estado === 'ON'\" (change)=\"cambioSwicheCat(item, modal2)\" #theme>\r\n                    <span class=\"slider\"></span>\r\n                  </div>\r\n                  <span class=\"cosmic\">ON</span>\r\n                </label>\r\n              </div>\r\n            </td> \r\n            <td style=\"text-align: center; vertical-align:middle;\">\r\n              <button type=\"button\" class=\"btn btn-primary btn-icon btn-sm btn-table\" title=\"Editar\" (click)=\"aEditar(item)\">\r\n                <i class=\"nb-edit\"></i>\r\n              </button>\r\n              <button type=\"button\" class=\"btn btn-danger btn-icon btn-sm btn-table\" title=\"Eliminar\" (click)=\"open(modal1); aEliminar(item)\">\r\n                <i class=\"nb-trash\"></i>\r\n              </button>\r\n            </td>\r\n         </tr>\r\n      </tbody>\r\n    </table>\r\n      \r\n  </nb-card-body>\r\n  <nb-card-footer>\r\n    <div class=\"btn-toolbar\" role=\"toolbar\" style=\"margin: 0;\">\r\n      <div class=\"btn-group\">\r\n         <label style=\"margin-top:10px\">Página {{currentIndex}}/{{pageNumber}} </label>\r\n      </div>\r\n      <div class=\"btn-group pull-right\">\r\n         <ul class=\"pagination\" >\r\n            <li class=\"page-item\" [ngClass]=\"{'disabled': (currentIndex == 1 || pageNumber == 0)}\" ><a class=\"page-link\"  (click)=\"prevPage()\" >Atrás</a></li>\r\n               <li class=\"page-item\" *ngFor=\"let page of pagesIndex\"  [ngClass]=\"{'active': (currentIndex == page)}\">\r\n                  <a class=\"page-link\" (click)=\"setPage(page)\"  >{{page}} </a>\r\n               </li>\r\n            <li class=\"page-item\" [ngClass]=\"{'disabled': (currentIndex == pageNumber || pageNumber == 0)}\" ><a class=\"page-link\"   (click)=\"nextPage()\" >Siguiente</a></li>\r\n         </ul>\r\n      </div>\r\n    </div>  \r\n  </nb-card-footer>\r\n</nb-card>\r\n\r\n<div class=\"row\" *ngIf=\"editando\">\r\n  <div class=\"col-lg-6\" style=\"display:block; margin:auto\">\r\n    <nb-card>\r\n      <nb-card-header>Editar Categoría</nb-card-header>\r\n      <nb-card-body>\r\n        <form [formGroup]=\"myFormEditar\" novalidate>\r\n          <div class=\"form-group\">\r\n            <label for=\"exampleInputEmail1\">Nombre</label>\r\n            <input type=\"text\" class=\"form-control\" id=\"exampleInputNombre\" placeholder=\"Nombre\" formControlName=\"nombre\">\r\n            <div *ngIf=\"myFormEditar.get('nombre').errors && myFormEditar.get('nombre').dirty\">\r\n              <p *ngIf=\"myFormEditar.get('nombre').hasError('required')\">Nombre es requerido</p>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label for=\"exampleInputEmail1\">Nombre en ingles</label>\r\n            <input type=\"text\" class=\"form-control\" id=\"exampleInputNombre\" placeholder=\"Ingles\" formControlName=\"ingles\">\r\n            <div *ngIf=\"myFormEditar.get('ingles').errors && myFormEditar.get('ingles').dirty\">\r\n              <p *ngIf=\"myFormEditar.get('ingles').hasError('required')\">ingles es requerido</p>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group\">\r\n            <label for=\"exampleInputCat\">Categoría</label>\r\n            <select class=\"form-control\" id=\"exampleInputCat\" formControlName=\"categoria_id\">\r\n              <!-- <option disabled selected>Selecciona una categoría</option> -->\r\n              <option *ngFor=\"let categoria of categorias\" [value]=\"categoria.id\">{{categoria.nombre}}</option>\r\n            </select>\r\n          </div>\r\n\r\n          <!-- <div class=\"form-group\">\r\n            <br>\r\n            <div [hidden]=\"clear\">\r\n              <label for=\"exampleInputImagen\">Imagen</label>\r\n              <input type=\"file\" name=\"imagen\" id=\"imagen\" (change)=\"onFileChange($event)\" #fileInput accept=\"image/*\">\r\n          \r\n              <br>\r\n              <br>\r\n          \r\n              <p [hidden]=\"clear\" style=\"color: #c71717\"><b>Sugerencia:</b> La dimensión de la imagen no debe ser mayor a 870x370 px.</p>\r\n              \r\n              <img src = \"{{objAEditar.imagen}}\" alt=\"\" height=\"160px\">\r\n            </div>\r\n              <div *ngIf=\"clear\">\r\n                <label for=\"exampleInputImagen\">Imagen</label>\r\n                <br>\r\n                <output id=\"list\"></output>\r\n                <br>\r\n                <br>\r\n                <button type=\"button\" class=\"btn btn-danger btn-tn\" (click)=\"clearFile()\">clear file</button>\r\n              </div>\r\n          </div> -->\r\n\r\n          <div class=\"row\">\r\n            <div class=\"col-md-12\">\r\n              <br>\r\n              <label for=\"imagen\">Imagen</label>\r\n              <input [hidden]=\"clear\" type=\"file\" name=\"imagen\" id=\"imagen\" (change)=\"onFileChange($event)\" #fileInput accept=\"image/*\">\r\n              <br><br>\r\n              <p [hidden]=\"clear\" style=\"color: #c71717\"><b>Sugerencia:</b> La dimensión de la imagen no debe ser mayor a 870x370 px.</p>\r\n              <br>\r\n\r\n            </div>\r\n\r\n            <div class=\"col-md-12\">\r\n              <table class=\"table table-bordered\">\r\n                <thead>\r\n                  <tr>\r\n                    <th>Archivo</th>\r\n                    <th>Acción</th>\r\n                  </tr>\r\n                </thead>\r\n                <tbody>\r\n                  <tr *ngFor=\"let item of imagenes; index as i\">\r\n                    <td *ngIf=\"item.eliminar == 0\" style=\"text-align: center; vertical-align:middle;\">\r\n                      <!-- <a href=\"{{item.url}}\" target=\"_blank\">\r\n                        <i class=\"fa fa-{{item.icono}} fa-lg\"> archivo</i>\r\n                      </a> -->\r\n                      <img src=\"{{item.imagen}}\" alt=\"\" width=\"200\" height=\"200\">\r\n                    </td>\r\n                    <td *ngIf=\"item.eliminar == 0\" style=\"text-align: center; vertical-align:middle;\">\r\n                      <!-- <a class=\"btn btn-sm btn-outline-success\" href=\"{{item.url}}\" download >*</a> -->\r\n                      <button type=\"button\" class=\"btn btn-sm btn-outline-danger\" (click)=\"clearImagen(i)\" title=\"Eliminar\">x</button>\r\n                    </td>\r\n                  </tr>\r\n                </tbody>\r\n              </table>\r\n            </div>\r\n          </div>\r\n          \r\n          <br>\r\n          <button class=\"btn btn-secondary\" (click)=\"atras()\">Cancelar</button>\r\n          <button type=\"submit\" class=\"btn btn-primary\" (click)=\"editar()\" [disabled]=\"myFormEditar.invalid\">Editar</button>\r\n          <br><br><br>\r\n          <nb-card-header>Subcategorias Subyancentes</nb-card-header>\r\n          <br><br>\r\n          <table class=\"table\">\r\n            <thead>\r\n               <!-- <th style=\"text-align: center;\">ID</th> -->\r\n               <th style=\"text-align: center;\">Subcategoria</th>\r\n            </thead>\r\n            <tbody>\r\n               <tr *ngFor=\"let item of objAEditar.subcategorias\" >\r\n                  <td style=\"text-align: center; vertical-align:middle;\">{{item.nombre}}</td>\r\n               </tr>\r\n            </tbody>\r\n          </table>\r\n\r\n        </form>\r\n      </nb-card-body>\r\n    </nb-card>\r\n  </div>\r\n</div>\r\n\r\n<ng-template #modal1 let-c=\"close\" let-d=\"dismiss\">\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\">Eliminar Categoría: </h4>\r\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"d('Cross click')\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <p>¿Realmente desea eliminar la categoría {{eliminar_nombre}}?</p>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" class=\"btn btn-secondary\" (click)=\"c('Close click')\">Cancelar</button>\r\n    <button type=\"button\" class=\"btn btn-danger\" (click)=\"c('Close click'); eliminar()\">Eliminar</button>\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #modal2 let-c=\"close\" let-d=\"dismiss\" size=\"lg\">\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\">Subcategorías de la Categoría {{habCategoria.nombre}}: </h4>\r\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"d('Cross click'); apagarSwiche()\">\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body\">\r\n    <nb-card >\r\n      <nb-card-header>\r\n        <div class=\"row show-grid\">\r\n              <div class=\"col-6\">\r\n                <div>Lista de Subcategorías</div>\r\n              </div>\r\n              <div class=\"col-6\">\r\n                <div>\r\n                  <div style=\"text-align: right;\">\r\n                   <strong>Buscar: </strong>\r\n                   <input  type=\"text\"  id=\"inputName2\" [(ngModel)]=\"inputName2\" (ngModelChange)=\"FilterByName2()\"/>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n      </nb-card-header>\r\n\r\n      <nb-card-body>\r\n\r\n        <table class=\"table table-striped\">\r\n          <thead>\r\n             <!-- <th style=\"text-align: center;\">ID</th> -->\r\n             <th style=\"text-align: center;\">Imagen</th>\r\n             <th style=\"text-align: center;\">Nombre</th>\r\n             <th style=\"text-align: center;\">Estado</th>\r\n          </thead>\r\n          <tbody>\r\n             <tr *ngFor=\"let item of items2\" >\r\n                <td style=\"text-align: center; vertical-align:middle;\"><img src = \"{{item.imagen}}\" alt=\"\" height=\"auto\" width=\"60px\"></td>\r\n                <td style=\"text-align: center; vertical-align:middle;\">{{item.nombre}}</td>\r\n                <td style=\"text-align: center; vertical-align:middle;\">\r\n                  <!-- <div class=\"estado\" style=\"display:block; margin:auto\">\r\n                    <label class=\"theme-switch\">\r\n                      <span class=\"light\">OFF</span>\r\n                      <div class=\"switch\">\r\n                        <input type=\"checkbox\" [checked]=\"item.estado === 'ON'\" (change)=\"cambioSwicheSubCat(item)\" #theme>\r\n                        <span class=\"slider\"></span>\r\n                      </div>\r\n                      <span class=\"cosmic\">ON</span>\r\n                    </label>\r\n                  </div> -->\r\n                  <nb-checkbox [value]=\"item.estado === 'ON'\" (change)=\"cambioSwicheSubCat(item)\">{{item.estado}}</nb-checkbox>\r\n                </td> \r\n                \r\n             </tr>\r\n          </tbody>\r\n        </table>\r\n          \r\n      </nb-card-body>\r\n      <nb-card-footer>\r\n        <div class=\"btn-toolbar\" role=\"toolbar\" style=\"margin: 0;\">\r\n          <div class=\"btn-group\">\r\n             <label style=\"margin-top:10px\">Página {{currentIndex2}}/{{pageNumber2}} </label>\r\n          </div>\r\n          <div class=\"btn-group pull-right\">\r\n             <ul class=\"pagination\" >\r\n                <li class=\"page-item\" [ngClass]=\"{'disabled': (currentIndex2 == 1 || pageNumber2 == 0)}\" ><a class=\"page-link\"  (click)=\"prevPage2()\" >Atrás</a></li>\r\n                   <li class=\"page-item\" *ngFor=\"let page of pagesIndex2\"  [ngClass]=\"{'active': (currentIndex2 == page)}\">\r\n                      <a class=\"page-link\" (click)=\"setPage2(page)\"  >{{page}} </a>\r\n                   </li>\r\n                <li class=\"page-item\" [ngClass]=\"{'disabled': (currentIndex2 == pageNumber2 || pageNumber2 == 0)}\" ><a class=\"page-link\"   (click)=\"nextPage2()\" >Siguiente</a></li>\r\n             </ul>\r\n          </div>\r\n        </div>  \r\n      </nb-card-footer>\r\n    </nb-card>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" class=\"btn btn-secondary\" (click)=\"c('Close click'); apagarSwiche()\">Cancelar</button>\r\n    <button type=\"button\" class=\"btn btn-danger\" (click)=\"c('Close click') ; habilitarCat()\">Aceptar</button>\r\n  </div>\r\n</ng-template>\r\n\r\n<toaster-container [toasterconfig]=\"config\"></toaster-container>\r\n\r\n<div class=\"my-container\">\r\n    <ngx-loading [show]=\"loading\" [config]=\"{ backdropBorderRadius: '4px' }\"></ngx-loading>\r\n</div>"
 
 /***/ }),
 
@@ -418,6 +427,7 @@ var CategoriasVerComponent = /** @class */ (function () {
         this.imgUpload = null;
         this.loadinImg = false;
         this.mouvers_user_tipo = localStorage.getItem('mouvers_user_tipo');
+        this.imagenes = [];
         this.pages = 4;
         this.pageSize = 5;
         this.pageNumber = 0;
@@ -434,7 +444,7 @@ var CategoriasVerComponent = /** @class */ (function () {
             id: [''],
             nombre: ['', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required]],
             ingles: ['', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required]],
-            imagen: [''],
+            //imagen: [''],
             categoria_id: ['', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required]]
         });
     }
@@ -481,6 +491,12 @@ var CategoriasVerComponent = /** @class */ (function () {
             console.log(data);
             _this.data = data;
             _this.productList = _this.data.categorias;
+            //Inicializar Img
+            for (var i = 0; i < _this.productList.length; ++i) {
+                if (_this.productList[i].imagenes && _this.productList[i].imagenes.length > 0) {
+                    _this.productList[i].imagen = _this.productList[i].imagenes[0].imagen;
+                }
+            }
             _this.productList = _this.productList.sort(function (a, b) {
                 if (a.nombre < b.nombre) {
                     return -1;
@@ -492,7 +508,7 @@ var CategoriasVerComponent = /** @class */ (function () {
             });
             setTimeout(function () {
                 _this.filteredItems = _this.productList;
-                console.log(_this.productList);
+                //console.log(this.productList);
                 _this.init();
                 _this.loading = false;
             }, 2000);
@@ -550,33 +566,42 @@ var CategoriasVerComponent = /** @class */ (function () {
         //this.uploadFile = null;
         this.myFormEditar.reset();
         this.clearFile();
+        this.imagenes = [];
     };
     CategoriasVerComponent.prototype.aEditar = function (obj) {
         this.editando = true;
-        this.objAEditar = Object.assign({}, obj);
+        //this.objAEditar = Object.assign({},obj);
+        this.objAEditar = JSON.parse(JSON.stringify(obj));
         console.log(this.objAEditar);
         this.myFormEditar.patchValue({ id: this.objAEditar.id });
         this.myFormEditar.patchValue({ nombre: this.objAEditar.nombre });
         this.myFormEditar.patchValue({ ingles: this.objAEditar.ingles });
-        this.myFormEditar.patchValue({ imagen: this.objAEditar.imagen });
+        //this.myFormEditar.patchValue({imagen : this.objAEditar.imagen});
         this.myFormEditar.patchValue({ categoria_id: this.objAEditar.catprincipales_id });
+        this.imagenes = this.objAEditar.imagenes;
+        for (var i = 0; i < this.imagenes.length; ++i) {
+            this.imagenes[i].eliminar = 0;
+            this.imagenes[i].nueva = 0;
+        }
     };
     CategoriasVerComponent.prototype.editar = function () {
         var _this = this;
         this.loading = true;
-        var imgAux;
-        if (this.imgUpload) {
-            imgAux = this.imgUpload;
+        /*var imgAux: any;
+        
+        if(this.imgUpload){
+          imgAux = this.imgUpload;
         }
-        else {
-            imgAux = this.myFormEditar.value.imagen;
-        }
+        else{
+          imgAux = this.myFormEditar.value.imagen;
+        }*/
         var datos = {
             token: localStorage.getItem('mouvers_token'),
             nombre: this.myFormEditar.value.nombre,
             ingles: this.myFormEditar.value.ingles,
-            imagen: imgAux,
-            catprincipales_id: this.myFormEditar.value.categoria_id
+            //imagen: imgAux,
+            catprincipales_id: this.myFormEditar.value.categoria_id,
+            imagenes: JSON.stringify(this.imagenes),
         };
         this.http.put(this.rutaService.getRutaApi() + 'categorias/' + this.myFormEditar.value.id, datos)
             .toPromise()
@@ -587,8 +612,16 @@ var CategoriasVerComponent = /** @class */ (function () {
                 if (_this.productList[i].id == _this.myFormEditar.value.id) {
                     _this.productList[i].nombre = _this.myFormEditar.value.nombre;
                     _this.productList[i].ingles = _this.myFormEditar.value.ingles;
-                    _this.productList[i].imagen = imgAux;
+                    //this.productList[i].imagen = imgAux;
                     _this.productList[i].categoria_id = _this.myFormEditar.value.categoria_id;
+                    var aux = [];
+                    for (var j = 0; j < _this.imagenes.length; ++j) {
+                        if (_this.imagenes[j].eliminar == 0) {
+                            aux.push(_this.imagenes[j]);
+                        }
+                    }
+                    _this.productList[i].imagen = aux[0].imagen;
+                    _this.productList[i].imagenes = aux;
                 }
             }
             _this.filteredItems = _this.productList;
@@ -599,6 +632,7 @@ var CategoriasVerComponent = /** @class */ (function () {
             _this.editando = false;
             _this.clearFile();
             _this.showToast('success', 'Success!', _this.data.message);
+            _this.imagenes = [];
         }, function (msg) {
             console.log(msg);
             console.log(msg.error.error);
@@ -628,6 +662,7 @@ var CategoriasVerComponent = /** @class */ (function () {
             console.log(data);
             _this.data = data;
             _this.imgUpload = _this.data.imagen;
+            _this.imagenes.push({ imagen: _this.imgUpload, eliminar: 0, nueva: 1 });
             //Solo admitimos imágenes.
             if (!_this.fileIMG.type.match('image.*')) {
                 return;
@@ -636,13 +671,14 @@ var CategoriasVerComponent = /** @class */ (function () {
             reader.onload = (function (theFile) {
                 return function (e) {
                     // Creamos la imagen.
-                    document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result, '" height="160px"/>'].join('');
+                    //document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result, '" height="160px"/>'].join('');
                 };
             })(_this.fileIMG);
             reader.readAsDataURL(_this.fileIMG);
             _this.clear = true;
             _this.loading = false;
             _this.showToast('success', 'Success!', _this.data.message);
+            _this.clearFile();
         }, function (msg) {
             console.log(msg);
             console.log(msg.error.error);
@@ -678,6 +714,19 @@ var CategoriasVerComponent = /** @class */ (function () {
         this.clear = false;
     };
     //Carga de img--->
+    CategoriasVerComponent.prototype.clearImagen = function (index) {
+        /*this.imagenes.splice(index, 1);*/
+        var count = 0;
+        for (var i = 0; i < this.imagenes.length; ++i) {
+            count += this.imagenes[i].eliminar;
+        }
+        if (count == this.imagenes.length - 1) {
+            this.showToast('warning', 'Warning!', 'La categoría debe poseer al menos una imagen.');
+        }
+        else {
+            this.imagenes[index].eliminar = 1;
+        }
+    };
     CategoriasVerComponent.prototype.aEliminar = function (obj) {
         this.objAEliminar = obj;
         //console.log(this.objAEliminar);

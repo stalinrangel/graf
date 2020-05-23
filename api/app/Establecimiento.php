@@ -24,7 +24,7 @@ class Establecimiento extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre', 'direccion', 'direccion_exacta', 'lat', 'lng', 'estado', 'num_pedidos', 'usuario_id','horarios','lunes_i','lunes_f','martes_i','martes_f','miercoles_i','miercoles_f','jueves_i','jueves_f','viernes_i','viernes_f','sabado_i','sabado_f','domingo_i','domingo_f'];
+    protected $fillable = ['nombre', 'direccion', 'direccion_exacta', 'lat', 'lng', 'estado', 'num_pedidos', 'usuario_id', 'acreditaciones','horarios','lunes_i','lunes_f','martes_i','martes_f','miercoles_i','miercoles_f','jueves_i','jueves_f','viernes_i','viernes_f','sabado_i','sabado_f','domingo_i','domingo_f'];
 
     /**
      * The attributes excluded from the model's JSON form.
