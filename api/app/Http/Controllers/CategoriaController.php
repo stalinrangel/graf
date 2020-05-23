@@ -455,6 +455,8 @@ class CategoriaController extends Controller
                 $categoria[$i]->subcategorias[$j]->tiempo_costo=json_decode($categoria[$i]->subcategorias[$j]->tiempo_costo);
             }
 
+
+            //Imagen aleatorea
             $imagenes = \App\ImagenCat::where('categoria_id',$categoria[$i]->id)->get();
             if (count($imagenes) == 1) {
                 $categoria[$i]->imagen = $imagenes[0]->imagen;
@@ -463,6 +465,27 @@ class CategoriaController extends Controller
                 $aleatoreo = rand(0, count($imagenes) - 1);
                 $categoria[$i]->imagen = $imagenes[$aleatoreo]->imagen;
             }
+
+            //Colores aleatoreos
+            $colors = [
+                '#c9f5f6',
+                '#ebfffe',
+                '#fff8e8',
+                '#fff0ed',
+                "#fff1ff",
+                "#ffffdb"
+            ];
+
+            $color_aleatoreo1 = rand(0, 4);
+            $categoria[$i]->colorheader = $colors[$color_aleatoreo1];
+
+            $color_aleatoreo2 = rand(0, 4);
+            $categoria[$i]->colorfondo = $colors[$color_aleatoreo2];
+
+            //Num aleatoreo
+            $num_aleatoreo = rand(1, 5);
+            $categoria[$i]->aleatoreo = $num_aleatoreo;
+
         }
 
         if(count($categoria)==0){
