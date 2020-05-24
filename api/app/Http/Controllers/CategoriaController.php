@@ -491,12 +491,13 @@ class CategoriaController extends Controller
         }else{
 
             //Colores aleatoreos
-            $colors = ['#a8edef',
-            '#b9f1ee',
-            '#fbe8be',
-            '#f9dad4',
-            '#f1d0f1',
-            '#ececbb'
+            $colors = [
+            '#92e0e2',
+            '#a9efef',
+            '#fdebba',
+            '#fdcdc1',
+            '#ebbaf9',
+            '#f3f1b4'
             ];
 
             $color_aleatoreo1 = rand(0, 4);
