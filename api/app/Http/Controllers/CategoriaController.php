@@ -500,7 +500,7 @@ class CategoriaController extends Controller
             '#f3f1b4'
             ];
 
-            $color_aleatoreo1 = rand(0, 4);
+            $color_aleatoreo1 = rand(0, 5);
             $colorheader = $colors[$color_aleatoreo1];
 
             //Colores aleatoreos
@@ -513,7 +513,7 @@ class CategoriaController extends Controller
                 "#ffffdb"
             ];
 
-            $color_aleatoreo2 = rand(0, 4);
+            $color_aleatoreo2 = rand(0, 5);
             $colorfondo = $colors2[$color_aleatoreo1];
 
             //Num aleatoreo
