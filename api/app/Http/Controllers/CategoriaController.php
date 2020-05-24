@@ -513,7 +513,7 @@ class CategoriaController extends Controller
             ];
 
             $color_aleatoreo2 = rand(0, 4);
-            $colorfondo = $colors2[$color_aleatoreo2];
+            $colorfondo = $colors2[$color_aleatoreo1];
 
             //Num aleatoreo
             $num_aleatoreo = rand(1, 3);
