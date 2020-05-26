@@ -485,15 +485,7 @@ class CategoriaController extends Controller
             }
 
             //Colores aleatoreos
-            $colors = [
-                '#c9f5f6',
-                '#ebfffe',
-                '#fff8e8',
-                '#fff0ed',
-                "#fff1ff",
-                "#ffffdb"
-            ];
-
+        
             $color_aleatoreo1 = rand(0, 6);
             $categoria[$i]->colorheader = $colors[$color_aleatoreo1];
 
@@ -510,27 +502,13 @@ class CategoriaController extends Controller
         }else{
 
             //Colores aleatoreos
-            $colors = [
-            '#92e0e2',
-            '#a9efef',
-            '#fdebba',
-            '#fdcdc1',
-            '#ebbaf9',
-            '#f3f1b4'
-            ];
+            
 
             $color_aleatoreo1 = rand(0, 5);
             $colorheader = $colors[$color_aleatoreo1];
 
             //Colores aleatoreos
-            $colors2 = [
-                '#c9f5f6',
-                '#ebfffe',
-                '#fff8e8',
-                '#fff0ed',
-                "#fff1ff",
-                "#ffffdb"
-            ];
+           
 
             $color_aleatoreo2 = rand(0, 5);
             $colorfondo = $colors2[$color_aleatoreo1];
