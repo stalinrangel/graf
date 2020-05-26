@@ -487,10 +487,10 @@ class CategoriaController extends Controller
             //Colores aleatoreos
         
             $color_aleatoreo1 = rand(0, 6);
-            $categoria[$i]->colorheader = $colors[$color_aleatoreo1];
+           // $categoria[$i]->colorheader = $colors[$color_aleatoreo1];
 
             $color_aleatoreo2 = rand(0, 6);
-            $categoria[$i]->colorfondo = $colors[$color_aleatoreo1];
+            //$categoria[$i]->colorfondo = $colors[$color_aleatoreo1];
 
             //Num aleatoreo
             $num_aleatoreo = rand(1, 5);
