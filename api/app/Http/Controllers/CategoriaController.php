@@ -467,10 +467,11 @@ class CategoriaController extends Controller
             ];
 
         for ($i=0; $i < count($categoria); $i++) { 
+            $categoria[$i]->colorheader=$colors[$i];
+            $categoria[$i]->colorfondo=$colors2[$i];
             for ($j=0; $j < count($categoria[$i]->subcategorias); $j++) { 
                 $categoria[$i]->subcategorias[$j]->tiempo_costo=json_decode($categoria[$i]->subcategorias[$j]->tiempo_costo);
-                 $categoria[$i]->colorheader=$colors[$i];
-                 $categoria[$i]->colorfondo=$colors2[$i];
+                 
             }
 
             //Imagen aleatorea
