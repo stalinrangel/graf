@@ -106,7 +106,7 @@ class EstablecimientoController extends Controller
              /*Segundo creo una instancia en la tabla repartidores*/
             $repartidor = new \App\Repartidor;
             $repartidor->estado = 'ON';
-            $repartidor->activo = 3;
+            $repartidor->activo = 4;
             $repartidor->ocupado = 2;
             $repartidor->usuario_id = $usuario->id; 
             $repartidor->save();

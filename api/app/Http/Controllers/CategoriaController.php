@@ -449,10 +449,28 @@ class CategoriaController extends Controller
     {
         //cargar una cat con sus subcat
         $categoria = \App\Categoria::with('subcategorias')->get();
+             $colors = [
+                '#92e0e2',
+                '#a9efef',
+                '#fdebba',
+                '#fdcdc1',
+                '#ebbaf9',
+                '#f3f1b4'
+            ];
+            $colors2 = [
+                '#c9f5f6',
+                '#ebfffe',
+                '#fff8e8',
+                '#fff0ed',
+                "#fff1ff",
+                "#ffffdb"
+            ];
 
         for ($i=0; $i < count($categoria); $i++) { 
             for ($j=0; $j < count($categoria[$i]->subcategorias); $j++) { 
                 $categoria[$i]->subcategorias[$j]->tiempo_costo=json_decode($categoria[$i]->subcategorias[$j]->tiempo_costo);
+                 $categoria[$i]->colorheader=$colors[$i];
+                 $categoria[$i]->colorfondo=$colors2[$i];
             }
 
             //Imagen aleatorea

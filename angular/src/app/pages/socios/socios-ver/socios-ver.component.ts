@@ -188,11 +188,11 @@ export class SociosVerComponent implements OnInit{
            this.productList = this.data.repartidores;
 
            for (var i = 0; i < this.productList.length; ++i) {
-             console.log(this.productList[i].usuario.registro);
-             if(this.productList[i].usuario.registro.tipo==2) {
-               this.productList[i].tipo2='Empresa';
-             }else if(this.productList[i].usuario.registro.tipo==1) {
-               this.productList[i].tipo2='Individuo';
+             console.log(this.productList[i].usuario);
+             if(this.productList[i].usuario.tipo_usuario==3) {
+               this.productList[i].tipo2='Profesional';
+             }else if(this.productList[i].usuario.tipo_usuario==4) {
+               this.productList[i].tipo2='Clinica';
              }
            }
            
