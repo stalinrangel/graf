@@ -947,6 +947,45 @@ export class SociosVerComponent implements OnInit{
            }
          );
     }
+
+  getAgenda() {
+    
+      this.http.get(this.rutaService.getRutaApi()+'agenda/usuario/'+this.objAEditar.usuario.id+'?token='+localStorage.getItem('mouvers_token'))
+         .toPromise()
+         .then(
+           data => { // Success
+
+             console.log(data);
+             this.data=data;
+
+           },
+           msg => { // Error
+             console.log(msg);
+             console.log(msg.error.error);
+
+             //token invalido/ausente o token expiro
+             if(msg.status == 400 || msg.status == 401){ 
+                  //alert(msg.error.error);
+
+                  this.showToast('warning', 'Warning!', msg.error.error);
+                  this.mostrar = false;
+                  setTimeout(()=>{
+                    this.router.navigateByUrl('/pagessimples/loginf');
+                  },1000);
+              }
+              //sin usuarios
+              else if(msg.status == 404){ 
+                  //alert(msg.error.error);
+                  this.showToast('info', 'Info!', msg.error.error);
+              }
+              
+
+           }
+         );
+    
+  }
+
+
     //Subir foto
     //----------------------------------------------------------------------------------------------
     @ViewChild('fileInput') fileInput: ElementRef;
