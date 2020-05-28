@@ -347,6 +347,7 @@ export class SociosVerComponent implements OnInit{
       //this.uploadFile = null;
       this.myFormEditar.reset();
     }
+
     public establecimiento_id=0;
     public refer=true;
     aEditar(obj): void {
