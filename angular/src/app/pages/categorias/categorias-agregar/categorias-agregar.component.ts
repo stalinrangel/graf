@@ -67,7 +67,7 @@ export class CategoriasAgregarComponent implements OnInit{
         nombre: ['', [Validators.required]],
         ingles: ['', [Validators.required]],
         //imagen: [''],
-        catprincipales_id: ['', [Validators.required]]
+        //catprincipales_id: ['', [Validators.required]]
       });
 
     
@@ -84,7 +84,8 @@ export class CategoriasAgregarComponent implements OnInit{
 
       this.router.navigateByUrl('/pagessimples/loginf');
     }
-    this.loading = true;
+
+    /*this.loading = true;
 
     this.http.get(this.rutaService.getRutaApi()+'catprincipales?token='+localStorage.getItem('mouvers_token'))
        .toPromise()
@@ -117,7 +118,7 @@ export class CategoriasAgregarComponent implements OnInit{
             }
 
          }
-       );
+       );*/
   }
 
   private showToast(type: string, title: string, body: string) {
@@ -152,7 +153,7 @@ export class CategoriasAgregarComponent implements OnInit{
         ingles: this.myFormAgregar.value.ingles,
         //imagen: this.myFormAgregar.value.imagen,
         estado: 'ON',
-        catprincipales_id:this.myFormAgregar.value.catprincipales_id,
+        //catprincipales_id:this.myFormAgregar.value.catprincipales_id,
         imagenes: JSON.stringify(this.imagenes),
       }
       console.log(datos);

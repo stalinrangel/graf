@@ -79,6 +79,8 @@ export class SociosVerComponent implements OnInit{
   public contrato:any;
   public user:any;
 
+  agenda = null;
+
   constructor( private modalService: NgbModal,
                private toasterService: ToasterService,
                private http: HttpClient,
@@ -188,7 +190,7 @@ export class SociosVerComponent implements OnInit{
            this.productList = this.data.repartidores;
 
            for (var i = 0; i < this.productList.length; ++i) {
-             console.log(this.productList[i].usuario);
+             //console.log(this.productList[i].usuario);
              if(this.productList[i].usuario.tipo_usuario==3) {
                this.productList[i].tipo2='Profesional';
              }else if(this.productList[i].usuario.tipo_usuario==4) {
@@ -231,6 +233,8 @@ export class SociosVerComponent implements OnInit{
 
          }
        );
+
+       this.getAgenda();
   }
 
   //Redirigir al chat
@@ -951,13 +955,47 @@ export class SociosVerComponent implements OnInit{
 
   getAgenda() {
     
-      this.http.get(this.rutaService.getRutaApi()+'agenda/usuario/'+this.objAEditar.usuario.id+'?token='+localStorage.getItem('mouvers_token'))
+      this.http.get(this.rutaService.getRutaApi()+'agenda/usuario/'+/*this.objAEditar.usuario.id*/181+'?token='+localStorage.getItem('mouvers_token'))
          .toPromise()
          .then(
            data => { // Success
 
              console.log(data);
              this.data=data;
+
+             this.agenda = this.data.Agenda[0];
+             this.agenda.dias = JSON.parse(this.agenda.dias);
+             this.agenda.horas = JSON.parse(this.agenda.horas);
+
+             for (var i = 0; i < this.agenda.dias.length; ++i) {
+               this.agenda.dias[i].mostrar = true;
+
+               if (this.agenda.dias[i].dia == 'Lunes') {
+                 this.agenda.dias[i].day = 1;
+               }else if (this.agenda.dias[i].dia == 'Martes') {
+                 this.agenda.dias[i].day = 2;
+               }else if (this.agenda.dias[i].dia == 'Miércoles') {
+                 this.agenda.dias[i].day = 3;
+               }else if (this.agenda.dias[i].dia == 'Jueves') {
+                 this.agenda.dias[i].day = 4;
+               }else if (this.agenda.dias[i].dia == 'Viernes') {
+                 this.agenda.dias[i].day = 5;
+               }else if (this.agenda.dias[i].dia == 'Sábado') {
+                 this.agenda.dias[i].day = 6;
+               }else if (this.agenda.dias[i].dia == 'Domingo') {
+                 this.agenda.dias[i].day = 7;
+               }
+             }
+
+             this.agenda.dias.sort(function(a, b) {
+                return a.day - b.day;
+              });
+
+              for (var i = 0; i < this.agenda.horas.length; ++i) {
+                 this.agenda.horas[i].mostrar = true;
+               }
+
+             console.log(this.agenda);
 
            },
            msg => { // Error
@@ -984,6 +1022,36 @@ export class SociosVerComponent implements OnInit{
            }
          );
     
+  }
+
+  checkValueDia(obj): void {
+    obj.mostrar = false;
+
+    if (obj.value == 0) {
+      obj.value = 0;
+    }else if (obj.value == 1) {
+      obj.value = 1;
+    }
+    
+    setTimeout(()=>{
+      obj.mostrar = true;
+    },3);
+
+  }
+
+  checkValueHora(obj): void {
+    obj.mostrar = false;
+
+    if (obj.value == 0) {
+      obj.value = 0;
+    }else if (obj.value == 1) {
+      obj.value = 1;
+    }
+    
+    setTimeout(()=>{
+      obj.mostrar = true;
+    },3);
+
   }
 
 

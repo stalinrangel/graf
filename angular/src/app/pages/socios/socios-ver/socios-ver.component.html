@@ -95,7 +95,7 @@
          </tr>
       </tbody>
     </table>
-      
+  
   </nb-card-body>
   <nb-card-footer>
     <div class="btn-toolbar" role="toolbar" style="margin: 0;">
@@ -638,3 +638,38 @@
 <div class="my-container">
     <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '4px' }"></ngx-loading>
 </div>
+
+<nb-card *ngIf="agenda">
+  <nb-card-header>
+    <div>Horario de trabajo</div>
+  </nb-card-header>
+
+  <nb-card-body>
+     
+    <div class="row">
+      <div class="col-md-12">
+        <div>Días</div>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngFor="let item of agenda.dias" class="col-md-3">
+        <nb-checkbox *ngIf="item.mostrar == true" [value]="item.value" (change)="checkValueDia(item)">{{item.dia}}</nb-checkbox>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <div>Horas</div>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngFor="let item of agenda.horas" class="col-md-3">
+        <nb-checkbox *ngIf="item.mostrar == true" [value]="item.value" (change)="checkValueHora(item)">{{item.hora}}</nb-checkbox>
+      </div>
+    </div>
+
+  </nb-card-body>
+  <nb-card-footer>
+    
+  </nb-card-footer>
+</nb-card>

@@ -94,7 +94,7 @@ export class CategoriasVerComponent implements OnInit{
       nombre: ['', [Validators.required]],
       ingles: ['', [Validators.required]],
       //imagen: [''],
-      categoria_id: ['', [Validators.required]]
+      //categoria_id: ['', [Validators.required]]
     });
 
     
@@ -114,7 +114,7 @@ export class CategoriasVerComponent implements OnInit{
 
     }
     
-    this.loading = true;
+    /*this.loading = true;
 
     this.http.get(this.rutaService.getRutaApi()+'catprincipales?token='+localStorage.getItem('mouvers_token'))
        .toPromise()
@@ -149,7 +149,7 @@ export class CategoriasVerComponent implements OnInit{
             }
 
          }
-       );
+       );*/
        
     this.http.get(this.rutaService.getRutaApi()+'categorias?token='+localStorage.getItem('mouvers_token'))
        .toPromise()
@@ -266,7 +266,7 @@ export class CategoriasVerComponent implements OnInit{
       this.myFormEditar.patchValue({nombre : this.objAEditar.nombre});
       this.myFormEditar.patchValue({ingles : this.objAEditar.ingles});
       //this.myFormEditar.patchValue({imagen : this.objAEditar.imagen});
-      this.myFormEditar.patchValue({categoria_id : this.objAEditar.catprincipales_id});
+      //this.myFormEditar.patchValue({categoria_id : this.objAEditar.catprincipales_id});
 
       this.imagenes = this.objAEditar.imagenes;
       for (var i = 0; i < this.imagenes.length; ++i) {
@@ -293,7 +293,7 @@ export class CategoriasVerComponent implements OnInit{
         nombre: this.myFormEditar.value.nombre,
         ingles: this.myFormEditar.value.ingles,
         //imagen: imgAux,
-        catprincipales_id: this.myFormEditar.value.categoria_id,
+        //catprincipales_id: this.myFormEditar.value.categoria_id,
         imagenes: JSON.stringify(this.imagenes),
       }
 
