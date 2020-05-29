@@ -198,36 +198,49 @@ class AgendaController extends Controller
 
     public function miAgenda($usuario_id)
     {
+
+        $aux = [];
+
         //cargar las agendas de un usuario_id
         $Agenda = \App\Agenda::where('usuario_id', $usuario_id)->get();
 
-        return response()->json(['Agenda'=>$Agenda], 200); 
+        if (count($Agenda) > 0) {
+            array_push($aux, $Agenda[0]);
+        }
+
+        return response()->json(['Agenda'=>$aux], 200); 
     }
 
-    public function miAgendaApp($usuario_id, $dia)
+    public function miAgendaDiaria($usuario_id, $dia)
     {
         $aux = [];
-        $general = 0;
 
         //cargar la agenda de un usuario_id en un dia espcifico
         $Agenda = \App\Agenda_dias::where('usuario_id', $usuario_id)
             ->where('dia', $dia)
             ->get();
 
-        if (count($Agenda) == 0) {
-            //cargar la agenda general
-            $Agenda = \App\Agenda::where('usuario_id', $usuario_id)->get();
-            $general = 1;
-        }
-
         if (count($Agenda) > 0) {
             array_push($aux, $Agenda[0]);
         }
 
-        return response()->json(['Agenda'=>$aux, 'general'=>$general], 200); 
+        return response()->json(['Agenda'=>$aux], 200); 
     }
 
-    public function updateAgendaApp(Request $request, $id)
+    public function storeAgendaDiaria(Request $request)
+    {
+        //Calificar el pedido
+        if($Agenda=\App\Agenda_dias::create($request->all())){
+
+           return response()->json(['message'=>'agenda agregada con éxito.',
+             'categoria'=>$Agenda], 200);
+        }else{
+            return response()->json(['error'=>'Error al crear la Agenda.'], 500);
+        }
+
+    }
+
+    public function updateAgendaDiaria(Request $request, $id)
     {
         // Comprobamos si la Agenda que nos están pasando existe o no.
         $Agenda = \App\Agenda_dias::find($id);

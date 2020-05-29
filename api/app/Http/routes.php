@@ -235,8 +235,9 @@ Route::group(  ['middleware' =>'cors'], function(){
         Route::delete('/agenda/{id}','AgendaController@destroy');
         Route::get('/agenda/{id}','AgendaController@show');
         Route::get('/agenda/usuario/{usuario_id}','AgendaController@miAgenda');
-        Route::get('/agenda/usuario/{usuario_id}/dia/{dia}','AgendaController@miAgendaApp');
-        Route::put('/agenda/{id}/diaria','AgendaController@updateAgendaApp');
+        Route::get('/agenda/usuario/{usuario_id}/dia/{dia}','AgendaController@miAgendaDiaria');
+        Route::put('/agenda/{id}/diaria','AgendaController@updateAgendaDiaria');
+        Route::post('/agenda/diaria','AgendaController@storeDiaria');
 
         //----Pruebas CalificacionController
         Route::get('/agenda_dias','Agenda_diasController@index');
