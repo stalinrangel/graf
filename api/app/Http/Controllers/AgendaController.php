@@ -196,11 +196,32 @@ class AgendaController extends Controller
         return response()->json(['message'=>'Se ha eliminado correctamente la Agenda.'], 200);
     }
 
-    public function misAgendas($usuario_id)
+    public function miAgenda($usuario_id)
     {
         //cargar las agendas de un usuario_id
         $Agenda = \App\Agenda::where('usuario_id', $usuario_id)->get();
 
         return response()->json(['Agenda'=>$Agenda], 200); 
+    }
+
+    public function miAgendaApp($usuario_id, $dia)
+    {
+        $aux = [];
+
+        //cargar la agenda de un usuario_id en un dia espcifico
+        $Agenda = \App\Agenda_dias::where('usuario_id', $usuario_id)
+            ->where('dia', $dia)
+            ->get();
+
+        if (count($Agenda) == 0) {
+            //cargar la agenda general
+            $Agenda = \App\Agenda::where('usuario_id', $usuario_id)->get();
+        }
+
+        if (count($Agenda) > 0) {
+            array_push($aux, $Agenda[0]);
+        }
+
+        return response()->json(['Agenda'=>$aux], 200); 
     }
 }
