@@ -207,6 +207,7 @@ class AgendaController extends Controller
     public function miAgendaApp($usuario_id, $dia)
     {
         $aux = [];
+        $general = 0;
 
         //cargar la agenda de un usuario_id en un dia espcifico
         $Agenda = \App\Agenda_dias::where('usuario_id', $usuario_id)
@@ -216,12 +217,63 @@ class AgendaController extends Controller
         if (count($Agenda) == 0) {
             //cargar la agenda general
             $Agenda = \App\Agenda::where('usuario_id', $usuario_id)->get();
+            $general = 1;
         }
 
         if (count($Agenda) > 0) {
             array_push($aux, $Agenda[0]);
         }
 
-        return response()->json(['Agenda'=>$aux], 200); 
+        return response()->json(['Agenda'=>$aux, 'general'=>$general], 200); 
     }
+
+    public function updateAgendaApp(Request $request, $id)
+    {
+        // Comprobamos si la Agenda que nos están pasando existe o no.
+        $Agenda = \App\Agenda_dias::find($id);
+
+        if(count($Agenda)==0){
+            return response()->json(['error'=>'No existe la Agenda con id '.$id], 404);          
+        }
+
+        // Listado de campos recibidos teóricamente.
+        $dia=$request->input('dia');
+        $horas=$request->input('horas');
+
+        // Creamos una bandera para controlar si se ha modificado algún dato.
+        $bandera = false;
+
+        // Actualización parcial de campos.
+        if ($dia != null && $dia!='')
+        {
+            $Agenda->dia = $dia;
+            $bandera=true;
+        }
+
+        if ($horas != null && $horas!='')
+        {
+            $Agenda->horas = $horas;
+            $bandera=true;
+        }
+
+        if ($bandera)
+        {
+            // Almacenamos en la base de datos el registro.
+            if ($Agenda->save()) {
+                return response()->json(['message'=>'Agenda editada con éxito.',
+                    'Agenda'=>$Agenda], 200);
+            }else{
+                return response()->json(['error'=>'Error al actualizar la Agenda.'], 500);
+            }
+            
+        }
+        else
+        {
+            // Se devuelve un array errors con los errores encontrados y cabecera HTTP 304 Not Modified – [No Modificada] Usado cuando el cacheo de encabezados HTTP está activo
+            // Este código 304 no devuelve ningún body, así que si quisiéramos que se mostrara el mensaje usaríamos un código 200 en su lugar.
+            return response()->json(['error'=>'No se ha modificado ningún dato a la la Agenda.'],409);
+        }            
+        
+    }
+
 }
