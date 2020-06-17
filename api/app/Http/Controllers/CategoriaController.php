@@ -451,19 +451,21 @@ class CategoriaController extends Controller
         $categoria = \App\Categoria::with('subcategorias')->get();
              $colors = [
                 '#92e0e2',
-                '#a9efef',
+                '#f3f1b4',
                 '#fdebba',
                 '#fdcdc1',
                 '#ebbaf9',
-                '#f3f1b4'
+                '#a9efef',
+                
             ];
             $colors2 = [
                 '#c9f5f6',
-                '#ebfffe',
+                "#ffffdb",
                 '#fff8e8',
                 '#fff0ed',
                 "#fff1ff",
-                "#ffffdb"
+                '#ebfffe',
+                
             ];
 
         for ($i=0; $i < count($categoria); $i++) { 
