@@ -448,7 +448,7 @@ class CategoriaController extends Controller
     public function categSub()
     {
         //cargar una cat con sus subcat
-        $categoria = \App\Categoria::with('subcategorias')->orderBy('orden', 'DESC')->get();
+        $categoria = \App\Categoria::with('subcategorias')->orderBy('orden', 'ASC')->get();
              $colors = [
                 '#92e0e2',
                 '#ebbaf9',
