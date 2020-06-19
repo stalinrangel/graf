@@ -464,7 +464,7 @@ class CategoriaController extends Controller
                 '#c9f5f6',
                 "#fff1ff",
                 //'#fff8e8',
-                '#d1f5b8',
+                '#daf7c6',
                 '#fff0ed',
                 "#ffffdb",
                 //'#ebfffe',e9f5fb
