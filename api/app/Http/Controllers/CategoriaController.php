@@ -453,22 +453,22 @@ class CategoriaController extends Controller
                 '#92e0e2',
                 '#ebbaf9',
                 //'#fdebba',
-                '#d5f7bb',
+                '#c6f5a2',
                 '#fdcdc1',
                 '#f3f1b4',
                 //'#a9efef',a6daf2
-                '#a6daf2',
+                '#7ecaed',
                 
             ];
             $colors2 = [
                 '#c9f5f6',
                 "#fff1ff",
                 //'#fff8e8',
-                '#f1fbea',
+                '#d1f5b8',
                 '#fff0ed',
                 "#ffffdb",
                 //'#ebfffe',e9f5fb
-                '#e9f5fb',
+                '#b8e0f5',
                 
             ];
 
