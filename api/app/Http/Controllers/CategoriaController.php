@@ -520,7 +520,7 @@ class CategoriaController extends Controller
             $colorfondo = $colors2[$color_aleatoreo1];
 
             //Num aleatoreo
-            $num_aleatoreo = rand(1, 3);
+            $num_aleatoreo = rand(1, 6);
             $aleatoreo = $num_aleatoreo;
 
             return response()->json([
