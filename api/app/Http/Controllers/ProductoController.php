@@ -164,6 +164,7 @@ class ProductoController extends Controller
             //'imagen' => $imagen
             'idoneidad' => $request->input('idoneidad'),
             'anos_experiencia' => $request->input('anos_experiencia'),
+            'acreditaciones' => $request->input('acreditaciones'),
         ])){
 
             $obj = null;
@@ -272,6 +273,7 @@ class ProductoController extends Controller
         $estado=$request->input('estado');
         $imagen=$request->input('imagen');
         $anos_experiencia=$request->input('anos_experiencia');
+        $acreditaciones=$request->input('acreditaciones');
 
         // Creamos una bandera para controlar si se ha modificado algún dato.
         $bandera = false;
@@ -359,9 +361,16 @@ class ProductoController extends Controller
             $producto->estado = $estado;
             $bandera=true;
         }
+
         if ($imagen != null && $imagen!='')
         {
             $producto->imagen = $imagen;
+            $bandera=true;
+        }
+
+        if ($acreditaciones != null && $acreditaciones!='')
+        {
+            $producto->acreditaciones = $acreditaciones;
             $bandera=true;
         }
 
