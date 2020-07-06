@@ -22,7 +22,6 @@
          <!-- <th style="text-align: center;">ID</th> -->
         <th style="text-align: center;">Imagen</th>
          <th style="text-align: center;">Nombre</th>
-         <th style="text-align: center;">Categoría Prin.</th>
          <th style="text-align: center;">Categoría</th>
          <th style="text-align: center;">Subcategoría</th>
          <th style="text-align: center;">Proveedor</th>
@@ -33,7 +32,6 @@
          <tr *ngFor="let item of items" >
             <td style="text-align: center; vertical-align:middle;"><img src = "{{item.imagen}}" alt="" height="auto" width="60px"></td>
             <td style="text-align: center; vertical-align:middle;">{{item.nombre}}</td>
-            <td style="text-align: center; vertical-align:middle;"> {{item.subcategoria.categoria.catprincipales.nombre}}</td>
             <td style="text-align: center; vertical-align:middle;"> {{item.subcategoria.categoria.nombre}}</td>
             <td style="text-align: center; vertical-align:middle;">{{item.subcategoria.nombre}}</td>
             <td style="text-align: center; vertical-align:middle;">{{item.establecimiento.nombre}}</td>
