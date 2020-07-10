@@ -189,6 +189,8 @@ export class SociosVerComponent implements OnInit{
            this.data=data;
            this.productList = this.data.repartidores;
 
+
+
            for (var i = 0; i < this.productList.length; ++i) {
              console.log(this.productList[i]);
              if(this.productList[i].usuario.tipo_usuario==3) {
@@ -356,6 +358,11 @@ export class SociosVerComponent implements OnInit{
     public refer=true;
     aEditar(obj): void {
       console.log(obj);
+      this.contrato="";
+       if (obj.usuario.contrato.length!=0) {
+         var tam_contrato=obj.usuario.contrato.length;
+         this.contrato=obj.usuario.contrato[tam_contrato-1].url;
+       }
       this.establecimiento_id=obj.establecimiento.id;
       this.editando = true;
       this.objAEditar = Object.assign({},obj);
@@ -370,8 +377,8 @@ export class SociosVerComponent implements OnInit{
       }
       console.log(this.objAEditar);
 
-      var tam_contrato=obj.usuario.contrato.length;
-      this.contrato=obj.usuario.contrato[tam_contrato-1].url;
+
+     
       console.log(this.contrato);
 
       this.user=obj.usuario;

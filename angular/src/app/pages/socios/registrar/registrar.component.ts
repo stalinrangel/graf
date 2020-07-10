@@ -172,11 +172,11 @@ export class registrarComponent implements OnInit{
            console.log(data);
            this.data=data;
            this.productList = this.data.repartidores;
-           for (var i = 0; i < this.productList.length; ++i) {
-             if(this.productList[i].usuario.registro.tipo==2) {
+          /* for (var i = 0; i < this.productList.length; ++i) {
+             if(this.productList[i].usuario..usuario.tipo_usuario==2) {
                this.productList[i].usuario.imagen=this.productList[i].usuario.registro.logo;
              }
-           }
+           }*/
            this.filteredItems = this.productList;
            //console.log(this.productList);
 
@@ -330,13 +330,19 @@ export class registrarComponent implements OnInit{
     public contrato:any;
     aEditar(obj): void {
       console.log(obj);
+      this.contrato="";
+
+       if (obj.usuario.contrato.length!=0) {
+         var tam_contrato=obj.usuario.contrato.length;
+         this.contrato=obj.usuario.contrato[tam_contrato-1].url;
+       }
       this.establecimiento_id=obj.establecimiento.id;
       this.editando = true;
       this.objAEditar = Object.assign({},obj);
       console.log(this.objAEditar);
 
-       var tam_contrato=obj.usuario.contrato.length;
-      this.contrato=obj.usuario.contrato[tam_contrato-1].url;
+       
+     // this.contrato=obj.usuario.contrato[tam_contrato-1].url;
       console.log(this.contrato);
 
       this.myFormEditar.patchValue({id : this.objAEditar.id});
@@ -347,23 +353,23 @@ export class registrarComponent implements OnInit{
       this.myFormEditar.patchValue({ciudad : this.objAEditar.usuario.ciudad});
 
       var tipo="";
-      if(this.objAEditar.usuario.registro.tipo==1) {
+      if(this.objAEditar.usuario.tipo_usuario==1) {
         tipo='Persona';
-      }else if(this.objAEditar.usuario.registro.tipo==2){
+      }else if(this.objAEditar.usuario.tipo_usuario==2){
         tipo='Empresa';
       }else{
         tipo='Sin tipo de registro';
       }
 
-      if(this.objAEditar.usuario.registro.referencias==null) {
+      /*if(this.objAEditar.usuario.registro.referencias==null) {
         var refe={nombre1:"",telefono1:"",direccion1:"",contacto1:"",cargo1:"",nombre2:"",telefono2:"",direccion2:"",contacto2:"",cargo2:"",nombre3:"",telefono3:"",direccion3:"",contacto3:"",cargo3:""};
 
         this.myFormEditar.patchValue({referencias22 : refe});
       }else{
         this.myFormEditar.patchValue({referencias22 : JSON.parse(this.objAEditar.usuario.registro.referencias)});
-      }
+      }*/
       this.myFormEditar.patchValue({tipo2 : tipo});
-      this.myFormEditar.patchValue({tipo : this.objAEditar.usuario.registro.tipo});
+      /*this.myFormEditar.patchValue({tipo : this.objAEditar.usuario.registro.tipo});
       this.myFormEditar.patchValue({ruc : this.objAEditar.usuario.registro.ruc});
       this.myFormEditar.patchValue({latitud : this.objAEditar.usuario.registro.latitud});
       this.myFormEditar.patchValue({longitud : this.objAEditar.usuario.registro.longitud});
@@ -394,14 +400,16 @@ export class registrarComponent implements OnInit{
       this.myFormEditar.patchValue({referencias : this.objAEditar.usuario.registro.referencias});
       this.myFormEditar.patchValue({referencias2 : JSON.parse(this.objAEditar.usuario.registro.referencias)});
       this.myFormEditar.patchValue({referencias12 : this.objAEditar.usuario.registro.referencias2});
-      this.myFormEditar.patchValue({referencias22 : JSON.parse(this.objAEditar.usuario.registro.referencias2)});
-      if(this.objAEditar.usuario.registro.tipo==2) {
-        var foto= this.objAEditar.usuario.registro.logo;
-      }else if(this.objAEditar.usuario.registro.tipo==1) {
+      this.myFormEditar.patchValue({referencias22 : JSON.parse(this.objAEditar.usuario.registro.referencias2)});*/
+      if(this.objAEditar.usuario.tipo_usuario==2) {
+        var foto= this.objAEditar.usuario.imagen;
+      }else if(this.objAEditar.usuario.tipo_usuario==1) {
         var foto= this.objAEditar.usuario.imagen;
       }
+      this.myFormEditar.patchValue({foto : this.objAEditar.usuario.imagen});
+      console.log(foto);
       //this.myFormEditar.patchValue({referencias22 : JSON.parse(this.objAEditar.usuario.registro.referencias}));
-      this.myFormEditar.patchValue({foto : foto});
+      /*
       this.myFormEditar.patchValue({pasaporte : this.objAEditar.usuario.registro.pasaporte});
       this.myFormEditar.patchValue({idoneidad_file : this.objAEditar.usuario.registro.idoneidad_file});
       this.myFormEditar.patchValue({operaciones : this.objAEditar.usuario.registro.operaciones});
@@ -426,7 +434,7 @@ export class registrarComponent implements OnInit{
       this.myFormEditar.patchValue({sabado_f : disp.sabado_f});
       this.myFormEditar.patchValue({domingo_i : disp.domingo_i});
       this.myFormEditar.patchValue({domingo_f : disp.domingo_f});
-
+        */
       //this.setEstado1(this.objAEditar.usuario.estado);
       console.log(this.myFormEditar.value);
      
