@@ -28,8 +28,8 @@ $target_path = "registro/";
 $target_path = $target_path . basename( $_FILES['file']['name']);
  
 if (move_uploaded_file($_FILES['file']['tmp_name'], $target_path)) {
-    echo 'http://massagegraf.com/graf/api/public/images_uploads/'.$target_path;
+    echo 'https://massagegraf.com/graf/api/public/images_uploads/'.$target_path;
 } else {
-    echo 'http://massagegraf.com/graf/api/public/images_uploads/'.$target_path;
+    echo 'https://massagegraf.com/graf/api/public/images_uploads/'.$target_path;
 }
 ?>

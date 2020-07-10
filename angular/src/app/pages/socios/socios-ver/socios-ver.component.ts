@@ -190,7 +190,7 @@ export class SociosVerComponent implements OnInit{
            this.productList = this.data.repartidores;
 
            for (var i = 0; i < this.productList.length; ++i) {
-             //console.log(this.productList[i].usuario);
+             console.log(this.productList[i]);
              if(this.productList[i].usuario.tipo_usuario==3) {
                this.productList[i].tipo2='Profesional';
              }else if(this.productList[i].usuario.tipo_usuario==4) {
