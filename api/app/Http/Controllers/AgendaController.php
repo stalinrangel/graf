@@ -108,7 +108,7 @@ class AgendaController extends Controller
         } 
     }
 
-    show_usuario($id)
+    public function show_usuario($id)
     {
         //cargar una Agenda
         $Agenda = \App\Agenda::where('usuario_id',$id)->first();
