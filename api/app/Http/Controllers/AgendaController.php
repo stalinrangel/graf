@@ -112,7 +112,8 @@ class AgendaController extends Controller
     {
         //cargar una Agenda
         $Agenda = \App\Agenda::where('usuario_id',$id)->first();
-
+        $Agenda->dias=json_decode($Agenda->dias);
+        $Agenda->horas=json_decode($Agenda->horas);
         if(count($Agenda)==0){
             return response()->json(['error'=>'No existe la Agenda con id '.$id], 404);          
         }else{
