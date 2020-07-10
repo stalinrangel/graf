@@ -108,6 +108,18 @@ class AgendaController extends Controller
         } 
     }
 
+    show_usuario($id)
+    {
+        //cargar una Agenda
+        $Agenda = \App\Agenda::where('usuario_id',$id)->first();
+
+        if(count($Agenda)==0){
+            return response()->json(['error'=>'No existe la Agenda con id '.$id], 404);          
+        }else{
+            return response()->json(['Agenda'=>$Agenda], 200);
+        } 
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
