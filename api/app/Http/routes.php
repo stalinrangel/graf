@@ -162,6 +162,7 @@ Route::group(  ['middleware' =>'cors'], function(){
         //Route::get('/usuarios/{id}/pedidos/hoy','UsuarioController@misPedidosHoy');
         Route::get('/usuarios/{id}/pedidos/encurso','UsuarioController@misPedidosEncurso');
         Route::get('/usuarios/{id}/pedidos/finalizados','UsuarioController@misPedidosFinalizados');
+        Route::get('/usuarios/tipo/clinicas','UsuarioController@getClinicas');
 
         
         //Route::get('/categorias/habilitadas','CategoriaController@categoriasHabilitadas');

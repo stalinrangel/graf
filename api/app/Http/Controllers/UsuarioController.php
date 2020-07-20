@@ -751,4 +751,14 @@ class UsuarioController extends Controller
             return response()->json(['error'=>'No se ha modificado ningún dato del usuario.'],409);
         }
     }
+
+    public function getClinicas()
+    {
+        //Retorna todas la clinicas
+        $usuarios=\App\User::where('tipo_usuario', 4)
+            ->with('establecimiento')
+            ->get();
+
+        return response()->json(['usuarios'=>$usuarios], 200);
+    }
 }
