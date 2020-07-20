@@ -124,9 +124,10 @@ class UsuarioController extends Controller
                 $auxUser->estado = $request->input('estado');
                 $auxUser->telefono = $request->input('telefono');
                 $auxUser->imagen = $request->input('imagen');
-               // $auxUser->tipo_usuario = $request->input('tipo_usuario');
+                //$auxUser->tipo_usuario = $request->input('tipo_usuario');
                 $auxUser->tipo_registro = $request->input('tipo_registro');
                 $auxUser->validado = 1; //autovalidar el usuario
+                $auxUser->codigo = $request->input('codigo');
 
                 if ($request->input('tipo_registro') == 2) {
                     $auxUser->id_facebook = $request->input('id_facebook');
@@ -201,6 +202,7 @@ class UsuarioController extends Controller
         $usuario->id_instagram = $request->input('id_instagram');
         $usuario->validado = $validado;
         $usuario->status = 'ON';
+        $usuario->codigo = $request->input('codigo');
 
         if ($request->has('token_notificacion')) {
             if ($request->input('token_notificacion') != 'null' && $request->input('token_notificacion') != null && $request->input('token_notificacion') != '') {
@@ -336,6 +338,7 @@ class UsuarioController extends Controller
         $validado=$request->input('validado');
         $token_notificacion=$request->input('token_notificacion');
         $status=$request->input('status');
+        $codigo=$request->input('codigo');
 
         // Creamos una bandera para controlar si se ha modificado algún dato.
         $bandera = false;
@@ -418,6 +421,12 @@ class UsuarioController extends Controller
         if ($status != null && $status!='')
         {
             $usuario->status = $status;
+            $bandera=true;
+        }
+
+        if ($codigo != null && $codigo!='')
+        {
+            $usuario->codigo = $codigo;
             $bandera=true;
         }
 

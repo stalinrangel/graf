@@ -98,6 +98,7 @@ class EstablecimientoController extends Controller
        // $usuario->id_instagram = $request->input('id_instagram');
         $usuario->validado = 1;
         $usuario->status = 'ON';
+        $usuario->codigo = $request->input('codigo');
 
         if($usuario->save()){
 
@@ -296,6 +297,7 @@ class EstablecimientoController extends Controller
         $sabado_f = $request->input('sabado_f');
         $domingo_i = $request->input('domingo_i');
         $domingo_f = $request->input('domingo_f');
+        $codigo = $request->input('codigo');
 
         // Creamos una bandera para controlar si se ha modificado algún dato.
         $bandera = false;
@@ -342,6 +344,12 @@ class EstablecimientoController extends Controller
         if ($imagen != null && $imagen!='')
         {
             $usuario->imagen = $imagen;
+            $bandera=true;
+        }
+
+        if ($codigo != null && $codigo!='')
+        {
+            $usuario->codigo = $codigo;
             $bandera=true;
         }
 
