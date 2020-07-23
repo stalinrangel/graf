@@ -19,12 +19,12 @@ class MailController extends Controller
 {
 
     public function nuevo_registro($correo)
-    {   return 2;
+    {   //return 2;
         //verificar si existe el cliente que nos estan pasando
         $obj = \App\User::where('email', $correo)->get();
 
         if(count($obj)==0){
-           // return response()->json(['error'=>'No existe el cliente con el correo '.$correo], 404);          
+            return response()->json(['error'=>'No existe el cliente con el correo '.$correo], 404);          
         }else{
 
 
