@@ -42,7 +42,7 @@ class MailController extends Controller
         $data = array( 'codigo_verificacion' => $usuario);
 
             //Enviamos el correo con el codigo aleatorio
-            Mail::send('emails.registro', $data, function($msj) use ($correo){
+            Mail::send('emails.pedido', $data, function($msj) use ($correo){
                 $msj->subject('Tienes un nuevo pedido en Massage Graf');
                 $msj->to($correo);
             });
