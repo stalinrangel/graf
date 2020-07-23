@@ -28,10 +28,10 @@ return [
     |
     */
 
-    //'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
     //'host' => env('MAIL_HOST', 'mail.mouvers.mx'),
     //'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-    'host' => env('MAIL_HOST', 'alinstante.app'),
+    //'host' => env('MAIL_HOST', 'alinstante.app'),
 
     /*
     |--------------------------------------------------------------------------
@@ -63,7 +63,7 @@ return [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],*/
-    'from' => ['address' => 'info@alinstante.app', 'name' => 'alinstante'],
+    'from' => ['address' => 'massage.graf.app@gmail.com', 'name' => 'Massage Graf'],
 
     /*
     |--------------------------------------------------------------------------

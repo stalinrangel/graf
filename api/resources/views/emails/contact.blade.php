@@ -7,6 +7,6 @@
 <body>
 	<p><strong>Código de verificación: </strong>{!!$codigo_verificacion!!}</p>
 	<br>
-	<p>Saludos cordiales, el equipo de Service24.</p>
+	<p>Saludos cordiales, el equipo de Graf.</p>
 </body>
 </html>
