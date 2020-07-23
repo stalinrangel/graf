@@ -19,7 +19,7 @@ class MailController extends Controller
 {
 
     public function nuevo_registro($correo)
-    {
+    {   return 2;
         //verificar si existe el cliente que nos estan pasando
         $obj = \App\User::where('email', $correo)->get();
 
