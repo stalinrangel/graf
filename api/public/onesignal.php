@@ -21,7 +21,7 @@
 				'include_player_ids' => array($token_notificacion),
 	      		'data' => array("contenido" => $contenido,"pedido_id"=>$pedido_id,"accion"=>$accion, "obj"=>$obj),
 				'contents' => $content,
-				'android_channel_id' => 'd3180c9d-44fc-4384-a49b-dd4b10609ad9',
+				//'android_channel_id' => 'd3180c9d-44fc-4384-a49b-dd4b10609ad9',
 				'android_sound' => 'notify',
 				'ios_sound'=> 'notify',
 				/*,
