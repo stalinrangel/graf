@@ -135,6 +135,7 @@ class PedidoController extends Controller
             'costo_envio'=>$request->input('costo_envio'), 
             'subtotal'=>$request->input('subtotal'),
             'costo'=>$request->input('costo'),
+            'clinica_id'=>$request->input('clinica_id'),
             'usuario_id'=>$request->input('usuario_id'),
             /*'establecimiento_id'=>$request->input('establecimiento_id')*/
             'repartidor_id'=>$request->input('repartidor_id'),

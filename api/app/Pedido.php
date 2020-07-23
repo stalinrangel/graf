@@ -26,7 +26,7 @@ class Pedido extends Model
      */
     protected $fillable = ['estado', 'lat', 'lng',
         'direccion', 'distancia', 'tiempo','hora','hora_aceptado',
-        'gastos_envio', 'costo_envio', 'subtotal', 'costo', 'usuario_id',
+        'gastos_envio', 'costo_envio', 'subtotal', 'costo', 'clinica_id', 'usuario_id',
         'repartidor_id', 'repartidor_nom', 'estado_pago', 'api_tipo_pago',
         'destinatario', 'telefono', 'referencia','comentario', 'finalizo','encamino','created_at','updated_at'];
 

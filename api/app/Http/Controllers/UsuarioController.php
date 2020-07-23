@@ -711,6 +711,71 @@ class UsuarioController extends Controller
         } 
     }
 
+    public function misPedidosEncursoClininca($id)
+    {
+
+        // Comprobamos si el usuario que nos están pasando existe o no.
+        $usuario=\App\User::find($id);
+
+        if (count($usuario)==0)
+        {
+            // Devolvemos error codigo http 404
+            return response()->json(['error'=>'No existe el usuario con id '.$id], 404);
+        }
+
+        //cargar todos los pedidos en curso (Estado 1, 2, 3)
+        $pedidos = \App\Pedido::with('productos.subcategoria.categoria')
+            ->with('productos.establecimiento')
+            ->with('repartidor.usuario')
+            ->where('clinica_id', $id)
+            ->where('estado_pago','aprobado')
+            ->where(function ($query) {
+                $query
+                    ->where('estado',1)
+                    ->orWhere('estado',2)
+                    ->orWhere('estado',3);
+            })
+            ->orderBy('id', 'desc')
+            ->get();
+
+        if(count($pedidos) == 0){
+            return response()->json(['error'=>'No tienes pedidos en curso.'], 404);          
+        }else{
+            return response()->json(['pedidos'=>$pedidos], 200);
+        } 
+    }
+
+    public function misPedidosFinalizadosClininca($id)
+    {
+
+        // Comprobamos si el usuario que nos están pasando existe o no.
+        $usuario=\App\User::find($id);
+
+        if (count($usuario)==0)
+        {
+            // Devolvemos error codigo http 404
+            return response()->json(['error'=>'No existe el usuario con id '.$id], 404);
+        }
+
+        //cargar todos los pedidos en curso (Estado 1, 2, 3)
+        $pedidos = \App\Pedido::where('clinica_id', $id)
+            ->with('productos.subcategoria.categoria')
+            ->with('productos.establecimiento')
+            ->with('repartidor.usuario')
+            ->with('calificacion')
+            //->where('estado',4)
+            //->orWhere('estado',5)
+            ->whereIn('estado', [4,5])
+            ->orderBy('id', 'desc')
+            ->get();
+
+        if(count($pedidos) == 0){
+            return response()->json(['error'=>'No tienes pedidos finalizados.'], 404);          
+        }else{
+            return response()->json(['pedidos'=>$pedidos], 200);
+        } 
+    }
+
     public function setTokenNotificaion(Request $request, $id)
     {
         // Comprobamos si el usuario que nos están pasando existe o no.
