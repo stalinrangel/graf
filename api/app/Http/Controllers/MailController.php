@@ -18,48 +18,39 @@ use Redirect;
 class MailController extends Controller
 {
 
-    public function nuevo_registro($correo)
-    {   //return 2;
-        //verificar si existe el cliente que nos estan pasando
-        $obj = \App\User::where('email', $correo)->get();
+    public function nuevo_registro($correo,Request $request)
+    {   
 
-        if(count($obj)==0){
-            return response()->json(['error'=>'No existe el cliente con el correo '.$correo], 404);          
-        }else{
-
-
-            // Para cuando deseas que la cadena este compuesta por letras y numeros
-            $salt = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-
-            $rand = '';
-            $i = 0;
-            $length = 6;
-
-            while ($i < $length) {
-                //Loop hasta que el string aleatorio contenga la longitud ingresada.
-                $num = rand() % strlen($salt);
-                $tmp = substr($salt, $num, 1);
-                $rand = $rand . $tmp;
-                $i++;
-            }
-
-            //Asignamos el codigo aleatorio al cliente
-            $cliente = $obj[0];
-            $cliente->codigo_verificacion = $rand;
-            $cliente->save();
-
-            $data = array( 'codigo_verificacion' => $rand);
+        $usuario=$request->input('usuario');
+        $data = array( 'codigo_verificacion' => $usuario);
 
             //Enviamos el correo con el codigo aleatorio
-            Mail::send('emails.contact', $data, function($msj) use ($correo){
-                $msj->subject('Código de verificación');
+            Mail::send('emails.registro', $data, function($msj) use ($correo){
+                $msj->subject('Bienvenido a Massage Graf');
                 $msj->to($correo);
             });
 
             //Informar al cliente despues de enviar el correo con el codigo
-            return response()->json(['status'=>'ok', 'message'=>'Código de verificación enviado a '.$correo,
-                     'codigo'=>$rand], 200);
-        }
+        return response()->json(['status'=>'ok', 'usuario'=>$usuario,
+                     'correo'=>$correo], 200);
+        
+    }
+    public function nuevo_pedido($correo,Request $request)
+    {   
+
+        $usuario=$request->input('servicio');
+        $data = array( 'codigo_verificacion' => $usuario);
+
+            //Enviamos el correo con el codigo aleatorio
+            Mail::send('emails.registro', $data, function($msj) use ($correo){
+                $msj->subject('Tienes un nuevo pedido en Massage Graf');
+                $msj->to($correo);
+            });
+
+            //Informar al cliente despues de enviar el correo con el codigo
+        return response()->json(['status'=>'ok', 'usuario'=>$usuario,
+                     'correo'=>$correo], 200);
+        
     }
     /*Genera un codigo aleatorio para el cliente
     con el correo que se pasa como parametro*/

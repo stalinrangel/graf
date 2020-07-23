@@ -50,6 +50,7 @@ Route::group(  ['middleware' =>'cors'], function(){
     Route::get('/password/codigo/{codigo}','PasswordController@validarCodigo'); 
 
     Route::get('/nuevo_registro/{correo}','MailController@nuevo_registro');
+    Route::get('/nuevo_pedido/{correo}','MailController@nuevo_pedido');
 
     Route::get('/productos/buscar/codigos','ProductoController@buscarCodigos');
     Route::get('/productos_web','ProductoController@index2');
