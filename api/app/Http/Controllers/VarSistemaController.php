@@ -140,9 +140,9 @@ class VarSistemaController extends Controller
 
     public function getContacto()
     {
-        $dataArray = array("direccion" => "Uruguay",
-            "correo" => "service24uy@gmail.com",
-            "telefono" => "+598 91 960 115",);
+        $dataArray = array("direccion" => "España - Tenerife",
+            "correo" => "massage.graf.app@gmail.com",
+            "telefono" => "+34 662 38 21 51",);
 
         //$contacto = json_encode($dataArray);
 
