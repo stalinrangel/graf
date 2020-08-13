@@ -17,11 +17,11 @@
 				);
 			
 			$fields = array(
-				'app_id' => "fad93cb9-e8dc-41ca-b24f-9e17ca80784b",
+				'app_id' => "a26f5dc5-9178-4812-a3fc-4457e93ccba8",
 				'include_player_ids' => array($token_notificacion),
 	      		'data' => array("contenido" => $contenido,"pedido_id"=>$pedido_id,"accion"=>$accion, "obj"=>$obj),
 				'contents' => $content,
-				'android_channel_id' => 'e560827a-cf4b-4675-8e6f-bfc00d78b33f',
+				//'android_channel_id' => 'e560827a-cf4b-4675-8e6f-bfc00d78b33f',
 				'android_sound' => 'notify',
 				'ios_sound'=> 'notify',
 				/*,
@@ -42,7 +42,7 @@
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
 			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json; charset=utf-8',
-														'Authorization: Basic MDNkOGZlNmMtYzlhZC00MWIzLWFlNDktOTQyOGQzMDJhYWU3'));
+														'Authorization: Basic N2EzZjBkNmYtMTM2Yi00NWQzLTgwMjQtZTg1MTg5MjA4MGVh'));
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 			curl_setopt($ch, CURLOPT_HEADER, FALSE);
 			curl_setopt($ch, CURLOPT_POST, TRUE);
