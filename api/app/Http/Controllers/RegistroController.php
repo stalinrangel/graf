@@ -20,7 +20,7 @@ class RegistroController extends Controller
         //cargar todas las calificaciones
         $repartidores = \App\Repartidor::where('activo',4)->
             with(['usuario' => function ($query){
-                    $query->select('id', 'email', 'nombre', 'ciudad', 'estado', 'telefono', 'imagen', 'tipo_usuario', 'token_notificacion')
+                    $query->select('id', 'codigo','email', 'nombre', 'ciudad', 'estado', 'telefono', 'imagen', 'tipo_usuario', 'token_notificacion')
                     ->where(function ($query) {
                         $query
                             ->where('tipo_usuario',3)

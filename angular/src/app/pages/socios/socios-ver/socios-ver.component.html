@@ -37,7 +37,7 @@
             <td style="text-align: center; vertical-align:middle;">{{item.usuario.nombre}}</td>
             <td style="text-align: center; vertical-align:middle;">
             {{item.usuario.email}}</td>
-            <td style="text-align: center; vertical-align:middle;">{{item.usuario.telefono}}</td>
+            <td style="text-align: center; vertical-align:middle;">{{item.usuario.codigo}}-{{item.usuario.telefono}}</td>
             <td style="text-align: center; vertical-align:middle;">{{item.tipo2}}</td>
             <td style="text-align: center;">{{item.encurso}}</td>
             <td style="text-align: center;">{{item.enfinalizados}}</td>
@@ -156,7 +156,7 @@
 
           </div>
 
-          <div class="row">
+          <!--div class="row">
             <div class="form-group" class="col-3">
               <label for="exampleInputTelefono">Documento de identidad</label>
               <input type="text" class="form-control" id="cedula" placeholder="" formControlName="cedula">
@@ -248,14 +248,14 @@
             </div>
             <div class="form-group" class="col-4">
               <label for="exampleInputTelefono">Experiencia</label>
-              <!--input type="text" class="form-control" id="experiencia" placeholder="" formControlName="experiencia"-->
+              <!--input type="text" class="form-control" id="experiencia" placeholder="" formControlName="experiencia">
               <div *ngFor="let item of myFormEditar.value.experiencia2">
                 <p>-{{item.nombre}}</p>
               </div>  
             </div>
             <div class="form-group" class="col-4">
               <label for="exampleInputTelefono">Idiomas</label>
-              <!--input type="text" class="form-control" id="idiomas" placeholder="" formControlName="idiomas"-->
+              <!--input type="text" class="form-control" id="idiomas" placeholder="" formControlName="idiomas">
               <div *ngFor="let item of myFormEditar.value.idiomas2">
                 <p>-{{item.nombre}}</p>
               </div>  
@@ -534,10 +534,10 @@
               <div class="col-1">
 
               </div>                       
-          </div>                                          
+          </div-->                                          
 
           <br><br>
-          <nb-card-header>Servicios del Proveedor</nb-card-header><br>
+          <nb-card-header>Servicios del profesional</nb-card-header><br>
           <table class="table">
             <thead>
                <th style="text-align: center;">Imagen</th>
@@ -554,7 +554,7 @@
                   <td style="text-align: center; vertical-align:middle;">{{item.subcategoria.categoria.catprincipales.nombre}}-{{item.subcategoria.categoria.nombre}}-{{item.subcategoria.nombre}}</td>
                   <td style="text-align: center; vertical-align:middle;">{{item.descripcion}}</td>
                   <td style="text-align: center; vertical-align: middle;"  style="display: flex;">
-                    <div *ngFor="let fotos of item.fotos; let i = index">
+                    <div *ngFor="let fotos of item.fotos2; let i = index">
                       <a href="{{fotos.url}}" target="_blank">
                         <img src="{{fotos.url}}" alt="" style="width: 60px; height: 60px">
                       </a>

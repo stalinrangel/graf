@@ -158,6 +158,7 @@ export class SociosVerComponent implements OnInit{
       contrato_plan: [''],
       contrato_plan2: [''],
        fotos: [''],
+       codigo:[''],
     });
 
     
@@ -236,7 +237,7 @@ export class SociosVerComponent implements OnInit{
          }
        );
 
-       this.getAgenda();
+       //this.getAgenda();
   }
 
   //Redirigir al chat
@@ -346,6 +347,7 @@ export class SociosVerComponent implements OnInit{
 
 
     atras(): void {
+      this.agenda = false;
       this.editando = false;
       this.objAEditar = null;
       //console.log(this.objAEditar);
@@ -371,7 +373,7 @@ export class SociosVerComponent implements OnInit{
         console.log(this.objAEditar.establecimiento.productos[i].fotos);
         if( this.objAEditar.establecimiento.productos[i].fotos!=null) {
           if(this.objAEditar.establecimiento.productos[i].fotos.length!=0) {
-            this.objAEditar.establecimiento.productos[i].fotos=JSON.parse(this.objAEditar.establecimiento.productos[i].fotos);
+            this.objAEditar.establecimiento.productos[i].fotos2=JSON.parse(this.objAEditar.establecimiento.productos[i].fotos);
           }
         }
       }
@@ -379,38 +381,39 @@ export class SociosVerComponent implements OnInit{
 
 
      
-      console.log(this.contrato);
-
+      console.log(this.objAEditar.id);
+      this.getAgenda();
       this.user=obj.usuario;
 
       this.myFormEditar.patchValue({id : this.objAEditar.id});
       this.myFormEditar.patchValue({nombre : this.objAEditar.usuario.nombre});
       this.myFormEditar.patchValue({email : this.objAEditar.usuario.email});
       this.myFormEditar.patchValue({telefono : this.objAEditar.usuario.telefono});
+      this.myFormEditar.patchValue({codigo : this.objAEditar.usuario.codigo});
       this.myFormEditar.patchValue({estado : this.objAEditar.usuario.estado});
       this.myFormEditar.patchValue({ciudad : this.objAEditar.usuario.ciudad});
 
-      
+      console.log(this.objAEditar.usuario);
       var tipo="";
-      if(this.objAEditar.usuario.registro.tipo==1) {
-        tipo='Persona';
-      }else if(this.objAEditar.usuario.registro.tipo==2){
-        tipo='Empresa';
+      if(this.objAEditar.usuario.tipo_usuario==2) {
+        tipo='Profesional';
+      }else if(this.objAEditar.usuario.tipo_usuario==3){
+        tipo='Clinica';
       }else{
         tipo='Sin tipo de registro';
       }
 
-      if(this.objAEditar.usuario.registro.referencias==null) {
+     /* if(this.objAEditar.usuario.registro.referencias==null) {
         var refe={nombre1:"",telefono1:"",direccion1:"",contacto1:"",cargo1:"",nombre2:"",telefono2:"",direccion2:"",contacto2:"",cargo2:"",nombre3:"",telefono3:"",direccion3:"",contacto3:"",cargo3:""};
 
         this.myFormEditar.patchValue({referencias22 : refe});
       }else{
         this.myFormEditar.patchValue({referencias22 : JSON.parse(this.objAEditar.usuario.registro.referencias)});
-      }
+      }*/
       this.myFormEditar.patchValue({tipo2 : tipo});
-      this.myFormEditar.patchValue({tipo : this.objAEditar.usuario.registro.tipo});
+      //this.myFormEditar.patchValue({tipo : this.objAEditar.usuario.registro.tipo});
       this.myFormEditar.patchValue({usuario_id : this.objAEditar.usuario.id});
-      this.myFormEditar.patchValue({ruc : this.objAEditar.usuario.registro.ruc});
+      /*this.myFormEditar.patchValue({ruc : this.objAEditar.usuario.registro.ruc});
       this.myFormEditar.patchValue({latitud : this.objAEditar.usuario.registro.latitud});
       this.myFormEditar.patchValue({longitud : this.objAEditar.usuario.registro.longitud});
       this.myFormEditar.patchValue({email_empresa : this.objAEditar.usuario.registro.email_empresa});
@@ -442,11 +445,11 @@ export class SociosVerComponent implements OnInit{
       this.myFormEditar.patchValue({referencias : this.objAEditar.usuario.registro.referencias});
       this.myFormEditar.patchValue({referencias2 : JSON.parse(this.objAEditar.usuario.registro.referencias)});
       this.myFormEditar.patchValue({referencias12 : this.objAEditar.usuario.registro.referencias2});
-      this.myFormEditar.patchValue({referencias22 : JSON.parse(this.objAEditar.usuario.registro.referencias2)});
+      this.myFormEditar.patchValue({referencias22 : JSON.parse(this.objAEditar.usuario.registro.referencias2)});*/
       
       //this.myFormEditar.patchValue({referencias22 : JSON.parse(this.objAEditar.usuario.registro.referencias}));
       this.myFormEditar.patchValue({foto : this.objAEditar.usuario.imagen});
-      this.myFormEditar.patchValue({pasaporte : this.objAEditar.usuario.registro.pasaporte});
+      /*this.myFormEditar.patchValue({pasaporte : this.objAEditar.usuario.registro.pasaporte});
       this.myFormEditar.patchValue({idoneidad_file : this.objAEditar.usuario.registro.idoneidad_file});
       this.myFormEditar.patchValue({operaciones : this.objAEditar.usuario.registro.operaciones});
       this.myFormEditar.patchValue({estado2 : this.objAEditar.usuario.registro.estado2});
@@ -467,15 +470,15 @@ export class SociosVerComponent implements OnInit{
       this.myFormEditar.patchValue({sabado_i : disp.sabado_i});
       this.myFormEditar.patchValue({sabado_f : disp.sabado_f});
       this.myFormEditar.patchValue({domingo_i : disp.domingo_i});
-      this.myFormEditar.patchValue({domingo_f : disp.domingo_f});
+      this.myFormEditar.patchValue({domingo_f : disp.domingo_f});*/
 
       this.myFormEditar.patchValue({contrato_nombre : this.objAEditar.usuario.nombre});
-      this.myFormEditar.patchValue({contrato_ci : this.objAEditar.usuario.registro.ruc});
+      //this.myFormEditar.patchValue({contrato_ci : this.objAEditar.usuario.registro.ruc});
      // this.myFormEditar.patchValue({contrato_fecha : 1});
-      var plan=  JSON.parse(this.objAEditar.plan);
-      this.myFormEditar.patchValue({contrato_costo : plan.costo});
-      this.myFormEditar.patchValue({contrato_plan : plan.tipo_plan});
-      this.myFormEditar.patchValue({contrato_plan2 : plan.tipo_plan});      
+      //var plan=  JSON.parse(this.objAEditar.plan);
+      //this.myFormEditar.patchValue({contrato_costo : plan.costo});
+      //this.myFormEditar.patchValue({contrato_plan : plan.tipo_plan});
+      //this.myFormEditar.patchValue({contrato_plan2 : plan.tipo_plan});      
 
 
 
@@ -962,7 +965,7 @@ export class SociosVerComponent implements OnInit{
 
   getAgenda() {
     
-      this.http.get(this.rutaService.getRutaApi()+'agenda/usuario/'+/*this.objAEditar.usuario.id*/181+'?token='+localStorage.getItem('mouvers_token'))
+      this.http.get(this.rutaService.getRutaApi()+'agenda/usuario/'+this.objAEditar.usuario.id+'?token='+localStorage.getItem('mouvers_token'))
          .toPromise()
          .then(
            data => { // Success

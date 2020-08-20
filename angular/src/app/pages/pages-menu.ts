@@ -39,10 +39,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'Usuarios',
     icon: 'ion-ios-people-outline',
     children: [
-      {
+      /*{
         title: 'Crear Usuarios',
         link: '/pages/clientes/crear',
-      },
+      },*/
       {
         title: 'Ver Usuarios',
         link: '/pages/clientes/ver',
@@ -53,10 +53,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'Servicios',
     icon: 'ion-ios-box-outline',
     children: [
-      {
+      /*{
         title: 'Agregar Servicios',
         link: '/pages/productos/agregar',
-      },
+      },*/
       {
         title: 'Ver Servicios',
         link: '/pages/productos/ver',
@@ -83,16 +83,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'Profesionales',
     icon: 'ion-android-bicycle',
     children: [
-      {
+      /*{
         title: 'Agregar Proveedores',
         link: '/pages/socios/agregar',
-      },
+      },*/
       {
-        title: 'Ver Proveedores',
+        title: 'Ver Profesionales',
         link: '/pages/socios/ver',
       },
       {
-        title: 'Por registar',
+        title: 'Por aceptar',
         link: '/pages/socios/registrar',
       }
     ],

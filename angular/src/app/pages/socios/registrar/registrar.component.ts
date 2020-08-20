@@ -134,6 +134,7 @@ export class registrarComponent implements OnInit{
       martes_f: [''],
       miercoles_i: [''],
       miercoles_f: [''],
+      codigo:[''],
       jueves_i: [''],
       jueves_f: [''],
       viernes_i: [''],
@@ -349,6 +350,7 @@ export class registrarComponent implements OnInit{
       this.myFormEditar.patchValue({nombre : this.objAEditar.usuario.nombre});
       this.myFormEditar.patchValue({email : this.objAEditar.usuario.email});
       this.myFormEditar.patchValue({telefono : this.objAEditar.usuario.telefono});
+      this.myFormEditar.patchValue({codigo : this.objAEditar.usuario.codigo});
       this.myFormEditar.patchValue({estado : this.objAEditar.usuario.estado});
       this.myFormEditar.patchValue({ciudad : this.objAEditar.usuario.ciudad});
 

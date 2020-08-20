@@ -21,7 +21,7 @@ class RepartidorController extends Controller
         //cargar todos los repartidores
         $repartidores = \App\Repartidor::
             with(['usuario' => function ($query){
-                    $query->select('id', 'email', 'nombre', 'ciudad', 'estado', 'telefono', 'imagen', 'tipo_usuario', 'token_notificacion','created_at')
+                    $query->select('id', 'codigo', 'email', 'nombre', 'ciudad', 'estado', 'telefono', 'imagen', 'tipo_usuario', 'token_notificacion','created_at')
                     ->where(function ($query) {
                         $query
                             ->where('tipo_usuario',2)
