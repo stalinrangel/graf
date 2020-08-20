@@ -610,7 +610,7 @@ export class registrarComponent implements OnInit{
 
       var datosa= {
         token: localStorage.getItem('mouvers_token'),
-        activo: 2,
+        activo: 1,
         msg:'¡Felicidades! has sido aprobado como proveedor. Ingresa y explora las nuevas opciones.'
       }
 

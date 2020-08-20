@@ -374,6 +374,7 @@ export class SociosVerComponent implements OnInit{
         if( this.objAEditar.establecimiento.productos[i].fotos!=null) {
           if(this.objAEditar.establecimiento.productos[i].fotos.length!=0) {
             this.objAEditar.establecimiento.productos[i].fotos2=JSON.parse(this.objAEditar.establecimiento.productos[i].fotos);
+            this.objAEditar.establecimiento.productos[i].acreditaciones2=JSON.parse(this.objAEditar.establecimiento.productos[i].acreditaciones);
           }
         }
       }

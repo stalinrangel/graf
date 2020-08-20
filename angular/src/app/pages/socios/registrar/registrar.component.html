@@ -109,6 +109,8 @@
               </div>
             </div>
             <div class="form-group" class="col-3">
+              <label for="exampleInputTelefono">Codigo</label>
+              <input type="text" class="form-control" id="exampleInputTelefono" placeholder="Telefono" formControlName="codigo">
               <label for="exampleInputTelefono">Teléfono</label>
               <input type="text" class="form-control" id="exampleInputTelefono" placeholder="Telefono" formControlName="telefono">
               <div *ngIf="myFormEditar.get('telefono').errors && myFormEditar.get('telefono').dirty">

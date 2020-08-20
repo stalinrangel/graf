@@ -138,6 +138,8 @@
               </div>
             </div>
             <div class="form-group" class="col-3">
+              <label for="exampleInputTelefono">Codigo</label>
+              <input type="text" class="form-control" id="exampleInputTelefono" placeholder="Telefono" formControlName="codigo">
               <label for="exampleInputTelefono">Teléfono</label>
               <input type="text" class="form-control" id="exampleInputTelefono" placeholder="Telefono" formControlName="telefono">
               <div *ngIf="myFormEditar.get('telefono').errors && myFormEditar.get('telefono').dirty">
@@ -544,8 +546,9 @@
                <th style="text-align: center;">Nombre</th>
                <th style="text-align: center;">Categoaria</th>
                <th style="text-align: center;">Descripción</th>
-               <th style="text-align: center;">Imagenes</th>
                <th style="text-align: center;">Habilitar</th>
+               <th style="text-align: center;">Imagenes</th>
+               <th style="text-align: center;">Acreditaciones</th>
             </thead>
             <tbody>
                <tr *ngFor="let item of this.objAEditar.establecimiento.productos" >
@@ -553,6 +556,14 @@
                   <td style="text-align: center; vertical-align:middle;">{{item.nombre}}</td>
                   <td style="text-align: center; vertical-align:middle;">{{item.subcategoria.categoria.catprincipales.nombre}}-{{item.subcategoria.categoria.nombre}}-{{item.subcategoria.nombre}}</td>
                   <td style="text-align: center; vertical-align:middle;">{{item.descripcion}}</td>
+                  
+                  <td style="text-align: center; vertical-align:middle;">
+                    <nb-checkbox [value]="item.estado === 'ON'"  (change)="cambiarEstado2(item)"></nb-checkbox>
+                    <!--button type="button" class="btn btn-secundary  btn-table" title="Editar" (click)="aEditara(item)" *ngIf="item.estado!='ON'">Hablitar{{item.estado}}
+                   </button>
+                   <button type="button" class="btn btn-danger btn-table" title="Editar" (click)="aEditara(item)" *ngIf="item.estado=='ON'">Deshabilitar
+                   </button-->
+                  </td>
                   <td style="text-align: center; vertical-align: middle;"  style="display: flex;">
                     <div *ngFor="let fotos of item.fotos2; let i = index">
                       <a href="{{fotos.url}}" target="_blank">
@@ -561,12 +572,12 @@
                       <button type="button" class="btn btn-secundary  btn-table" (click)="borrarfoto(item.id,item.fotos,i)">x</button>
                     </div>
                   </td>
-                  <td style="text-align: center; vertical-align:middle;">
-                    <nb-checkbox [value]="item.estado === 'ON'"  (change)="cambiarEstado2(item)"></nb-checkbox>
-                    <!--button type="button" class="btn btn-secundary  btn-table" title="Editar" (click)="aEditara(item)" *ngIf="item.estado!='ON'">Hablitar{{item.estado}}
-                   </button>
-                   <button type="button" class="btn btn-danger btn-table" title="Editar" (click)="aEditara(item)" *ngIf="item.estado=='ON'">Deshabilitar
-                   </button-->
+                  <td style="text-align: center; vertical-align: middle;"  style="display: flex;">
+                    <div *ngFor="let fotos of item.acreditaciones2; let i = index">
+                      <a href="{{fotos.acreditacion}}" target="_blank">
+                        <img src="{{fotos.acreditacion}}" alt="" style="width: 60px; height: 60px">
+                      </a>
+                    </div>
                   </td>
 
                </tr>
