@@ -99,6 +99,7 @@ class EstablecimientoController extends Controller
         $usuario->validado = 1;
         $usuario->status = 'ON';
         $usuario->codigo = $request->input('codigo');
+        $usuario->pais = $request->input('pais');
 
         if($usuario->save()){
 

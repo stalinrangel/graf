@@ -128,6 +128,7 @@ class UsuarioController extends Controller
                 $auxUser->tipo_registro = $request->input('tipo_registro');
                 $auxUser->validado = 1; //autovalidar el usuario
                 $auxUser->codigo = $request->input('codigo');
+                $auxUser->pais = $request->input('pais');
 
                 if ($request->input('tipo_registro') == 2) {
                     $auxUser->id_facebook = $request->input('id_facebook');

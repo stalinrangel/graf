@@ -161,6 +161,7 @@ class ProductoController extends Controller
             'subcategoria_id' => $request->input('subcategoria_id'),
             'establecimiento_id' => $request->input('establecimiento_id'),
             'codigo' => $codigo,
+            'domicilio' => $request->input('domicilio'),
             //'imagen' => $imagen
             'idoneidad' => $request->input('idoneidad'),
             'anos_experiencia' => $request->input('anos_experiencia'),
@@ -271,6 +272,7 @@ class ProductoController extends Controller
         $descripcion=$request->input('descripcion');
         $subcategoria_id=$request->input('subcategoria_id');
         $estado=$request->input('estado');
+        $domicilio=$request->input('domicilio');
         $imagen=$request->input('imagen');
         $anos_experiencia=$request->input('anos_experiencia');
         $acreditaciones=$request->input('acreditaciones');
