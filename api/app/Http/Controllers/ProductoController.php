@@ -161,7 +161,7 @@ class ProductoController extends Controller
             'subcategoria_id' => $request->input('subcategoria_id'),
             'establecimiento_id' => $request->input('establecimiento_id'),
             'codigo' => $codigo,
-            'domicilio' => $request->input('domicilio'),
+            'midomicilio' => $request->input('midomicilio'),
             //'imagen' => $imagen
             'idoneidad' => $request->input('idoneidad'),
             'anos_experiencia' => $request->input('anos_experiencia'),
@@ -273,6 +273,7 @@ class ProductoController extends Controller
         $subcategoria_id=$request->input('subcategoria_id');
         $estado=$request->input('estado');
         $domicilio=$request->input('domicilio');
+        $midomicilio=$request->input('midomicilio');
         $imagen=$request->input('imagen');
         $anos_experiencia=$request->input('anos_experiencia');
         $acreditaciones=$request->input('acreditaciones');
@@ -366,6 +367,11 @@ class ProductoController extends Controller
         if ($domicilio != null && $domicilio!='')
         {
             $producto->domicilio = $domicilio;
+            $bandera=true;
+        }
+        if ($midomicilio != null && $midomicilio!='')
+        {
+            $producto->midomicilio = $midomicilio;
             $bandera=true;
         }
 
