@@ -363,6 +363,11 @@ class ProductoController extends Controller
             $producto->estado = $estado;
             $bandera=true;
         }
+        if ($domicilio != null && $domicilio!='')
+        {
+            $producto->domicilio = $domicilio;
+            $bandera=true;
+        }
 
         if ($imagen != null && $imagen!='')
         {
