@@ -162,6 +162,7 @@ class ProductoController extends Controller
             'establecimiento_id' => $request->input('establecimiento_id'),
             'codigo' => $codigo,
             'midomicilio' => $request->input('midomicilio'),
+            'sucursal' => $request->input('sucursal'),
             //'imagen' => $imagen
             'idoneidad' => $request->input('idoneidad'),
             'anos_experiencia' => $request->input('anos_experiencia'),
@@ -274,6 +275,7 @@ class ProductoController extends Controller
         $estado=$request->input('estado');
         $domicilio=$request->input('domicilio');
         $midomicilio=$request->input('midomicilio');
+        $sucursal=$request->input('sucursal');
         $imagen=$request->input('imagen');
         $anos_experiencia=$request->input('anos_experiencia');
         $acreditaciones=$request->input('acreditaciones');
@@ -372,6 +374,11 @@ class ProductoController extends Controller
         if ($midomicilio != null && $midomicilio!='')
         {
             $producto->midomicilio = $midomicilio;
+            $bandera=true;
+        }
+        if ($sucursal != null && $sucursal!='')
+        {
+            $producto->sucursal = $sucursal;
             $bandera=true;
         }
 
