@@ -152,7 +152,8 @@ class ProductoController extends Controller
 
         if($nuevoProducto=\App\Producto::create([
             'nombre' => $request->input('nombre'),
-            'estado' => $request->input('estado'),
+            //'estado' => $request->input('estado'),
+            'estado' => 'ON',
             'imagen' => $request->input('imagen'),
             'precio' => $request->input('precio'),
             'tiempo_costo' => $request->input('tiempo_costo'),
