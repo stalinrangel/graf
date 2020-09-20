@@ -161,6 +161,7 @@ class ProductoController extends Controller
             'subcategoria_id' => $request->input('subcategoria_id'),
             'establecimiento_id' => $request->input('establecimiento_id'),
             'codigo' => $codigo,
+            'domicilio' => $request->input('domicilio'),
             'midomicilio' => $request->input('midomicilio'),
             'sucursal' => $request->input('sucursal'),
             //'imagen' => $imagen
