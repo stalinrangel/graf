@@ -550,7 +550,7 @@ var BubbleMapComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/pages/maps/bubble/bubble-map.component.scss")],
             template: "\n    <nb-card>\n    <nb-card-header>Bubble Maps</nb-card-header>\n      <nb-card-body>\n        <div echarts [options]=\"options\" class=\"echarts\"></div>\n      </nb-card-body>\n    </nb-card>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], BubbleMapComponent);
     return BubbleMapComponent;
 }());

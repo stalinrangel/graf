@@ -91,7 +91,7 @@ var ChartjsBarHorizontalComponent = /** @class */ (function () {
             selector: 'ngx-chartjs-bar-horizontal',
             template: "\n    <chart type=\"horizontalBar\" [data]=\"data\" [options]=\"options\"></chart>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], ChartjsBarHorizontalComponent);
     return ChartjsBarHorizontalComponent;
 }());
@@ -180,7 +180,7 @@ var ChartjsBarComponent = /** @class */ (function () {
             selector: 'ngx-chartjs-bar',
             template: "\n    <chart type=\"bar\" [data]=\"data\" [options]=\"options\"></chart>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], ChartjsBarComponent);
     return ChartjsBarComponent;
 }());
@@ -277,7 +277,7 @@ var ChartjsLineComponent = /** @class */ (function () {
             selector: 'ngx-chartjs-line',
             template: "\n    <chart type=\"line\" [data]=\"data\" [options]=\"options\"></chart>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], ChartjsLineComponent);
     return ChartjsLineComponent;
 }());
@@ -409,7 +409,7 @@ var ChartjsMultipleXaxisComponent = /** @class */ (function () {
             selector: 'ngx-chartjs-multiple-xaxis',
             template: "\n    <chart type=\"line\" [data]=\"data\" [options]=\"options\"></chart>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], ChartjsMultipleXaxisComponent);
     return ChartjsMultipleXaxisComponent;
 }());
@@ -481,7 +481,7 @@ var ChartjsPieComponent = /** @class */ (function () {
             selector: 'ngx-chartjs-pie',
             template: "\n    <chart type=\"pie\" [data]=\"data\" [options]=\"options\"></chart>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], ChartjsPieComponent);
     return ChartjsPieComponent;
 }());
@@ -561,7 +561,7 @@ var ChartjsRadarComponent = /** @class */ (function () {
             selector: 'ngx-chartjs-radar',
             template: "\n    <chart type=\"radar\" [data]=\"data\" [options]=\"options\"></chart>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], ChartjsRadarComponent);
     return ChartjsRadarComponent;
 }());
@@ -866,7 +866,7 @@ var D3AdvancedPieComponent = /** @class */ (function () {
             selector: 'ngx-d3-advanced-pie',
             template: "\n    <ngx-charts-advanced-pie-chart\n      [scheme]=\"colorScheme\"\n      [results]=\"single\">\n    </ngx-charts-advanced-pie-chart>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], D3AdvancedPieComponent);
     return D3AdvancedPieComponent;
 }());
@@ -948,7 +948,7 @@ var D3AreaStackComponent = /** @class */ (function () {
             selector: 'ngx-d3-area-stack',
             template: "\n    <ngx-charts-area-chart\n      [scheme]=\"colorScheme\"\n      [results]=\"multi\"\n      [xAxis]=\"showXAxis\"\n      [yAxis]=\"showYAxis\"\n      [legend]=\"showLegend\"\n      [showXAxisLabel]=\"showXAxisLabel\"\n      [showYAxisLabel]=\"showYAxisLabel\"\n      [xAxisLabel]=\"xAxisLabel\"\n      [yAxisLabel]=\"yAxisLabel\"\n      [autoScale]=\"autoScale\">\n    </ngx-charts-area-chart>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], D3AreaStackComponent);
     return D3AreaStackComponent;
 }());
@@ -1004,7 +1004,7 @@ var D3BarComponent = /** @class */ (function () {
             selector: 'ngx-d3-bar',
             template: "\n    <ngx-charts-bar-vertical\n      [scheme]=\"colorScheme\"\n      [results]=\"results\"\n      [xAxis]=\"showXAxis\"\n      [yAxis]=\"showYAxis\"\n      [legend]=\"showLegend\"\n      [xAxisLabel]=\"xAxisLabel\"\n      [yAxisLabel]=\"yAxisLabel\">\n    </ngx-charts-bar-vertical>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], D3BarComponent);
     return D3BarComponent;
 }());
@@ -1098,7 +1098,7 @@ var D3LineComponent = /** @class */ (function () {
             selector: 'ngx-d3-line',
             template: "\n    <ngx-charts-line-chart\n      [scheme]=\"colorScheme\"\n      [results]=\"multi\"\n      [xAxis]=\"showXAxis\"\n      [yAxis]=\"showYAxis\"\n      [legend]=\"showLegend\"\n      [showXAxisLabel]=\"showXAxisLabel\"\n      [showYAxisLabel]=\"showYAxisLabel\"\n      [xAxisLabel]=\"xAxisLabel\"\n      [yAxisLabel]=\"yAxisLabel\">\n    </ngx-charts-line-chart>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], D3LineComponent);
     return D3LineComponent;
 }());
@@ -1151,7 +1151,7 @@ var D3PieComponent = /** @class */ (function () {
             selector: 'ngx-d3-pie',
             template: "\n    <ngx-charts-pie-chart\n      [scheme]=\"colorScheme\"\n      [results]=\"results\"\n      [legend]=\"showLegend\"\n      [labels]=\"showLabels\">\n    </ngx-charts-pie-chart>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], D3PieComponent);
     return D3PieComponent;
 }());
@@ -1258,7 +1258,7 @@ var D3PolarComponent = /** @class */ (function () {
             selector: 'ngx-d3-polar',
             template: "\n    <ngx-charts-polar-chart\n      [scheme]=\"colorScheme\"\n      [results]=\"multi\"\n      [xAxis]=\"showXAxis\"\n      [yAxis]=\"showYAxis\"\n      [legend]=\"showLegend\"\n      [showXAxisLabel]=\"showXAxisLabel\"\n      [showYAxisLabel]=\"showYAxisLabel\"\n      [xAxisLabel]=\"xAxisLabel\"\n      [yAxisLabel]=\"yAxisLabel\"\n      [autoScale]=\"autoScale\">\n    </ngx-charts-polar-chart>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], D3PolarComponent);
     return D3PolarComponent;
 }());
@@ -1471,7 +1471,7 @@ var EchartsAreaStackComponent = /** @class */ (function () {
             selector: 'ngx-echarts-area-stack',
             template: "\n    <div echarts [options]=\"options\" class=\"echart\"></div>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], EchartsAreaStackComponent);
     return EchartsAreaStackComponent;
 }());
@@ -1597,7 +1597,7 @@ var EchartsBarAnimationComponent = /** @class */ (function () {
             selector: 'ngx-echarts-bar-animation',
             template: "\n    <div echarts [options]=\"options\" class=\"echart\"></div>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], EchartsBarAnimationComponent);
     return EchartsBarAnimationComponent;
 }());
@@ -1707,7 +1707,7 @@ var EchartsBarComponent = /** @class */ (function () {
             selector: 'ngx-echarts-bar',
             template: "\n    <div echarts [options]=\"options\" class=\"echart\"></div>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], EchartsBarComponent);
     return EchartsBarComponent;
 }());
@@ -1831,7 +1831,7 @@ var EchartsLineComponent = /** @class */ (function () {
             selector: 'ngx-echarts-line',
             template: "\n    <div echarts [options]=\"options\" class=\"echart\"></div>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], EchartsLineComponent);
     return EchartsLineComponent;
 }());
@@ -2011,7 +2011,7 @@ var EchartsMultipleXaxisComponent = /** @class */ (function () {
             selector: 'ngx-echarts-multiple-xaxis',
             template: "\n    <div echarts [options]=\"options\" class=\"echart\"></div>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], EchartsMultipleXaxisComponent);
     return EchartsMultipleXaxisComponent;
 }());
@@ -2110,7 +2110,7 @@ var EchartsPieComponent = /** @class */ (function () {
             selector: 'ngx-echarts-pie',
             template: "\n    <div echarts [options]=\"options\" class=\"echart\"></div>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], EchartsPieComponent);
     return EchartsPieComponent;
 }());
@@ -2204,7 +2204,7 @@ var EchartsRadarComponent = /** @class */ (function () {
             selector: 'ngx-echarts-radar',
             template: "\n    <div echarts [options]=\"options\" class=\"echart\"></div>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], EchartsRadarComponent);
     return EchartsRadarComponent;
 }());

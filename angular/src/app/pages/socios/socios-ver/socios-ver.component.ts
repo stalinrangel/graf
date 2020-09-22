@@ -974,11 +974,12 @@ export class SociosVerComponent implements OnInit{
              console.log(data);
              this.data=data;
 
-             this.agenda = this.data.Agenda[0];
-             this.agenda.dias = JSON.parse(this.agenda.dias);
-             this.agenda.horas = JSON.parse(this.agenda.horas);
+              if(this.data.Agenda.length>0){
+              this.agenda = this.data.Agenda[0];
+              this.agenda.dias = JSON.parse(this.agenda.dias);
+              this.agenda.horas = JSON.parse(this.agenda.horas);
 
-             for (var i = 0; i < this.agenda.dias.length; ++i) {
+              for (var i = 0; i < this.agenda.dias.length; ++i) {
                this.agenda.dias[i].mostrar = true;
 
                if (this.agenda.dias[i].dia == 'Lunes') {
@@ -996,9 +997,9 @@ export class SociosVerComponent implements OnInit{
                }else if (this.agenda.dias[i].dia == 'Domingo') {
                  this.agenda.dias[i].day = 7;
                }
-             }
+              }
 
-             this.agenda.dias.sort(function(a, b) {
+              this.agenda.dias.sort(function(a, b) {
                 return a.day - b.day;
               });
 
@@ -1006,8 +1007,8 @@ export class SociosVerComponent implements OnInit{
                  this.agenda.horas[i].mostrar = true;
                }
 
-             console.log(this.agenda);
-
+              console.log(this.agenda);
+            }
            },
            msg => { // Error
              console.log(msg);

@@ -180,8 +180,8 @@ var LoginfComponent = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_5__services_ruta_base_ruta_base_service__["a" /* RutaBaseService */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */],
             __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */],
-            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["m" /* NbSpinnerService */],
-            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */]])
+            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["n" /* NbSpinnerService */],
+            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */]])
     ], LoginfComponent);
     return LoginfComponent;
 }());

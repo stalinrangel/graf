@@ -28,7 +28,7 @@ import 'style-loader!angular2-toaster/toaster.css';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-
+  @Input()
   //----Alertas---<
   config: ToasterConfig;
 
@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   //----Alertas--->
 
   @Input() position = 'normal';
-
+  
   user = { name: '', picture: 'assets/images/user.png' };
 
   /*userMenu = [{ title: 'Profile' }, { title: 'Log out' }];*/

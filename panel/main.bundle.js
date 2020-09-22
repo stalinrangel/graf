@@ -1157,7 +1157,7 @@ var FooterComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/@theme/components/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n<div class=\"header-container\"\r\n     [class.left]=\"position === 'normal'\"\r\n     [class.right]=\"position === 'inverse'\">\r\n  <div class=\"logo-containter\">\r\n    <a (click)=\"toggleSidebar()\" href=\"#\" class=\"navigation\"><i class=\"nb-menu\"></i></a>\r\n    <div class=\"logo\" (click)=\"salir()\"><span><img src=\"assets/images/final-1.png\" alt=\"\" height=\"66px\" width=\"100px\" style=\"display:block; margin:auto; border-radius: 7px;\"/></span></div>\r\n  </div>\r\n  <!-- <ngx-theme-switcher></ngx-theme-switcher> -->\r\n</div>\r\n\r\n<!-- <button (click)=\"newMensaje2()\">newMensaje</button> -->\r\n<!-- <button (click)=\"newNotificationCli2()\">newNotificationCli</button> -->\r\n\r\n<!-- <button (click)=\"newAlert()\">newAlert</button>\r\n<button (click)=\"newAlert2()\">newAlert2</button> -->\r\n<toaster-container [toasterconfig]=\"config\"></toaster-container>\r\n\r\n<nb-actions\r\n  size=\"medium\"\r\n  class=\"header-container\"\r\n  [class.right]=\"position === 'normal'\"\r\n  [class.left]=\"position === 'inverse'\">\r\n  <!-- <nb-action icon=\"nb-grid-b\" class=\"toggle-layout\" (click)=\"toggleSettings()\"></nb-action> -->\r\n  <nb-action>\r\n    <nb-user [menu]=\"userMenu\" [name]=\"user?.name\" [picture]=\"user?.picture\" (menuClick)=\"onMenuClick($event)\"></nb-user>\r\n  </nb-action>\r\n  <!--nb-action class=\"control-item\" icon=\"{{iconChats}}\" (click)=\"getEventChat()\">\r\n  </nb-action-->\r\n  <nb-action *ngIf=\"mouvers_user_tipo == '1'\" class=\"control-item\" (click)=\"changeShowMessage()\">\r\n    <i class=\"nb-email\"><div class=\"noti_Counter\" *ngIf=\"conversationsCli.length > 0 || conversationsRep.length > 0\">{{conversationsCli.length + conversationsRep.length}}</div></i>    \r\n      <div id=\"notifications1\" [hidden]=\"showHideMessage\">\r\n          <h3>Últimos mensajes</h3>\r\n          <div>\r\n            <ul class=\"people\" >\r\n              <div class=\"seeAll\" *ngIf=\"conversationsCli.length > 0\">Mensajes de clientes</div>\r\n              <li class=\"person\" *ngFor=\"let item of conversationsCli; let last = last; let indice=index\" (click)=\"leerMsg(item, indice)\">\r\n                  <img src=\"{{item.emisor.imagen}}\" alt=\"\" />\r\n                  <span class=\"name\">{{item.emisor.nombre}}</span>\r\n                  <span class=\"time\">{{item.created_at}}</span>\r\n                  <span class=\"preview\">{{item.msg}}</span>\r\n                  <hr [hidden]=\"last\"> \r\n              </li>\r\n              <div class=\"seeAll\" *ngIf=\"conversationsRep.length > 0\">Mensajes de repartidores</div> \r\n              <li class=\"person\" *ngFor=\"let item of conversationsRep; let last = last; let indice=index\" (click)=\"leerMsg(item, indice)\">\r\n                  <img src=\"{{item.emisor.imagen}}\" alt=\"\" />\r\n                  <span class=\"name\">{{item.emisor.nombre}}</span>\r\n                  <span class=\"time\">{{item.created_at}}</span>\r\n                  <span class=\"preview\">{{item.msg}}</span>\r\n                  <hr [hidden]=\"last\"> \r\n              </li>\r\n            </ul>\r\n          </div>\r\n          <p *ngIf=\"conversationsCli.length == 0 && conversationsRep.length == 0\" class=\"info-empty\">No hay mensajes.</p>\r\n          <div class=\"seeAll\" *ngIf=\"conversationsCli.length > 0 || conversationsRep.length > 0\" (click)=\"verTodos()\"><a>Ver Todos</a></div>\r\n      </div>\r\n  </nb-action>\r\n  <nb-action class=\"control-item\" (click)=\"changeShowNotification()\">\r\n    <i class=\"nb-notifications\"><div class=\"noti_Counter\" *ngIf=\"notificationsCli.length > 0\">{{notificationsCli.length}}</div></i>    \r\n      <div id=\"notifications2\" [hidden]=\"showHideNotification\">\r\n          <h3>Últimas notificaciones</h3>\r\n          <div>\r\n            <ul class=\"people\" >\r\n              <li class=\"person\" *ngFor=\"let item of notificationsCli; let last = last; let indice=index\" (click)=\"leerNotification(item, indice)\">\r\n                  <span class=\"name\">&nbsp;</span>\r\n                  <span class=\"time\">{{item.created_at}}</span>\r\n                  <span class=\"preview2\"><i class={{item.icono}}></i> {{item.contenido}}</span>\r\n                  <hr [hidden]=\"last\"> \r\n              </li> \r\n            </ul>\r\n            <p *ngIf=\"notificationsCli.length == 0\" class=\"info-empty\">No hay notificaciones.</p>\r\n          </div>\r\n      </div>\r\n  </nb-action>\r\n     \r\n  <!--nb-action class=\"control-item\" icon=\"{{iconBlogs}}\" (click)=\"getEventBlog()\"></nb-action-->\r\n  <!-- <nb-action class=\"control-item\">\r\n    <nb-search type=\"rotate-layout\" (click)=\"startSearch()\"></nb-search>\r\n  </nb-action> -->\r\n</nb-actions>\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+module.exports = "\r\n\r\n<div class=\"header-container\"\r\n     [class.left]=\"position === 'normal'\"\r\n     [class.right]=\"position === 'inverse'\">\r\n  <div class=\"logo-containter\">\r\n    <a (click)=\"toggleSidebar()\" href=\"#\" class=\"navigation\"><i class=\"nb-menu\"></i></a>\r\n    <div class=\"logo\" (click)=\"salir()\"><span><img src=\"assets/images/final-1.png\" alt=\"\" height=\"66px\" width=\"100px\" style=\"display:block; margin:auto; border-radius: 7px;\"/></span></div>\r\n  </div>\r\n  <!-- <ngx-theme-switcher></ngx-theme-switcher> -->\r\n</div>\r\n\r\n<!-- <button (click)=\"newMensaje2()\">newMensaje</button> -->\r\n<!-- <button (click)=\"newNotificationCli2()\">newNotificationCli</button> -->\r\n\r\n<!-- <button (click)=\"newAlert()\">newAlert</button>\r\n<button (click)=\"newAlert2()\">newAlert2</button> -->\r\n<toaster-container [toasterconfig]=\"config\"></toaster-container>\r\n\r\n<nb-actions\r\n  size=\"medium\"\r\n  class=\"header-container\"\r\n  [class.right]=\"position === 'normal'\"\r\n  [class.left]=\"position === 'inverse'\">\r\n  <!-- <nb-action icon=\"nb-grid-b\" class=\"toggle-layout\" (click)=\"toggleSettings()\"></nb-action> -->\r\n  <nb-action>\r\n    <!--nb-user [menu]=\"userMenu\" [name]=\"user?.name\" [picture]=\"user?.picture\" (menuClick)=\"onMenuClick($event)\"></nb-user-->\r\n  </nb-action>\r\n  <!--nb-action class=\"control-item\" icon=\"{{iconChats}}\" (click)=\"getEventChat()\">\r\n  </nb-action-->\r\n  <nb-action *ngIf=\"mouvers_user_tipo == '1'\" class=\"control-item\" (click)=\"changeShowMessage()\">\r\n    <i class=\"nb-email\"><div class=\"noti_Counter\" *ngIf=\"conversationsCli.length > 0 || conversationsRep.length > 0\">{{conversationsCli.length + conversationsRep.length}}</div></i>    \r\n      <div id=\"notifications1\" [hidden]=\"showHideMessage\">\r\n          <h3>Últimos mensajes</h3>\r\n          <div>\r\n            <ul class=\"people\" >\r\n              <div class=\"seeAll\" *ngIf=\"conversationsCli.length > 0\">Mensajes de clientes</div>\r\n              <li class=\"person\" *ngFor=\"let item of conversationsCli; let last = last; let indice=index\" (click)=\"leerMsg(item, indice)\">\r\n                  <img src=\"{{item.emisor.imagen}}\" alt=\"\" />\r\n                  <span class=\"name\">{{item.emisor.nombre}}</span>\r\n                  <span class=\"time\">{{item.created_at}}</span>\r\n                  <span class=\"preview\">{{item.msg}}</span>\r\n                  <hr [hidden]=\"last\"> \r\n              </li>\r\n              <div class=\"seeAll\" *ngIf=\"conversationsRep.length > 0\">Mensajes de repartidores</div> \r\n              <li class=\"person\" *ngFor=\"let item of conversationsRep; let last = last; let indice=index\" (click)=\"leerMsg(item, indice)\">\r\n                  <img src=\"{{item.emisor.imagen}}\" alt=\"\" />\r\n                  <span class=\"name\">{{item.emisor.nombre}}</span>\r\n                  <span class=\"time\">{{item.created_at}}</span>\r\n                  <span class=\"preview\">{{item.msg}}</span>\r\n                  <hr [hidden]=\"last\"> \r\n              </li>\r\n            </ul>\r\n          </div>\r\n          <p *ngIf=\"conversationsCli.length == 0 && conversationsRep.length == 0\" class=\"info-empty\">No hay mensajes.</p>\r\n          <div class=\"seeAll\" *ngIf=\"conversationsCli.length > 0 || conversationsRep.length > 0\" (click)=\"verTodos()\"><a>Ver Todos</a></div>\r\n      </div>\r\n  </nb-action>\r\n  <nb-action class=\"control-item\" (click)=\"changeShowNotification()\">\r\n    <i class=\"nb-notifications\"><div class=\"noti_Counter\" *ngIf=\"notificationsCli.length > 0\">{{notificationsCli.length}}</div></i>    \r\n      <div id=\"notifications2\" [hidden]=\"showHideNotification\">\r\n          <h3>Últimas notificaciones</h3>\r\n          <div>\r\n            <ul class=\"people\" >\r\n              <li class=\"person\" *ngFor=\"let item of notificationsCli; let last = last; let indice=index\" (click)=\"leerNotification(item, indice)\">\r\n                  <span class=\"name\">&nbsp;</span>\r\n                  <span class=\"time\">{{item.created_at}}</span>\r\n                  <span class=\"preview2\"><i class={{item.icono}}></i> {{item.contenido}}</span>\r\n                  <hr [hidden]=\"last\"> \r\n              </li> \r\n            </ul>\r\n            <p *ngIf=\"notificationsCli.length == 0\" class=\"info-empty\">No hay notificaciones.</p>\r\n          </div>\r\n      </div>\r\n  </nb-action>\r\n     \r\n  <!--nb-action class=\"control-item\" icon=\"{{iconBlogs}}\" (click)=\"getEventBlog()\"></nb-action-->\r\n  <!-- <nb-action class=\"control-item\">\r\n    <nb-search type=\"rotate-layout\" (click)=\"startSearch()\"></nb-search>\r\n  </nb-action> -->\r\n</nb-actions>\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -1800,6 +1800,12 @@ var HeaderComponent = /** @class */ (function () {
         this.router.navigateByUrl('/pagessimples/loginf');
     };
     __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])()
+        //----Alertas---<
+        ,
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_13_angular2_toaster__["b" /* ToasterConfig */])
+    ], HeaderComponent.prototype, "config", void 0);
+    __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
         __metadata("design:type", Object)
     ], HeaderComponent.prototype, "position", void 0);
@@ -1809,8 +1815,8 @@ var HeaderComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/@theme/components/header/header.component.scss")],
             template: __webpack_require__("../../../../../src/app/@theme/components/header/header.component.html"),
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["l" /* NbSidebarService */],
-            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["h" /* NbMenuService */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["m" /* NbSidebarService */],
+            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["i" /* NbMenuService */],
             __WEBPACK_IMPORTED_MODULE_2__core_data_users_service__["a" /* UserService */],
             __WEBPACK_IMPORTED_MODULE_3__core_utils_analytics_service__["a" /* AnalyticsService */],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* Router */],
@@ -2096,7 +2102,7 @@ var ThemeSwitcherComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/@theme/components/theme-switcher/theme-switcher.component.scss")],
             template: "\n    <label class=\"theme-switch\">\n      <span class=\"light\">Light</span>\n      <div class=\"switch\">\n        <input type=\"checkbox\" [checked]=\"currentBoolTheme()\" (change)=\"toggleTheme(theme.checked)\" #theme>\n        <span class=\"slider\"></span>\n      </div>\n      <span class=\"cosmic\">Cosmic</span>\n    </label>\n  ",
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */], __WEBPACK_IMPORTED_MODULE_2__core_utils_analytics_service__["a" /* AnalyticsService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */], __WEBPACK_IMPORTED_MODULE_2__core_utils_analytics_service__["a" /* AnalyticsService */]])
     ], ThemeSwitcherComponent);
     return ThemeSwitcherComponent;
 }());
@@ -2354,10 +2360,10 @@ var SampleLayoutComponent = /** @class */ (function () {
             template: "\n    <nb-layout [center]=\"layout.id === 'center-column'\" windowMode>\n      <nb-layout-header fixed>\n        <ngx-header [position]=\"sidebar.id === 'left' ? 'normal': 'inverse'\"></ngx-header>\n      </nb-layout-header>\n\n      <nb-sidebar class=\"menu-sidebar\" style=\"color:#fff !important\"\n                   tag=\"menu-sidebar\"\n                   responsive\n                   [right]=\"sidebar.id === 'right'\">\n        <nb-sidebar-header>\n          <a class=\"btn btn-hero-success main-btn\">\n            <i class=\"ion ion-ios-arrow-down\"></i> <span>MENU</span>\n          </a>\n        </nb-sidebar-header>\n        <ng-content select=\"nb-menu\"></ng-content>\n      </nb-sidebar>\n\n      <nb-layout-column class=\"main-content\">\n        <ng-content select=\"router-outlet\"></ng-content>\n      </nb-layout-column>\n\n      <nb-layout-column left class=\"small\" *ngIf=\"layout.id === 'two-column' || layout.id === 'three-column'\">\n        <nb-menu [items]=\"subMenu\"></nb-menu>\n      </nb-layout-column>\n\n      <nb-layout-column right class=\"small\" *ngIf=\"layout.id === 'three-column'\">\n        <nb-menu [items]=\"subMenu\"></nb-menu>\n      </nb-layout-column>\n\n      <nb-layout-footer fixed>\n        <ngx-footer></ngx-footer>\n      </nb-layout-footer>\n\n      <nb-sidebar class=\"settings-sidebar\"\n                   tag=\"settings-sidebar\"\n                   state=\"collapsed\"\n                   fixed\n                   [right]=\"sidebar.id !== 'right'\">\n        <ngx-theme-settings></ngx-theme-settings>\n      </nb-sidebar>\n    </nb-layout>\n  ",
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__core_data_state_service__["a" /* StateService */],
-            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["h" /* NbMenuService */],
-            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["p" /* NbThemeService */],
-            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["f" /* NbMediaBreakpointsService */],
-            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["l" /* NbSidebarService */]])
+            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["i" /* NbMenuService */],
+            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["q" /* NbThemeService */],
+            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["g" /* NbMediaBreakpointsService */],
+            __WEBPACK_IMPORTED_MODULE_1__nebular_theme__["m" /* NbSidebarService */]])
     ], SampleLayoutComponent);
     return SampleLayoutComponent;
 }());
@@ -2824,15 +2830,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var BASE_MODULES = [__WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormsModule"], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["ReactiveFormsModule"]];
 var NB_MODULES = [
     __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["b" /* NbCardModule */],
-    __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["e" /* NbLayoutModule */],
-    __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["n" /* NbTabsetModule */],
-    __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["i" /* NbRouteTabsetModule */],
-    __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["g" /* NbMenuModule */],
-    __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["q" /* NbUserModule */],
+    __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["f" /* NbLayoutModule */],
+    __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["o" /* NbTabsetModule */],
+    __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["j" /* NbRouteTabsetModule */],
+    __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["h" /* NbMenuModule */],
+    __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["r" /* NbUserModule */],
     __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["a" /* NbActionsModule */],
-    __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["j" /* NbSearchModule */],
-    __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["k" /* NbSidebarModule */],
+    __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["k" /* NbSearchModule */],
+    __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["l" /* NbSidebarModule */],
     __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["c" /* NbCheckboxModule */],
+    __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["e" /* NbContextMenuModule */],
     __WEBPACK_IMPORTED_MODULE_3__ng_bootstrap_ng_bootstrap__["c" /* NgbModule */],
 ];
 var COMPONENTS = [
@@ -2853,9 +2860,9 @@ var PIPES = [
     __WEBPACK_IMPORTED_MODULE_7__pipes__["c" /* RoundPipe */],
     __WEBPACK_IMPORTED_MODULE_7__pipes__["d" /* TimingPipe */],
 ];
-var NB_THEME_PROVIDERS = __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["o" /* NbThemeModule */].forRoot({
+var NB_THEME_PROVIDERS = __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["p" /* NbThemeModule */].forRoot({
     name: 'default',
-}, [__WEBPACK_IMPORTED_MODULE_9__styles_theme_default__["a" /* DEFAULT_THEME */], __WEBPACK_IMPORTED_MODULE_10__styles_theme_cosmic__["a" /* COSMIC_THEME */]]).providers.concat(__WEBPACK_IMPORTED_MODULE_5__nebular_theme__["k" /* NbSidebarModule */].forRoot().providers, __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["g" /* NbMenuModule */].forRoot().providers);
+}, [__WEBPACK_IMPORTED_MODULE_9__styles_theme_default__["a" /* DEFAULT_THEME */], __WEBPACK_IMPORTED_MODULE_10__styles_theme_cosmic__["a" /* COSMIC_THEME */]]).providers.concat(__WEBPACK_IMPORTED_MODULE_5__nebular_theme__["l" /* NbSidebarModule */].forRoot().providers, __WEBPACK_IMPORTED_MODULE_5__nebular_theme__["h" /* NbMenuModule */].forRoot().providers);
 var ThemeModule = /** @class */ (function () {
     function ThemeModule() {
     }

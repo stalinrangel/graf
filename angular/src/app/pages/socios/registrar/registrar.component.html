@@ -468,7 +468,7 @@
                <tr *ngFor="let item of this.objAEditar.establecimiento.productos" >
                 <td style="text-align: center; vertical-align:middle;"><img src = "{{item.imagen}}" alt="" class="img-table" height="150px" width="180px" style="border-radius: 20px;"></td>
                   <td style="text-align: center; vertical-align:middle;">{{item.nombre}}</td>
-                  <td style="text-align: center; vertical-align:middle;">{{item.subcategoria.categoria.catprincipales.nombre}}-{{item.subcategoria.categoria.nombre}}-{{item.subcategoria.nombre}}</td>
+                  <td style="text-align: center; vertical-align:middle;">{{item.subcategoria.categoria.nombre}}-{{item.subcategoria.nombre}}</td>
                   <td style="text-align: center; vertical-align:middle;">{{item.descripcion}} Estrellas de 5</td>
                   <td>
                     <nb-checkbox [value]="item.estado === 'ON'"  (change)="cambiarEstado2(item)"></nb-checkbox>

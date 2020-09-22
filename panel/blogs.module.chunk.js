@@ -537,7 +537,7 @@ var BlogsComponent = /** @class */ (function () {
             styles: [__webpack_require__("../../../../../src/app/pages/blogs/blogs.component.scss")],
             template: __webpack_require__("../../../../../src/app/pages/blogs/blogs.component.html"),
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_11__nebular_theme__["l" /* NbSidebarService */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_11__nebular_theme__["m" /* NbSidebarService */],
             __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["b" /* NgbModal */],
             __WEBPACK_IMPORTED_MODULE_6_angular2_toaster__["d" /* ToasterService */],
             __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */],

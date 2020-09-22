@@ -18,6 +18,7 @@ import {
   NbTabsetModule,
   NbThemeModule,
   NbUserModule,
+  NbContextMenuModule,
   NbCheckboxModule,
 } from '@nebular/theme';
 
@@ -52,6 +53,7 @@ const NB_MODULES = [
   NbSearchModule,
   NbSidebarModule,
   NbCheckboxModule,
+  NbContextMenuModule,
   NgbModule,
 ];
 
