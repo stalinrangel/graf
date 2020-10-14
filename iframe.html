@@ -1,0 +1,80 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="{SE CONFIGURA DESDE PANEL DE CONTROL}" rel="stylesheet" type="text/css">
+<title>PAYCOMET</title>
+<style type="text/css">
+<!--Estos estilos generales dentro del head, no pueden modificarse en el panel de control, contacte con PAYCOMET-->
+div {margin:0;padding:0;float:left;width:100%;display:inline;}
+</style>
+</head>
+<body style="width:450px;">
+<div style="{SE CONFIGURA DESDE PANEL DE CONTROL}">
+<div>
+<div style="width:28%;"><span style="{SE CONFIGURA DESDE PANEL DE CONTROL}">Titular de la tarjeta:</span></div>
+<div style="width: 2%;"> </div>
+<div style="width:70%;"><input type="text" style="{SE CONFIGURA DESDE PANEL DE CONTROL}" maxlength="50" id="Nombre" name="Nombre" value="" onClick="this.value='';" /></div>
+</div>
+<div>
+<div style="width:28%;"><span style="{SE CONFIGURA DESDE PANEL DE CONTROL}">Número de la tarjeta:</span></div>
+<div style="width: 2%;"> </div>
+<div style="width:70%;"><input type="text" style="{SE CONFIGURA DESDE PANEL DE CONTROL}" maxlength="16" id="MERCHANT_PAN" name="MERCHANT_PAN" value="" onClick="this.value='';" /></div>
+</div>
+<div>
+<div style="width:28%;"><span style="{SE CONFIGURA DESDE PANEL DE CONTROL}">Fecha de caducidad:</span></div>
+<div style="width: 2%;"> </div>
+<div style="width:70%;">
+        <div style="width:50%;">
+                <div style="width:22%;"><span style="{SE CONFIGURA DESDE PANEL DE CONTROL}">Mes:</span></div>
+                <div style="width: 3%;"> </div>
+                <div style="width:22%;">
+                        <select id="mm" name="mm" style="{SE CONFIGURA DESDE PANEL DE CONTROL}">
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                        </select>
+                </div>
+        </div>
+        <div style="width:50%;">
+                <div style="width:22%;"><span style="{SE CONFIGURA DESDE PANEL DE CONTROL}">Año:</span></div>
+                <div style="width: 3%;"> </div>
+                <div style="width:22%;">
+                        <select id="yy" name="yy" style="{SE CONFIGURA DESDE PANEL DE CONTROL}">
+                                <option value="13">2013</option>
+                                <option value="14">2014</option>
+                                <option value="15">2015</option>
+                                <option value="16">2016</option>
+                                <option value="17">2017</option>
+                                <option value="18">2018</option>
+                        </select>
+                </div>
+        </div>
+</div>
+</div>
+<div>
+<div style="width:28%;"><span style="{SE CONFIGURA DESDE PANEL DE CONTROL}">Código CVC2:</span></div>
+<div style="width: 2%;"> </div>
+<div style="width:70%;">
+        <div style="width:14%;"><input type="text" style="width:90% !important;{SE CONFIGURA DESDE PANEL DE CONTROL}" maxlength="4" id="MERCHANT_CVC2" name="MERCHANT_CVC2" value="" onClick="this.value='';" /></div>
+        <div style="width:14%;"><img src="https://api.paycomet.com/gateway/img/cvv2.png" alt="CVC2" width="34" height="21" title="CVC2" style="margin-top:6px; margin-left:5px; float:left;" /></div>
+        <div style="width:70%;"><span style="{SE CONFIGURA DESDE PANEL DE CONTROL}">(3 últimos dígitos)</span></div>
+</div>
+</div>
+
+<div>
+<img src="https://api.paycomet.com/gateway/assets/img/clockpayblue.gif" alt="Espere" width="41" height="30" id="clockwait" style="display:none; margin-top:5px;" />
+<input type="submit" style="{SE CONFIGURA DESDE PANEL DE CONTROL}" value="Aceptar pago" id="btnforg" />
+</div>
+</div>
