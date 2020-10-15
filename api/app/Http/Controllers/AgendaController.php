@@ -64,7 +64,8 @@ class AgendaController extends Controller
         $MERCHANT_ORDER='1'; 
         $PASSWORD='LzeFvAEk769B0Zxn5iVG';
 
-        $firma = SHA512( $MERCHANT_MERCHANTCODE + $MERCHANT_TERMINAL + $OPERATION + $MERCHANT_ORDER + md5($PASSWORD));
+        $string= $MERCHANT_MERCHANTCODE + $MERCHANT_TERMINAL + $OPERATION + $MERCHANT_ORDER + md5($PASSWORD);    
+        $firma = hash("sha512",$string);
 
         if(count($firma) == 0){
             return response()->json(['error'=>'No existen firma.'], 404);          
