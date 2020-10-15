@@ -60,7 +60,7 @@ class AgendaController extends Controller
         //cargar todas las Agendaes
         $MERCHANT_MERCHANTCODE='5ksvfm01';
         $MERCHANT_TERMINAL='17564'; 
-        $OPERATION='107';
+        $OPERATION='1';
         $MERCHANT_ORDER='1'; 
         $PASSWORD='LzeFvAEk769B0Zxn5iVG';
 
