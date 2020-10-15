@@ -31,7 +31,8 @@ Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 Route::group(  ['middleware' =>'cors'], function(){
 
 
-    Route::get('/firma','AgendaController@firma');        
+    Route::get('/firma','AgendaController@firma');   
+    Route::get('/paynotify','AgendaController@paynotify');      
     //----Pruebas ErrorController
     Route::get('/error','ErrorController@index');
     Route::post('/error','ErrorController@store');
