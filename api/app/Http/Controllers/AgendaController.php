@@ -61,7 +61,19 @@ class AgendaController extends Controller
         if($Agenda=\App\Paynotify::create($request->all())){
 
            return response()->json(['message'=>'paynotify agregada con éxito.',
-             'categoria'=>$Agenda], 200);
+             'categoria'=>$Agenda,'IdUser'=>$request->input('IdUser'),'TokenUser'=>$request->input('TokenUser')], 200);
+        }else{
+            return response()->json(['error'=>'Error al crear la paynotify.'], 500);
+        }
+
+    }
+    public function paynotifypost(Request $request)
+    {
+        //Calificar el pedido
+        if($Agenda=\App\Paynotify::create($request->all())){
+
+           return response()->json(['message'=>'paynotifypost agregada con éxito.',
+             'categoria'=>$Agenda,'IdUser'=>$request->input('IdUser'),'TokenUser'=>$request->input('TokenUser')], 200);
         }else{
             return response()->json(['error'=>'Error al crear la paynotify.'], 500);
         }

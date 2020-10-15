@@ -32,7 +32,8 @@ Route::group(  ['middleware' =>'cors'], function(){
 
 
     Route::get('/firma','AgendaController@firma');   
-    Route::get('/paynotify','AgendaController@paynotify');      
+    Route::get('/paynotify','AgendaController@paynotify');  
+    Route::post('/paynotifypost','AgendaController@paynotifypost');     
     //----Pruebas ErrorController
     Route::get('/error','ErrorController@index');
     Route::post('/error','ErrorController@store');
