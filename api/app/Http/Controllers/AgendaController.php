@@ -17,18 +17,12 @@ class AgendaController extends Controller
     public function index()
     {
         //cargar todas las Agendaes
-        $MERCHANT_MERCHANTCODE='5ksvfm01';
-        $MERCHANT_TERMINAL='17564'; 
-        $OPERATION='107';
-        $MERCHANT_ORDER='1'; 
-        $PASSWORD='LzeFvAEk769B0Zxn5iVG';
+        $Agendaes = \App\Agenda::all();
 
-        $firma = SHA512( $MERCHANT_MERCHANTCODE + $MERCHANT_TERMINAL + $OPERATION + $MERCHANT_ORDER + md5($PASSWORD));
-
-        if(count($firma) == 0){
-            return response()->json(['error'=>'No existen firma.'], 404);          
+        if(count($Agendaes) == 0){
+            return response()->json(['error'=>'No existen Agendaes.'], 404);          
         }else{
-            return response()->json(['firma'=>$firma], 200);
+            return response()->json(['Agendaes'=>$Agendaes], 200);
         } 
     }
 
@@ -63,14 +57,20 @@ class AgendaController extends Controller
 
     public function firma(Request $request)
     {
-        //Calificar el pedido
-        if($Agenda=\App\Agenda::create($request->all())){
+        //cargar todas las Agendaes
+        $MERCHANT_MERCHANTCODE='5ksvfm01';
+        $MERCHANT_TERMINAL='17564'; 
+        $OPERATION='107';
+        $MERCHANT_ORDER='1'; 
+        $PASSWORD='LzeFvAEk769B0Zxn5iVG';
 
-           return response()->json(['message'=>'agenda agregada con éxito.',
-             'categoria'=>$Agenda], 200);
+        $firma = SHA512( $MERCHANT_MERCHANTCODE + $MERCHANT_TERMINAL + $OPERATION + $MERCHANT_ORDER + md5($PASSWORD));
+
+        if(count($firma) == 0){
+            return response()->json(['error'=>'No existen firma.'], 404);          
         }else{
-            return response()->json(['error'=>'Error al crear la Agenda.'], 500);
-        }
+            return response()->json(['firma'=>$firma], 200);
+        } 
 
     }
 
