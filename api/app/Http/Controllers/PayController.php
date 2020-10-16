@@ -24,12 +24,7 @@ class PayController extends Controller
                                     "productDescription"=> "prueba descrip masa",
                                     "userInteraction"=> "1",
                                     "urlOk"=> "https://www.paycomet.com/url-ok",
-                                    "urlKo"=> "https://www.paycomet.com/url-ko",
-                                    "merchantData"=>array(
-                                         "customer" => array(
-                                                 "email" => "massage.graf.app@gmail.com"
-                                             )
-                                     )
+                                    "urlKo"=> "https://www.paycomet.com/url-ko"
                                 )
                         );
         
