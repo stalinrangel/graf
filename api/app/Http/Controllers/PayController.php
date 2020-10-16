@@ -12,6 +12,27 @@ class PayController extends Controller
     public function pay(Request $request)
     {
         $curl = curl_init();
+        $payload = array( "payment"=> array(
+                                    "order"=> "12",
+                                    "amount"=> "100",
+                                    "currency"=> "EUR",
+                                    "originalIp"=> "34.235.156.164",
+                                    "methodId"=> "1",
+                                    "terminal"=> "17564",
+                                    "secure"=> "1","idUser"=> "35709262",
+                                    "tokenUser"=> "VlROTmZDaDZXbFJ",
+                                    "productDescription"=> "prueba descrip masa",
+                                    "userInteraction"=> "1",
+                                    "urlOk"=> "https://www.paycomet.com/url-ok",
+                                    "urlKo"=> "https://www.paycomet.com/url-ko",
+                                    "merchantData"=>array(
+                                         "customer" => array(
+                                                 "email" => "massage.graf.app@gmail.com"
+                                             )
+                                     )
+                                )
+                        );
+        
         $campos='{"payment": {"order": "12","amount": "100","currency": "EUR","originalIp": "34.235.156.164","methodId": "1","terminal": "17564","secure": "1","idUser": "35709262","tokenUser": "VlROTmZDaDZXbFJ","productDescription": "prueba descrip masa","userInteraction": "1","urlOk": "https://www.paycomet.com/url-ok","urlKo": "https://www.paycomet.com/url-ko","merchantData": {"customer": {"email": "massage.graf.app@gmail.com"}}}}';
        // $campos=json_encode($campos);
         curl_setopt_array($curl, array(
@@ -41,8 +62,8 @@ class PayController extends Controller
     {
         $curl = curl_init();
 
-        $payload = array( "idUser"=> 35709262,"tokenUser"=> VlROTmZDaDZXbFJ,"terminal"=> 17564 ) ;
-        $payload2="{\n    \"idUser\": 35709262,\n    \"tokenUser\": \"VlROTmZDaDZXbFJ\",\n    \"terminal\": \"17564\"\n}";
+        $payload = array( "idUser"=> 35709262,"tokenUser"=> VlROTmZDaDZXbFJ,"terminal"=> 17564 );
+
         curl_setopt_array($curl, array(
           CURLOPT_URL => "https://rest.paycomet.com/v1/cards/info",
           CURLOPT_RETURNTRANSFER => true,
