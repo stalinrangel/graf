@@ -55,7 +55,7 @@ class PayController extends Controller
 
         curl_close($curl);
         echo $response;
-        echo $campos;
+        echo $payload;
     }
 
     public function carinfo(Request $request)
