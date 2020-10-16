@@ -41,6 +41,8 @@ class PayController extends Controller
     {
         $curl = curl_init();
 
+        $payload = json_encode( array( "idUser"=> 35709262,"tokenUser"=> VlROTmZDaDZXbFJ,"terminal"=> 17564 ) );
+        $payload2="{\n    \"idUser\": 35709262,\n    \"tokenUser\": \"VlROTmZDaDZXbFJ\",\n    \"terminal\": \"17564\"\n}";
         curl_setopt_array($curl, array(
           CURLOPT_URL => "https://rest.paycomet.com/v1/cards/info",
           CURLOPT_RETURNTRANSFER => true,
@@ -50,7 +52,7 @@ class PayController extends Controller
           CURLOPT_FOLLOWLOCATION => true,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
           CURLOPT_CUSTOMREQUEST => "POST",
-          CURLOPT_POSTFIELDS =>"{\n    \"idUser\": 35709262,\n    \"tokenUser\": \"VlROTmZDaDZXbFJ\",\n    \"terminal\": \"17564\"\n}",
+          CURLOPT_POSTFIELDS =>$payload,
           CURLOPT_HTTPHEADER => array(
             "PAYCOMET-API-TOKEN: <API Key>",
             "PAYCOMET-API-TOKEN: bbd96aad13137031819a9f75deca7d4b82e79376"
