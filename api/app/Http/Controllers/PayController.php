@@ -50,7 +50,7 @@ class PayController extends Controller
           CURLOPT_FOLLOWLOCATION => true,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
           CURLOPT_CUSTOMREQUEST => "POST",
-          CURLOPT_POSTFIELDS =>"{\n    \"idUser\": 35709262,\n    \"tokenUser\": \"VlROTmZDaDZXbFJ\",\n    \"terminal\": \"<17564>\"\n}",
+          CURLOPT_POSTFIELDS =>"{\n    \"idUser\": 35709262,\n    \"tokenUser\": \"VlROTmZDaDZXbFJ\",\n    \"terminal\": \"17564\"\n}",
           CURLOPT_HTTPHEADER => array(
             "PAYCOMET-API-TOKEN: <API Key>",
             "PAYCOMET-API-TOKEN: bbd96aad13137031819a9f75deca7d4b82e79376"
