@@ -13,8 +13,8 @@ class PayController extends Controller
     {
         $curl = curl_init();
         $payload = array( "payment"=> array(
-                                    "order"=> "12",
-                                    "amount"=> "100",
+                                    "order"=> "12132",
+                                    "amount"=> "1000",
                                     "currency"=> "EUR",
                                     "originalIp"=> "34.235.156.164",
                                     "methodId"=> "1",
@@ -22,9 +22,7 @@ class PayController extends Controller
                                     "secure"=> "1","idUser"=> "35709262",
                                     "tokenUser"=> "VlROTmZDaDZXbFJ",
                                     "productDescription"=> "prueba descrip masa",
-                                    "userInteraction"=> "1",
-                                    "urlOk"=> "https://www.paycomet.com/url-ok",
-                                    "urlKo"=> "https://www.paycomet.com/url-ko"
+                                    "userInteraction"=> "1"
                                 )
                         );
         
