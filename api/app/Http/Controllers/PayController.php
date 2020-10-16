@@ -37,6 +37,31 @@ class PayController extends Controller
         echo $campos;
     }
 
+    public function carinfo(Request $request)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => "https://rest.paycomet.com/v1/cards/info",
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => "",
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 0,
+          CURLOPT_FOLLOWLOCATION => true,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "POST",
+          CURLOPT_POSTFIELDS =>"{\n    \"idUser\": 35709262,\n    \"tokenUser\": \"VlROTmZDaDZXbFJ\",\n    \"terminal\": \"<17564>\"\n}",
+          CURLOPT_HTTPHEADER => array(
+            "PAYCOMET-API-TOKEN: <API Key>",
+            "PAYCOMET-API-TOKEN: bbd96aad13137031819a9f75deca7d4b82e79376"
+          ),
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        echo $response;
+    }
 
 }
 
