@@ -41,7 +41,7 @@ class PayController extends Controller
     {
         $curl = curl_init();
 
-        $payload = json_encode( array( "idUser"=> 35709262,"tokenUser"=> VlROTmZDaDZXbFJ,"terminal"=> 17564 ) );
+        $payload = array( "idUser"=> 35709262,"tokenUser"=> VlROTmZDaDZXbFJ,"terminal"=> 17564 ) ;
         $payload2="{\n    \"idUser\": 35709262,\n    \"tokenUser\": \"VlROTmZDaDZXbFJ\",\n    \"terminal\": \"17564\"\n}";
         curl_setopt_array($curl, array(
           CURLOPT_URL => "https://rest.paycomet.com/v1/cards/info",
@@ -63,6 +63,7 @@ class PayController extends Controller
 
         curl_close($curl);
         echo $response;
+        echo 1;
     }
 
 }
