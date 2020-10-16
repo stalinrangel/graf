@@ -86,7 +86,7 @@ class AgendaController extends Controller
         $MERCHANT_MERCHANTCODE='5ksvfm01';
         $MERCHANT_TERMINAL='17564'; 
         $OPERATION='107';
-        $MERCHANT_ORDER='1'; 
+        $MERCHANT_ORDER=$request->input('MERCHANT_ORDER'); 
         $PASSWORD='LzeFvAEk769B0Zxn5iVG';
         $md5=md5($PASSWORD);
         $string= $MERCHANT_MERCHANTCODE . $MERCHANT_TERMINAL . $OPERATION . $MERCHANT_ORDER . md5($PASSWORD);    
@@ -95,7 +95,8 @@ class AgendaController extends Controller
         if(count($firma) == 0){
             return response()->json(['error'=>'No existen firma.'], 404);          
         }else{
-            return response()->json(['firma'=>$firma,'md5'=>$md5,'string'=>$string], 200);
+            return response()->json(['firma'=>$firma], 200);
+            //return response()->json(['firma'=>$firma,'md5'=>$md5,'string'=>$string], 200);
         } 
 
     }

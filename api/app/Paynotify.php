@@ -24,7 +24,7 @@ class Paynotify extends Model
      *
      * @var array
      */
-    protected $fillable = ['id', 'paynotify', 'IdUser' ,'TokenUser', 'created_at','updated_at'];
+    protected $fillable = ['id', 'paynotify', 'IdUser' ,'TokenUser', 'Order','TransactionType', 'TransactionName', 'Response', 'ErrorID', 'AccountCode', 'created_at', 'updated_at'];
 
     /**
      * The attributes excluded from the model's JSON form.
