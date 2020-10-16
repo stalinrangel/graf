@@ -22,7 +22,7 @@ class PayController extends Controller
           CURLOPT_FOLLOWLOCATION => true,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
           CURLOPT_CUSTOMREQUEST => "POST",
-          CURLOPT_POSTFIELDS =>"{"payment": {"order": "12","amount": "10","currency": "EUR","originalIp": "34.235.156.164","methodId": "1","terminal": "17564","secure": "0","idUser": "35709262","tokenUser": "VlROTmZDaDZXbFJ","productDescription": "prueba descrip masa","userInteraction": "1","urlOk": "https://www.paycomet.com/url-ok","urlKo": "https://www.paycomet.com/url-ko","merchantData": {"customer": {"email": "massage.graf.app@gmail.com"}}}}",
+          CURLOPT_POSTFIELDS =>"{"payment": {"order": "12","amount": "10","currency": "EUR","originalIp": "34.235.156.164","methodId": "1","terminal": "17564","secure": "0","idUser": "35709262","tokenUser": "VlROTmZDaDZXbFJ","productDescription": "prueba descrip masa","userInteraction": "1","urlOk": "'https://www.paycomet.com/url-ok'","urlKo": "https:'//www.paycomet.com/url-ko'","merchantData": {"customer": {"email": "massage.graf.app@gmail.com"}}}}",
           CURLOPT_HTTPHEADER => array(
             "PAYCOMET-API-TOKEN: <API Key>",
             "PAYCOMET-API-TOKEN: bbd96aad13137031819a9f75deca7d4b82e79376"
