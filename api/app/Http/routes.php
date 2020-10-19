@@ -36,6 +36,8 @@ Route::group(  ['middleware' =>'cors'], function(){
     Route::post('/paynotifypost','AgendaController@paynotifypost'); 
     Route::get('/pay','PayController@pay'); 
     Route::get('/carinfo','PayController@carinfo');    
+    Route::get('/check_pay/{id}','PayController@check_pay'); 
+    Route::get('/carinfo','PayController@carinfo');  
     
     //----Pruebas ErrorController
     Route::get('/error','ErrorController@index');

@@ -12,9 +12,22 @@ class PayController extends Controller
     public function pay(Request $request)
     {
         $curl = curl_init();
-        $payload = array( "payment"=> 12132);
+        $payload = array( "payment"=> array(
+                                    "order"=> "12132",
+                                    "amount"=> "1000",
+                                    "currency"=> "EUR",
+                                    "originalIp"=> "34.235.156.164",
+                                    "methodId"=> "1",
+                                    "terminal"=> "17564",
+                                    "secure"=> "1","idUser"=> "35709262",
+                                    "tokenUser"=> "VlROTmZDaDZXbFJ",
+                                    "productDescription"=> "prueba descrip masa",
+                                    "userInteraction"=> "1"
+                                )
+                        );
         
         $campos='{"payment": {"order": "12","amount": "100","currency": "EUR","originalIp": "34.235.156.164","methodId": "1","terminal": "17564","secure": "1","idUser": "35709262","tokenUser": "VlROTmZDaDZXbFJ","productDescription": "prueba descrip masa","userInteraction": "1","urlOk": "https://www.paycomet.com/url-ok","urlKo": "https://www.paycomet.com/url-ko","merchantData": {"customer": {"email": "massage.graf.app@gmail.com"}}}}';
+        $campos2='{\"payment\":{\"order\":\"12\",\"amount\":\"100\",\"currency\":\"EUR\",\"originalIp\":\"34.235.156.164\",\"methodId\":\"1\",\"terminal\":\"17564\",\"secure\":\"1\",\"idUser\":\"35709262\",\"tokenUser\":\"VlROTmZDaDZXbFJ\",\"productDescription\":\"prueba descrip masa\",\"userInteraction\":\"1\",\"urlOk\":\"https://www.paycomet.com/url-ok\",\"urlKo\":\"https://www.paycomet.com/url-ko\",\"merchantData\":{\"customer\":{\"email\":\"massage.graf.app@gmail.com\"}}}}';
        // $campos=json_encode($campos);
         curl_setopt_array($curl, array(
           CURLOPT_URL => "https://rest.paycomet.com/v1/payments",
@@ -25,8 +38,10 @@ class PayController extends Controller
           CURLOPT_FOLLOWLOCATION => true,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
           CURLOPT_CUSTOMREQUEST => "POST",
-          CURLOPT_POSTFIELDS =>$payload,
+          CURLOPT_POSTFIELDS =>json_encode($payload),
           CURLOPT_HTTPHEADER => array(
+             "accept: application/json",
+            "Content-Type: application/json",
             "PAYCOMET-API-TOKEN: <API Key>",
             "PAYCOMET-API-TOKEN: bbd96aad13137031819a9f75deca7d4b82e79376"
           ),
@@ -56,6 +71,8 @@ class PayController extends Controller
           CURLOPT_CUSTOMREQUEST => "POST",
           CURLOPT_POSTFIELDS =>$payload,
           CURLOPT_HTTPHEADER => array(
+            "accept: application/json",
+            "Content-Type: application/json",
             "PAYCOMET-API-TOKEN: <API Key>",
             "PAYCOMET-API-TOKEN: bbd96aad13137031819a9f75deca7d4b82e79376"
           ),
@@ -68,5 +85,16 @@ class PayController extends Controller
         echo 1;
     }
 
+    public function check_pay($id)
+    {
+        //cargar una Agenda
+        $Agenda = \App\Paynotify::where('Order',$id);
+
+        if(count($Agenda)==0){
+            return response()->json(['error'=>'No existe la Agenda con id '.$id], 404);          
+        }else{
+            return response()->json(['Agenda'=>$Agenda], 200);
+        } 
+    }
 }
 
