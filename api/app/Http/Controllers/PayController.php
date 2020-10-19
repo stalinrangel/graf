@@ -88,7 +88,7 @@ class PayController extends Controller
     public function check_pay($id)
     {
         //cargar una Agenda
-        $Agenda = \App\Paynotify::where('Order',$id);
+        $Agenda = \App\Paynotify::where('Order',$id)->first();
 
         if(count($Agenda)==0){
             return response()->json(['error'=>'No existe la Agenda con id '.$id], 404);          
