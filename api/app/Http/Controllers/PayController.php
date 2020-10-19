@@ -13,21 +13,21 @@ class PayController extends Controller
     {
         $curl = curl_init();
         $payload = array( "payment"=> array(
-                                    "order"=> "12132",
-                                    "amount"=> "1000",
+                                    "order"=> $request->input('order'),
+                                    "amount"=> $request->input('amount'),
                                     "currency"=> "EUR",
                                     "originalIp"=> "34.235.156.164",
                                     "methodId"=> "1",
                                     "terminal"=> "17564",
-                                    "secure"=> "1","idUser"=> "35709262",
-                                    "tokenUser"=> "VlROTmZDaDZXbFJ",
-                                    "productDescription"=> "prueba descrip masa",
+                                    "secure"=> "1",
+                                    "idUser"=> $request->input('idUser'),
+                                    "tokenUser"=> $request->input('tokenUser'),
+                                    "productDescription"=> $request->input('productDescription'),
                                     "userInteraction"=> "1"
                                 )
                         );
         
-        $campos='{"payment": {"order": "12","amount": "100","currency": "EUR","originalIp": "34.235.156.164","methodId": "1","terminal": "17564","secure": "1","idUser": "35709262","tokenUser": "VlROTmZDaDZXbFJ","productDescription": "prueba descrip masa","userInteraction": "1","urlOk": "https://www.paycomet.com/url-ok","urlKo": "https://www.paycomet.com/url-ko","merchantData": {"customer": {"email": "massage.graf.app@gmail.com"}}}}';
-        $campos2='{\"payment\":{\"order\":\"12\",\"amount\":\"100\",\"currency\":\"EUR\",\"originalIp\":\"34.235.156.164\",\"methodId\":\"1\",\"terminal\":\"17564\",\"secure\":\"1\",\"idUser\":\"35709262\",\"tokenUser\":\"VlROTmZDaDZXbFJ\",\"productDescription\":\"prueba descrip masa\",\"userInteraction\":\"1\",\"urlOk\":\"https://www.paycomet.com/url-ok\",\"urlKo\":\"https://www.paycomet.com/url-ko\",\"merchantData\":{\"customer\":{\"email\":\"massage.graf.app@gmail.com\"}}}}';
+
        // $campos=json_encode($campos);
         curl_setopt_array($curl, array(
           CURLOPT_URL => "https://rest.paycomet.com/v1/payments",
@@ -58,7 +58,9 @@ class PayController extends Controller
     {
         $curl = curl_init();
 
-        $payload = array( "idUser"=> 35709262,"tokenUser"=> VlROTmZDaDZXbFJ,"terminal"=> 17564 );
+        $payload = array( "idUser"=> $request->input('idUser'),
+                          "tokenUser"=> $request->input('tokenUser'),
+                          "terminal"=> 17564 );
 
         curl_setopt_array($curl, array(
           CURLOPT_URL => "https://rest.paycomet.com/v1/cards/info",
@@ -91,9 +93,9 @@ class PayController extends Controller
         $Agenda = \App\Paynotify::where('Order',$id)->first();
 
         if(count($Agenda)==0){
-            return response()->json(['error'=>'No existe la Agenda con id '.$id], 404);          
+            return response()->json(['error'=>'No existe la Order '.$id], 404);          
         }else{
-            return response()->json(['Agenda'=>$Agenda], 200);
+            return response()->json(['Order'=>$Agenda], 200);
         } 
     }
 }
