@@ -47,7 +47,7 @@ Route::group(  ['middleware' =>'cors'], function(){
     Route::post('/login/web','LoginController@loginWeb');
     Route::post('/login/app','LoginController@loginApp');
     Route::post('/login/repartidores','LoginController@loginRepartidores');
-    //Route::post('/validar/token','LoginController@validarToken');
+    Route::post('/validar/token','LoginController@validarToken');
 
     //----Web
     Route::get('/usuarios/webcontacto/{email}','UsuarioController@webcontacto');
