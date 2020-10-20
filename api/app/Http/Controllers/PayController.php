@@ -58,8 +58,10 @@ class PayController extends Controller
     {
         $curl = curl_init();
 
-        $payload = array( "idUser"=> $request->input('idUser'),
-                          "tokenUser"=> $request->input('tokenUser'),
+        $payload = array( "idUser"=> "35709262",
+                          "tokenUser"=> "VlROTmZDaDZXbFJ",
+                          /*"idUser"=> $request->input('idUser'),
+                          "tokenUser"=> $request->input('tokenUser'),*/
                           "terminal"=> 17564 );
 
         curl_setopt_array($curl, array(
@@ -73,8 +75,8 @@ class PayController extends Controller
           CURLOPT_CUSTOMREQUEST => "POST",
           CURLOPT_POSTFIELDS =>$payload,
           CURLOPT_HTTPHEADER => array(
-            "accept: application/json",
-            "Content-Type: application/json",
+            /*"accept: application/json",
+            "Content-Type: application/json",*/
             "PAYCOMET-API-TOKEN: <API Key>",
             "PAYCOMET-API-TOKEN: bbd96aad13137031819a9f75deca7d4b82e79376"
           ),
