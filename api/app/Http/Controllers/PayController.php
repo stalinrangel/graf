@@ -58,10 +58,10 @@ class PayController extends Controller
     {
         $curl = curl_init();
 
-        $payload = array( "idUser"=> "35709262",
-                          "tokenUser"=> "VlROTmZDaDZXbFJ",
-                          /*"idUser"=> $request->input('idUser'),
-                          "tokenUser"=> $request->input('tokenUser'),*/
+        $payload = array( /*"idUser"=> "35709262",
+                          "tokenUser"=> "VlROTmZDaDZXbFJ",*/
+                          "idUser"=> $request->input('idUser'),
+                          "tokenUser"=> $request->input('tokenUser'),
                           "terminal"=> 17564 );
 
         curl_setopt_array($curl, array(
