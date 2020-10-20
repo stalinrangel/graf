@@ -86,7 +86,8 @@ class PayController extends Controller
 
         curl_close($curl);
         echo $response;
-        echo 1;
+        return response()->json(['response'=>$response], 200);  
+        
     }
 
     public function check_pay($id)
