@@ -85,7 +85,7 @@ class PayController extends Controller
         $response = curl_exec($curl);
 
         curl_close($curl);
-        echo $response;
+        //echo $response;
         return response()->json(['response'=>$response], 200);  
         
     }
